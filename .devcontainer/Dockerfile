@@ -1,4 +1,4 @@
-FROM oven/bun:debian
+FROM node:22-bullseye
 
 COPY --from=ubuntu:24.04 /root/.bashrc /root/.bashrc
 
@@ -15,3 +15,5 @@ RUN echo "ja_JP.UTF-8 UTF-8" >> /etc/locale.gen && \
 ENV LANG=ja_JP.UTF-8
 ENV LANGUAGE=ja_JP:ja
 ENV LC_ALL=ja_JP.UTF-8
+
+RUN npm install -g bun
