@@ -1,0 +1,25 @@
+{
+    "dockerComposeFile": "compose.yaml",
+    "service": "workspace",
+    "workspaceFolder": "/RarkHopper",
+    "remoteUser": "root",
+    "features": {
+      "ghcr.io/devcontainers/features/docker-outside-of-docker":{
+        "version": "latest"
+      }
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "bradlc.vscode-tailwindcss",
+                "ms-azuretools.vscode-docker",
+                "EditorConfig.EditorConfig",
+                "ms-vscode.makefile-tools",
+                "donjayamanne.git-extension-pack",
+                "ms-vscode.live-server",
+                "ecmel.vscode-html-css",
+                "bierner.lit-html"
+            ]
+        }
+    }
+}
