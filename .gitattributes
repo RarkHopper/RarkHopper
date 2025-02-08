@@ -1,0 +1,28 @@
+* text=auto
+
+*.js    text eol=lf
+*.jsx   text eol=lf
+*.ts    text eol=lf
+*.tsx   text eol=lf
+*.json  text eol=lf
+*.css   text eol=lf
+*.html  text eol=lf
+*.md    text eol=lf
+
+# エディタ設定やDocker関連の設定ファイルもLF改行
+.editorconfig text eol=lf
+Dockerfile    text eol=lf
+.gitattributes text eol=lf
+
+*.png  binary -diff
+*.jpg  binary -diff
+*.jpeg binary -diff
+*.gif  binary -diff
+*.ico  binary -diff
+*.pdf  binary -diff
+
+client/dist/**   -diff
+server/build/**  -diff
+server/dist/**   -diff
+
+*.lock text
