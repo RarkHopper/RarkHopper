@@ -3,8 +3,8 @@ services:
     build: server
     ports:
       - "8000:8000"
-  frontend:
-    build: frontend
+  client:
+    build: client
     ports:
       - "80:80"
     extra_hosts:
