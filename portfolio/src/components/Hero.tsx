@@ -2,6 +2,7 @@ import { gsap } from 'gsap';
 import { Github, Linkedin, Mail } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
+import { profile } from '@/masterdata/profile';
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -83,7 +84,7 @@ export default function Hero() {
         <img
           ref={avatarRef}
           src="/user-avatar.svg"
-          alt="RarkHopper Avatar"
+          alt={`${profile.name.nickname} Avatar`}
           className="w-24 h-24 md:w-32 md:h-32 mb-4 rounded-full shadow-xl"
         />
         <h1
@@ -92,7 +93,7 @@ export default function Hero() {
         >
           Hi, I'm{' '}
           <span className="gradient-text bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-            RarkHopper
+            {profile.name.nickname}
           </span>
         </h1>
         <p
@@ -101,7 +102,7 @@ export default function Hero() {
           }}
           className="text-lg font-medium text-foreground mb-2"
         >
-          品川朝陽 / Shinagawa Asahi
+          {profile.name.ja} / {profile.name.en}
         </p>
         <p
           ref={(el) => {
@@ -109,7 +110,7 @@ export default function Hero() {
           }}
           className="max-w-[750px] text-lg text-muted-foreground sm:text-xl"
         >
-          北海道情報大学 システム情報学科 3年 / 未踏IT採択クリエータ
+          {profile.university} {profile.department} {profile.grade}年
         </p>
         <p
           ref={(el) => {
@@ -117,9 +118,9 @@ export default function Hero() {
           }}
           className="max-w-[850px] text-base text-muted-foreground mt-2"
         >
-          生徒の「好き」を起点にしたプログラミング教育支援システムを開発中。
+          {profile.bio.short}
           <br className="hidden sm:inline" />
-          不登校から始まり、Minecraftで見つけたプログラミングの楽しさを、次世代に伝えたい。
+          {profile.bio.long}
         </p>
 
         <div
@@ -144,7 +145,7 @@ export default function Hero() {
         >
           <Button variant="ghost" size="icon" asChild>
             <a
-              href="https://github.com/RarkHopper"
+              href={profile.contact.github}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
@@ -154,7 +155,7 @@ export default function Hero() {
           </Button>
           <Button variant="ghost" size="icon" asChild>
             <a
-              href="https://linkedin.com"
+              href={profile.contact.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
@@ -163,7 +164,7 @@ export default function Hero() {
             </a>
           </Button>
           <Button variant="ghost" size="icon" asChild>
-            <a href="mailto:your-email@example.com" aria-label="Email">
+            <a href={`mailto:${profile.contact.email}`} aria-label="Email">
               <Mail className="h-5 w-5" />
             </a>
           </Button>

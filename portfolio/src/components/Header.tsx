@@ -31,7 +31,7 @@ export default function Header() {
       <div className="container flex h-16 items-center">
         <div className="flex flex-1 items-center justify-between">
           <a href="/" className="flex items-center space-x-2">
-            <span className="text-xl font-bold">RarkHopper</span>
+            <span className="text-xl font-bold">RarkHopper.tech</span>
           </a>
 
           <nav className="hidden md:flex gap-6">
