@@ -72,9 +72,11 @@ export default function Projects() {
   }, []);
 
   return (
-    <section id="projects" className="container py-12 md:py-24 lg:py-32">
+    <section id="projects" className="relative container py-12 md:py-24 lg:py-32">
+      {/* Background overlay for better text readability */}
+      <div className="absolute inset-0 bg-background/60 backdrop-blur-sm" />
       <ScrollAnimation animation="fadeUp">
-        <div className="mx-auto flex max-w-[980px] flex-col items-center gap-4 text-center">
+        <div className="relative mx-auto flex max-w-[980px] flex-col items-center gap-4 text-center z-10">
           <h2 className="text-3xl font-bold leading-tight tracking-tighter md:text-4xl lg:text-5xl">
             Featured Projects
           </h2>
@@ -85,7 +87,7 @@ export default function Projects() {
       </ScrollAnimation>
 
       <ScrollAnimation animation="fadeUp" stagger={0.1} delay={0.2}>
-        <div className="mx-auto grid gap-6 mt-12 md:grid-cols-2 lg:grid-cols-3">
+        <div className="relative mx-auto grid gap-6 mt-12 md:grid-cols-2 lg:grid-cols-3 z-10">
           {[...projects]
             .sort((a, b) => {
               // First sort by ongoing status (ongoing first)

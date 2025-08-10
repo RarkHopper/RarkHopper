@@ -58,7 +58,7 @@ export default function Skills() {
         },
       );
     });
-  }, [activeCategory]);
+  }, []);
 
   return (
     <section id="skills" className="container py-12 md:py-24 lg:py-32">
@@ -120,7 +120,6 @@ export default function Skills() {
             </div>
           </div>
         </ScrollAnimation>
-
       </div>
     </section>
   );

@@ -4,8 +4,8 @@ import { timeline } from '@/masterdata/profile';
 import ScrollAnimation from './ScrollAnimation';
 
 export default function Timeline() {
-  const itemsRef = useRef<(HTMLDivElement | null)[]>([]);
-  const dotsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const itemsRef = useRef<(HTMLButtonElement | null)[]>([]);
+  const dotsRef = useRef<(HTMLButtonElement | null)[]>([]);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   useEffect(() => {
@@ -106,13 +106,12 @@ export default function Timeline() {
           {/* Left side - Event list */}
           <div className="space-y-4">
             {timeline.map((event, index) => (
-              <div
+              <button
                 key={`${event.year}-${event.month}-${index}`}
                 ref={(el) => {
                   itemsRef.current[index] = el;
                 }}
-                role="button"
-                tabIndex={0}
+                type="button"
                 className={`group relative flex gap-4 p-4 rounded-lg transition-all duration-300 ${
                   hoveredIndex === index ? 'bg-primary/10 scale-105' : 'hover:bg-muted/50'
                 }`}
@@ -143,7 +142,7 @@ export default function Timeline() {
                     {event.year}年{event.month}月
                   </p>
                 </div>
-              </div>
+              </button>
             ))}
           </div>
 
@@ -170,13 +169,12 @@ export default function Timeline() {
               {timeline.map((event, index) => {
                 const position = getPosition(event.year, event.month);
                 return (
-                  <div
+                  <button
                     key={`${event.year}-${event.month}-${index}`}
                     ref={(el) => {
                       dotsRef.current[index] = el;
                     }}
-                    role="button"
-                    tabIndex={0}
+                    type="button"
                     className="absolute left-1/2 -translate-x-1/2 cursor-pointer"
                     style={{
                       top: `${8 + position * 0.84}%`,
@@ -232,7 +230,7 @@ export default function Timeline() {
                         <div className="text-xs text-muted-foreground">{event.month}月</div>
                       </div>
                     </div>
-                  </div>
+                  </button>
                 );
               })}
 

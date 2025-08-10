@@ -1,8 +1,12 @@
 import { gsap } from 'gsap';
-import { Github, Linkedin, Mail } from 'lucide-react';
-import { useEffect, useRef } from 'react';
+import { GraduationCap, Mail } from 'lucide-react';
+import { lazy, Suspense, useEffect, useRef } from 'react';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { Button } from '@/components/ui/button';
 import { profile } from '@/masterdata/profile';
+
+// Lazy load the 3D background component
+const BackgroundScene = lazy(() => import('./BackgroundScene'));
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -16,158 +20,169 @@ export default function Hero() {
       // Initial states
       gsap.set([avatarRef.current, titleRef.current, ...textRefs.current, ...buttonRefs.current], {
         opacity: 0,
-        y: 30,
-      });
-
-      // Set initial scale for avatar
-      gsap.set(avatarRef.current, {
-        scale: 0.8,
+        y: 20,
       });
 
       // Timeline animation
-      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+      const tl = gsap.timeline({ defaults: { ease: 'power2.out' } });
 
-      // Avatar animation with scale effect
+      // Stagger animations
       tl.to(avatarRef.current, {
         opacity: 1,
         y: 0,
-        scale: 1,
-        duration: 0.8,
-        ease: 'back.out(1.7)',
+        duration: 0.6,
       })
-        .to(titleRef.current, {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          delay: 0.2,
-        })
+        .to(
+          titleRef.current,
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+          },
+          '-=0.3',
+        )
         .to(
           textRefs.current,
           {
             opacity: 1,
             y: 0,
-            duration: 0.8,
+            duration: 0.5,
             stagger: 0.1,
           },
-          '-=0.5',
+          '-=0.3',
         )
         .to(
           buttonRefs.current,
           {
             opacity: 1,
             y: 0,
-            duration: 0.6,
+            duration: 0.5,
             stagger: 0.1,
           },
-          '-=0.3',
+          '-=0.2',
         );
-
-      // Floating animation for gradient text
-      gsap.to('.gradient-text', {
-        y: -5,
-        duration: 2,
-        repeat: -1,
-        yoyo: true,
-        ease: 'power1.inOut',
-      });
     }, containerRef);
 
     return () => ctx.revert();
   }, []);
 
   return (
-    <section
-      ref={containerRef}
-      className="container flex min-h-[calc(100vh-4rem)] flex-col items-center justify-center py-12 md:py-24 lg:py-32"
-    >
-      <div className="mx-auto flex max-w-[980px] flex-col items-center gap-4 text-center">
-        <img
-          ref={avatarRef}
-          src="/user-avatar.svg"
-          alt={`${profile.name.nickname} Avatar`}
-          className="w-24 h-24 md:w-32 md:h-32 mb-4 rounded-full shadow-xl"
-        />
-        <h1
-          ref={titleRef}
-          className="text-3xl font-extrabold leading-tight tracking-tighter md:text-4xl lg:text-5xl xl:text-6xl"
-        >
-          Hi, I'm{' '}
-          <span className="gradient-text bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-            {profile.name.nickname}
-          </span>
-        </h1>
-        <p
-          ref={(el) => {
-            textRefs.current[0] = el;
-          }}
-          className="text-lg font-medium text-foreground mb-2"
-        >
-          {profile.name.ja} / {profile.name.en}
-        </p>
-        <p
-          ref={(el) => {
-            textRefs.current[1] = el;
-          }}
-          className="max-w-[750px] text-lg text-muted-foreground sm:text-xl"
-        >
-          {profile.university} {profile.department} {profile.grade}年
-        </p>
-        <p
-          ref={(el) => {
-            textRefs.current[2] = el;
-          }}
-          className="max-w-[850px] text-base text-muted-foreground mt-2"
-        >
-          {profile.bio.short}
-          <br className="hidden sm:inline" />
-          {profile.bio.long}
-        </p>
+    <section ref={containerRef} className="relative overflow-hidden">
+      {/* 3D Background Scene */}
+      <Suspense
+        fallback={
+          <div className="absolute inset-0 -z-10">
+            <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-muted/20" />
+          </div>
+        }
+      >
+        <BackgroundScene />
+      </Suspense>
 
-        <div
-          ref={(el) => {
-            buttonRefs.current[0] = el;
-          }}
-          className="flex flex-wrap gap-4 mt-6"
-        >
-          <Button asChild size="lg">
-            <a href="#projects">View My Work</a>
-          </Button>
-          <Button variant="outline" size="lg" asChild>
-            <a href="#contact">Get In Touch</a>
-          </Button>
-        </div>
+      {/* Overlay gradient for better text readability */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-background via-background/80 to-background/60" />
 
-        <div
-          ref={(el) => {
-            buttonRefs.current[1] = el;
-          }}
-          className="flex gap-4 mt-8"
-        >
-          <Button variant="ghost" size="icon" asChild>
-            <a
-              href={profile.contact.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub"
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex min-h-[calc(100vh-4rem)] flex-col items-center justify-center py-20">
+          <div className="flex max-w-3xl flex-col items-center text-center">
+            {/* Avatar */}
+            <img
+              ref={avatarRef}
+              src="/user-icon.jpg"
+              alt={`${profile.name.nickname} Avatar`}
+              className="mb-8 h-32 w-32 rounded-full border-4 border-border object-cover shadow-lg"
+            />
+
+            {/* Name and title */}
+            <h1
+              ref={titleRef}
+              className="mb-4 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl"
             >
-              <Github className="h-5 w-5" />
-            </a>
-          </Button>
-          <Button variant="ghost" size="icon" asChild>
-            <a
-              href={profile.contact.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
+              {profile.name.nickname}
+            </h1>
+
+            <p
+              ref={(el) => {
+                textRefs.current[0] = el;
+              }}
+              className="mb-2 text-lg text-muted-foreground"
             >
-              <Linkedin className="h-5 w-5" />
-            </a>
-          </Button>
-          <Button variant="ghost" size="icon" asChild>
-            <a href={`mailto:${profile.contact.email}`} aria-label="Email">
-              <Mail className="h-5 w-5" />
-            </a>
-          </Button>
+              {profile.name.ja} / {profile.name.en}
+            </p>
+
+            {/* University info */}
+            <div
+              ref={(el) => {
+                textRefs.current[1] = el as HTMLParagraphElement;
+              }}
+              className="mb-6 flex items-center gap-2 text-muted-foreground"
+            >
+              <GraduationCap className="h-4 w-4" />
+              <span>
+                {profile.university} {profile.department} {profile.grade}年
+              </span>
+            </div>
+
+            {/* Bio */}
+            <p
+              ref={(el) => {
+                textRefs.current[2] = el;
+              }}
+              className="mb-8 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg"
+            >
+              {profile.bio.short}
+              <span className="ml-1 opacity-80">{profile.bio.long}</span>
+            </p>
+
+            {/* CTA Buttons */}
+            <div
+              ref={(el) => {
+                buttonRefs.current[0] = el;
+              }}
+              className="mb-8 flex flex-col gap-4 sm:flex-row"
+            >
+              <Button size="lg" asChild>
+                <a href="#projects">View My Projects</a>
+              </Button>
+              <Button variant="outline" size="lg" asChild>
+                <a href="#contact">Contact Me</a>
+              </Button>
+            </div>
+
+            {/* Social Links */}
+            <div
+              ref={(el) => {
+                buttonRefs.current[1] = el;
+              }}
+              className="flex gap-1"
+            >
+              <Button variant="ghost" size="icon" asChild>
+                <a
+                  href={profile.contact.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub"
+                >
+                  <FaGithub className="h-5 w-5" />
+                </a>
+              </Button>
+              <Button variant="ghost" size="icon" asChild>
+                <a
+                  href={profile.contact.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                >
+                  <FaLinkedin className="h-5 w-5" />
+                </a>
+              </Button>
+              <Button variant="ghost" size="icon" asChild>
+                <a href={`mailto:${profile.contact.email}`} aria-label="Email">
+                  <Mail className="h-5 w-5" />
+                </a>
+              </Button>
+            </div>
+          </div>
         </div>
       </div>
     </section>

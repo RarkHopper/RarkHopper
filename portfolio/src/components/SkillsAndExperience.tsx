@@ -1,9 +1,8 @@
+import { gsap } from 'gsap';
 import { Briefcase, Code, Rocket, Trophy } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
-import { gsap } from 'gsap';
-import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { experience, experienceText, skillCategories } from '@/masterdata/profile';
 import ScrollAnimation from './ScrollAnimation';
 
@@ -60,19 +59,21 @@ export default function SkillsAndExperience() {
         },
       );
     });
-  }, [activeSkillCategory]);
+  }, []);
 
   return (
-    <section className="container py-12 md:py-24 lg:py-32">
+    <section className="relative container py-12 md:py-24 lg:py-32">
+      {/* Background overlay for better text readability */}
+      <div className="absolute inset-0 bg-background/60 backdrop-blur-sm" />
       <ScrollAnimation animation="fadeUp">
-        <div className="mx-auto flex max-w-[980px] flex-col items-center gap-4 text-center mb-12">
+        <div className="relative mx-auto flex max-w-[980px] flex-col items-center gap-4 text-center mb-12 z-10">
           <h2 className="text-3xl font-bold leading-tight tracking-tighter md:text-4xl lg:text-5xl">
             Skills & Experience
           </h2>
         </div>
       </ScrollAnimation>
 
-      <div className="mx-auto max-w-7xl">
+      <div className="relative mx-auto max-w-7xl z-10">
         <div className="grid gap-8 lg:grid-cols-2">
           {/* Skills Section */}
           <ScrollAnimation animation="fadeUp" delay={0.1}>
@@ -81,7 +82,7 @@ export default function SkillsAndExperience() {
                 <Code className="w-5 h-5" />
                 <h3 className="text-xl font-semibold">Technical Skills</h3>
               </div>
-              
+
               {/* Skill category tabs */}
               <div className="flex flex-wrap gap-2 mb-6">
                 {skillCategories.map((category, index) => (
@@ -141,10 +142,11 @@ export default function SkillsAndExperience() {
                   <div key={category.category} className={categoryIndex > 0 ? '' : ''}>
                     <div className="space-y-2">
                       {category.items.map((item) => (
-                        <div key={`${category.category}-${item.title}`} className="flex items-center gap-3 p-3 rounded-lg border bg-card hover:bg-muted/50 transition-colors">
-                          <div className="shrink-0">
-                            {category.icon}
-                          </div>
+                        <div
+                          key={`${category.category}-${item.title}`}
+                          className="flex items-center gap-3 p-3 rounded-lg border bg-card hover:bg-muted/50 transition-colors"
+                        >
+                          <div className="shrink-0">{category.icon}</div>
                           <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-2">
                               <span className="text-sm font-medium truncate">{item.title}</span>

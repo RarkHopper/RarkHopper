@@ -35,7 +35,6 @@ export const profile = {
     { icon: 'heart', label: '教育支援', description: '次世代にプログラミングの楽しさを伝える' },
   ],
 
-
   // About section content
   about: {
     subtitle: '不登校から見つけたプログラミングの楽しさを、次世代に伝えたい',

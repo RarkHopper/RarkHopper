@@ -4,9 +4,11 @@ import ScrollAnimation from './ScrollAnimation';
 
 export default function About() {
   return (
-    <section id="about" className="container py-12 md:py-24 lg:py-32">
+    <section id="about" className="relative container py-12 md:py-24 lg:py-32">
+      {/* Background overlay for better text readability */}
+      <div className="absolute inset-0 bg-background/60 backdrop-blur-sm" />
       <ScrollAnimation animation="fadeUp">
-        <div className="mx-auto flex max-w-[980px] flex-col items-center gap-4 text-center">
+        <div className="relative mx-auto flex max-w-[980px] flex-col items-center gap-4 text-center z-10">
           <h2 className="text-3xl font-bold leading-tight tracking-tighter md:text-4xl lg:text-5xl">
             About Me
           </h2>
@@ -17,7 +19,7 @@ export default function About() {
       </ScrollAnimation>
 
       <ScrollAnimation animation="fadeIn" delay={0.2}>
-        <div className="mx-auto mt-12 max-w-5xl">
+        <div className="relative mx-auto mt-12 max-w-5xl z-10">
           <Card className="border-none shadow-none bg-transparent">
             <CardContent className="space-y-6 p-0">
               <div className="prose prose-gray dark:prose-invert max-w-none">
