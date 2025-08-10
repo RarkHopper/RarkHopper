@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" fill="none">
+  <!-- Background -->
+  <rect width="600" height="400" fill="url(#grad2)" />
+  
+  <!-- 3D Box for 3D Project -->
+  <g transform="translate(300, 180)">
+    <!-- Back face -->
+    <path d="M-60,-40 L40,-40 L40,60 L-60,60 Z" fill="white" fill-opacity="0.1"/>
+    <!-- Right face -->
+    <path d="M40,-40 L80,-80 L80,20 L40,60 Z" fill="white" fill-opacity="0.15"/>
+    <!-- Top face -->
+    <path d="M-60,-40 L-20,-80 L80,-80 L40,-40 Z" fill="white" fill-opacity="0.2"/>
+    
+    <!-- 3D Text -->
+    <text x="0" y="10" font-family="system-ui, -apple-system, sans-serif" font-size="32" fill="white" text-anchor="middle" font-weight="bold">3D</text>
+  </g>
+  
+  <!-- Title Bar -->
+  <rect x="0" y="320" width="600" height="80" fill="black" fill-opacity="0.3"/>
+  <text x="300" y="365" font-family="system-ui, -apple-system, sans-serif" font-size="20" fill="white" text-anchor="middle" opacity="0.8">
+    マチョプリ！
+  </text>
+  
+  <!-- Gradient Definition -->
+  <defs>
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ec4899;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f97316;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+</svg>
