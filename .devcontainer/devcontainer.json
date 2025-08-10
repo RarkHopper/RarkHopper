@@ -20,7 +20,8 @@
         "donjayamanne.git-extension-pack",
         "ms-vscode.live-server",
         "ecmel.vscode-html-css",
-        "bierner.lit-html"
+        "bierner.lit-html",
+        "astro-build.astro-vscode"
       ]
     }
   }
