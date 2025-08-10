@@ -6,4 +6,8 @@ services:
     privileged: true
     volumes:
       - ../:/RarkHopper
+      - ../.config/.gh:/home/vscode/.config/gh
       - /var/run/docker.sock:/var/run/docker.sock
+  serena:
+    image: ghcr.io/oraios/serena:latest
+    stdin_open: true
