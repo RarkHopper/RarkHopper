@@ -1,247 +1,284 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
+import Glide from '@glidejs/glide';
 import { Calendar, ChevronLeft, ChevronRight, Code, ExternalLink, Github, Trophy, Users } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
-  DialogTitle,
 } from '@/components/ui/dialog';
+import { projects } from '@/masterdata/profile';
 import type { Project } from '@/masterdata/profile';
+
+// Import Glide styles
+import '@glidejs/glide/dist/css/glide.core.min.css';
+import '@/styles/glide-modal.css';
 
 interface ProjectModalProps {
   project: Project | null;
   open: boolean;
   onOpenChange: (open: boolean) => void;
-  onNavigate?: (direction: 'prev' | 'next') => void;
-  hasPrevious?: boolean;
-  hasNext?: boolean;
 }
 
 export default function ProjectModal({ 
   project, 
   open, 
-  onOpenChange, 
-  onNavigate,
-  hasPrevious = false,
-  hasNext = false 
+  onOpenChange,
 }: ProjectModalProps) {
-  // Keyboard navigation
+  const glideRef = useRef<HTMLDivElement>(null);
+  const glideInstance = useRef<Glide | null>(null);
+
+  // Sort projects same way as in Projects component
+  const sortedProjects = [...projects].sort((a, b) => {
+    if (a.isOngoing !== b.isOngoing) {
+      return a.isOngoing ? -1 : 1;
+    }
+    const yearA = parseInt(a.year.split('-')[0]);
+    const yearB = parseInt(b.year.split('-')[0]);
+    return yearB - yearA;
+  });
+
+  // Find initial index
+  const initialIndex = project ? sortedProjects.findIndex(p => p.id === project.id) : 0;
+
   useEffect(() => {
-    if (!open || !onNavigate) return;
+    if (!glideRef.current || !open) return;
 
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowLeft' && hasPrevious) {
-        onNavigate('prev');
-      } else if (e.key === 'ArrowRight' && hasNext) {
-        onNavigate('next');
-      }
+    // Initialize Glide
+    glideInstance.current = new Glide(glideRef.current, {
+      type: 'slider',
+      startAt: initialIndex >= 0 ? initialIndex : 0,
+      perView: 1,
+      gap: 0,
+      keyboard: true,
+      animationDuration: 400,
+      animationTimingFunc: 'cubic-bezier(0.165, 0.840, 0.440, 1.000)',
+    });
+
+    glideInstance.current.mount();
+
+    return () => {
+      glideInstance.current?.destroy();
     };
+  }, [open, initialIndex]);
 
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [open, onNavigate, hasPrevious, hasNext]);
-
-  if (!project) return null;
+  if (!open) return null;
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-[90vw] w-[90vw] lg:w-[1400px] max-h-[85vh] overflow-y-auto p-0">
-        {/* Navigation buttons */}
-        {onNavigate && (
-          <>
-            <button
-              onClick={() => onNavigate('prev')}
-              disabled={!hasPrevious}
-              className="absolute left-2 top-1/2 -translate-y-1/2 z-50 w-10 h-10 rounded-full bg-background/80 backdrop-blur border shadow-lg flex items-center justify-center hover:bg-background transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+      <DialogContent className="max-w-[1200px] w-[90vw] max-h-[85vh] p-0 overflow-hidden">
+        <div ref={glideRef} className="glide">
+          <div className="glide__track" data-glide-el="track">
+            <ul className="glide__slides">
+              {sortedProjects.map((proj) => (
+                <li key={proj.id} className="glide__slide">
+                  <div className="grid md:grid-cols-5 gap-0 max-h-[85vh] overflow-y-auto">
+                    {/* Left side - Image */}
+                    <div className="md:col-span-2 relative h-full min-h-[300px] bg-muted">
+                      {proj.image ? (
+                        <img
+                          src={proj.image}
+                          alt={proj.title}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center text-muted-foreground">
+                          <Code className="w-20 h-20 opacity-20" />
+                        </div>
+                      )}
+                      {proj.isOngoing && (
+                        <div className="absolute top-4 left-4">
+                          <Badge className="bg-primary/90 backdrop-blur">
+                            <div className="h-2 w-2 rounded-full bg-white animate-pulse mr-1" />
+                            進行中
+                          </Badge>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Right side - Content */}
+                    <div className="md:col-span-3 p-6 lg:p-8 space-y-5">
+                      {/* Header */}
+                      <div>
+                        <h2 className="text-2xl font-bold mb-2">
+                          {proj.title}
+                        </h2>
+                        <p className="text-base text-muted-foreground">
+                          {proj.description}
+                        </p>
+                      </div>
+
+                      {/* Meta Information */}
+                      <div className="flex flex-wrap gap-4 text-sm">
+                        <div className="flex items-center gap-1 text-muted-foreground">
+                          <Calendar className="w-4 h-4" />
+                          <span>{proj.year}</span>
+                        </div>
+                        {proj.program && (
+                          <div className="flex items-center gap-1 text-muted-foreground">
+                            <Trophy className="w-4 h-4" />
+                            <span>
+                              {proj.program}
+                              {proj.status && ` - ${proj.status}`}
+                            </span>
+                          </div>
+                        )}
+                        {proj.team && (
+                          <div className="flex items-center gap-1 text-muted-foreground">
+                            <Users className="w-4 h-4" />
+                            <span>{proj.team}人チーム</span>
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Main Content Grid */}
+                      <div className="grid gap-5">
+                        {/* Highlights and Tech Stack Row */}
+                        <div className="grid lg:grid-cols-2 gap-5">
+                          {/* Highlights */}
+                          {proj.highlights && proj.highlights.length > 0 && (
+                            <div className="bg-muted/30 p-4 rounded-lg">
+                              <h3 className="font-semibold mb-3 flex items-center gap-2 text-sm">
+                                <Trophy className="w-4 h-4" />
+                                主な成果
+                              </h3>
+                              <ul className="space-y-2">
+                                {proj.highlights.map((highlight, index) => (
+                                  <li key={index} className="flex items-center gap-2 text-sm">
+                                    <span className="text-primary">✨</span>
+                                    <span>{highlight}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+
+                          {/* Technologies */}
+                          <div className="bg-muted/30 p-4 rounded-lg">
+                            <h3 className="font-semibold mb-3 flex items-center gap-2 text-sm">
+                              <Code className="w-4 h-4" />
+                              使用技術
+                            </h3>
+                            <div className="flex flex-wrap gap-1.5">
+                              {proj.tags.map((tag) => (
+                                <Badge key={tag} variant="secondary" className="text-xs">
+                                  {tag}
+                                </Badge>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Detailed Description */}
+                        {proj.detailedDescription && (
+                          <div>
+                            <h3 className="font-semibold mb-2 text-sm">詳細説明</h3>
+                            <div className="text-sm text-muted-foreground space-y-2">
+                              {proj.detailedDescription.split('\n').map((paragraph, index) => (
+                                <p key={index}>{paragraph}</p>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+
+                        {/* Features and Challenges Grid */}
+                        <div className="grid lg:grid-cols-2 gap-5">
+                          {/* Key Features */}
+                          {proj.features && proj.features.length > 0 && (
+                            <div>
+                              <h3 className="font-semibold mb-2 text-sm">主な機能</h3>
+                              <ul className="space-y-1.5">
+                                {proj.features.map((feature, index) => (
+                                  <li key={index} className="flex items-start gap-2 text-sm">
+                                    <span className="text-primary mt-0.5">•</span>
+                                    <span>{feature}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+
+                          {/* Challenges */}
+                          {proj.challenges && proj.challenges.length > 0 && (
+                            <div>
+                              <h3 className="font-semibold mb-2 text-sm">技術的な挑戦</h3>
+                              <div className="space-y-2">
+                                {proj.challenges.map((challenge, index) => (
+                                  <div key={index} className="text-sm">
+                                    <div className="font-medium text-xs text-primary mb-0.5">
+                                      課題
+                                    </div>
+                                    <div className="text-xs text-muted-foreground mb-1">
+                                      {challenge.problem}
+                                    </div>
+                                    <div className="font-medium text-xs text-primary mb-0.5">
+                                      解決策
+                                    </div>
+                                    <div className="text-xs text-muted-foreground">
+                                      {challenge.solution}
+                                    </div>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+                        </div>
+
+                        {/* Actions */}
+                        <div className="flex gap-3 pt-2">
+                          {proj.github && (
+                            <Button asChild size="sm">
+                              <a href={proj.github} target="_blank" rel="noopener noreferrer">
+                                <Github className="mr-2 h-4 w-4" />
+                                GitHubで見る
+                              </a>
+                            </Button>
+                          )}
+                          {proj.demo && (
+                            <Button asChild variant="outline" size="sm">
+                              <a href={proj.demo} target="_blank" rel="noopener noreferrer">
+                                <ExternalLink className="mr-2 h-4 w-4" />
+                                デモを見る
+                              </a>
+                            </Button>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Navigation arrows - Inside but not overlapping content */}
+          <div className="glide__arrows" data-glide-el="controls">
+            <button 
+              className="glide__arrow glide__arrow--left absolute top-1/2 -translate-y-1/2 left-2 md:left-4 w-10 h-10 rounded-full bg-background/90 backdrop-blur border shadow-lg flex items-center justify-center hover:bg-background transition-colors z-20"
+              data-glide-dir="<"
               aria-label="Previous project"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
-            <button
-              onClick={() => onNavigate('next')}
-              disabled={!hasNext}
-              className="absolute right-2 top-1/2 -translate-y-1/2 z-50 w-10 h-10 rounded-full bg-background/80 backdrop-blur border shadow-lg flex items-center justify-center hover:bg-background transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+            <button 
+              className="glide__arrow glide__arrow--right absolute top-1/2 -translate-y-1/2 right-2 md:right-4 w-10 h-10 rounded-full bg-background/90 backdrop-blur border shadow-lg flex items-center justify-center hover:bg-background transition-colors z-20"
+              data-glide-dir=">"
               aria-label="Next project"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
-          </>
-        )}
-        
-        <div className="grid md:grid-cols-5 gap-0">
-          {/* Left side - Image */}
-          <div className="md:col-span-2 relative h-full min-h-[300px] bg-muted">
-            {project.image ? (
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-full object-cover"
-              />
-            ) : (
-              <div className="w-full h-full flex items-center justify-center text-muted-foreground">
-                <Code className="w-20 h-20 opacity-20" />
-              </div>
-            )}
-            {project.isOngoing && (
-              <div className="absolute top-4 left-4">
-                <Badge className="bg-primary/90 backdrop-blur">
-                  <div className="h-2 w-2 rounded-full bg-white animate-pulse mr-1" />
-                  進行中
-                </Badge>
-              </div>
-            )}
           </div>
 
-          {/* Right side - Content */}
-          <div className="md:col-span-3 p-6 lg:p-8 space-y-5">
-            {/* Header */}
-            <div>
-              <DialogTitle className="text-2xl font-bold mb-2">
-                {project.title}
-              </DialogTitle>
-              <DialogDescription className="text-base">
-                {project.description}
-              </DialogDescription>
-            </div>
-
-            {/* Meta Information */}
-            <div className="flex flex-wrap gap-4 text-sm">
-              <div className="flex items-center gap-1 text-muted-foreground">
-                <Calendar className="w-4 h-4" />
-                <span>{project.year}</span>
-              </div>
-              {project.program && (
-                <div className="flex items-center gap-1 text-muted-foreground">
-                  <Trophy className="w-4 h-4" />
-                  <span>
-                    {project.program}
-                    {project.status && ` - ${project.status}`}
-                  </span>
-                </div>
-              )}
-              {project.team && (
-                <div className="flex items-center gap-1 text-muted-foreground">
-                  <Users className="w-4 h-4" />
-                  <span>{project.team}人チーム</span>
-                </div>
-              )}
-            </div>
-
-            {/* Main Content Grid */}
-            <div className="grid gap-5">
-              {/* Highlights and Tech Stack Row */}
-              <div className="grid lg:grid-cols-2 gap-5">
-                {/* Highlights */}
-                {project.highlights && project.highlights.length > 0 && (
-                  <div className="bg-muted/30 p-4 rounded-lg">
-                    <h3 className="font-semibold mb-3 flex items-center gap-2 text-sm">
-                      <Trophy className="w-4 h-4" />
-                      主な成果
-                    </h3>
-                    <ul className="space-y-2">
-                      {project.highlights.map((highlight, index) => (
-                        <li key={index} className="flex items-center gap-2 text-sm">
-                          <span className="text-primary">✨</span>
-                          <span>{highlight}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-                {/* Technologies */}
-                <div className="bg-muted/30 p-4 rounded-lg">
-                  <h3 className="font-semibold mb-3 flex items-center gap-2 text-sm">
-                    <Code className="w-4 h-4" />
-                    使用技術
-                  </h3>
-                  <div className="flex flex-wrap gap-1.5">
-                    {project.tags.map((tag) => (
-                      <Badge key={tag} variant="secondary" className="text-xs">
-                        {tag}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Detailed Description */}
-              {project.detailedDescription && (
-                <div>
-                  <h3 className="font-semibold mb-2 text-sm">詳細説明</h3>
-                  <div className="text-sm text-muted-foreground space-y-2">
-                    {project.detailedDescription.split('\n').map((paragraph, index) => (
-                      <p key={index}>{paragraph}</p>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Features and Challenges Grid */}
-              <div className="grid lg:grid-cols-2 gap-5">
-                {/* Key Features */}
-                {project.features && project.features.length > 0 && (
-                  <div>
-                    <h3 className="font-semibold mb-2 text-sm">主な機能</h3>
-                    <ul className="space-y-1.5">
-                      {project.features.map((feature, index) => (
-                        <li key={index} className="flex items-start gap-2 text-sm">
-                          <span className="text-primary mt-0.5">•</span>
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-                {/* Challenges */}
-                {project.challenges && project.challenges.length > 0 && (
-                  <div>
-                    <h3 className="font-semibold mb-2 text-sm">技術的な挑戦</h3>
-                    <div className="space-y-2">
-                      {project.challenges.map((challenge, index) => (
-                        <div key={index} className="text-sm">
-                          <div className="font-medium text-xs text-primary mb-0.5">
-                            課題
-                          </div>
-                          <div className="text-xs text-muted-foreground mb-1">
-                            {challenge.problem}
-                          </div>
-                          <div className="font-medium text-xs text-primary mb-0.5">
-                            解決策
-                          </div>
-                          <div className="text-xs text-muted-foreground">
-                            {challenge.solution}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-
-              {/* Actions */}
-              <div className="flex gap-3 pt-2">
-                {project.github && (
-                  <Button asChild size="sm">
-                    <a href={project.github} target="_blank" rel="noopener noreferrer">
-                      <Github className="mr-2 h-4 w-4" />
-                      GitHubで見る
-                    </a>
-                  </Button>
-                )}
-                {project.demo && (
-                  <Button asChild variant="outline" size="sm">
-                    <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="mr-2 h-4 w-4" />
-                      デモを見る
-                    </a>
-                  </Button>
-                )}
-              </div>
-            </div>
+          {/* Bullets */}
+          <div className="glide__bullets absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10" data-glide-el="controls[nav]">
+            {sortedProjects.map((_, index) => (
+              <button
+                key={index}
+                className="glide__bullet w-2 h-2 rounded-full bg-primary/30 transition-all hover:bg-primary/50 data-[active=true]:bg-primary data-[active=true]:w-6"
+                data-glide-dir={`=${index}`}
+                aria-label={`Go to project ${index + 1}`}
+              />
+            ))}
           </div>
         </div>
       </DialogContent>

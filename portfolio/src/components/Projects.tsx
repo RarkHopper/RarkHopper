@@ -17,7 +17,6 @@ import '@/styles/scrollbar.css';
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [selectedProjectIndex, setSelectedProjectIndex] = useState<number>(-1);
   const [modalOpen, setModalOpen] = useState(false);
 
   // Sort projects
@@ -32,25 +31,9 @@ export default function Projects() {
     return yearB - yearA;
   });
 
-  const handleProjectClick = (project: Project, index: number) => {
+  const handleProjectClick = (project: Project) => {
     setSelectedProject(project);
-    setSelectedProjectIndex(index);
     setModalOpen(true);
-  };
-
-  const handleNavigate = (direction: 'prev' | 'next') => {
-    let newIndex = selectedProjectIndex;
-    
-    if (direction === 'prev' && selectedProjectIndex > 0) {
-      newIndex = selectedProjectIndex - 1;
-    } else if (direction === 'next' && selectedProjectIndex < sortedProjects.length - 1) {
-      newIndex = selectedProjectIndex + 1;
-    }
-    
-    if (newIndex !== selectedProjectIndex) {
-      setSelectedProject(sortedProjects[newIndex]);
-      setSelectedProjectIndex(newIndex);
-    }
   };
 
   return (
@@ -81,7 +64,7 @@ export default function Projects() {
                   <ScrollAnimation animation="fadeUp" delay={0.1 * index}>
                     <Card
                       className="overflow-hidden flex flex-col cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1 relative p-0 h-full"
-                      onClick={() => handleProjectClick(project, index)}
+                      onClick={() => handleProjectClick(project)}
                     >
                       {/* Image with Ongoing indicator */}
                       <div className="relative aspect-video bg-muted">
@@ -149,7 +132,7 @@ export default function Projects() {
                             className="w-full"
                             onClick={(e) => {
                               e.stopPropagation();
-                              handleProjectClick(project, index);
+                              handleProjectClick(project);
                             }}
                           >
                             詳細を見る
@@ -262,9 +245,6 @@ export default function Projects() {
         project={selectedProject}
         open={modalOpen}
         onOpenChange={setModalOpen}
-        onNavigate={handleNavigate}
-        hasPrevious={selectedProjectIndex > 0}
-        hasNext={selectedProjectIndex < sortedProjects.length - 1}
       />
     </section>
   );

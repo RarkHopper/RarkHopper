@@ -1,0 +1,33 @@
+/* Glide.js modal specific styles */
+.glide__bullet[data-glide-dir][class*="active"],
+.glide__bullet--active {
+  background-color: hsl(var(--primary));
+  width: 1.5rem;
+}
+
+/* Hide arrows when at boundaries */
+.glide--slider .glide__arrow--left.glide__arrow--disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.glide--slider .glide__arrow--right.glide__arrow--disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* Ensure smooth transitions */
+.glide__slide {
+  height: 100%;
+}
+
+/* Better mobile arrow positioning */
+@media (max-width: 768px) {
+  .glide__arrow--left {
+    left: 0.5rem !important;
+  }
+  
+  .glide__arrow--right {
+    right: 0.5rem !important;
+  }
+}
