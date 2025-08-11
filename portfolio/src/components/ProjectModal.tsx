@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useMemo } from 'react';
 import ReactDOM from 'react-dom';
 import Glide from '@glidejs/glide';
 import { Calendar, ChevronLeft, ChevronRight, Code, ExternalLink, Github, Trophy, Users } from 'lucide-react';
@@ -39,29 +39,36 @@ export default function ProjectModal({
     return yearB - yearA;
   });
 
-  // Find initial index
-  const initialIndex = project ? sortedProjects.findIndex(p => p.id === project.id) : 0;
+  // Find initial index with useMemo to avoid recalculation
+  const initialIndex = useMemo(() => {
+    return project ? sortedProjects.findIndex(p => p.id === project.id) : 0;
+  }, [project, sortedProjects]);
 
   useEffect(() => {
     if (!glideRef.current || !open) return;
 
-    // Initialize Glide
-    glideInstance.current = new Glide(glideRef.current, {
-      type: 'slider',
-      startAt: initialIndex >= 0 ? initialIndex : 0,
-      perView: 1,
-      gap: 0,
-      keyboard: true,
-      animationDuration: 400,
-      animationTimingFunc: 'cubic-bezier(0.165, 0.840, 0.440, 1.000)',
-    });
+    // Small delay to ensure DOM is ready
+    const timer = setTimeout(() => {
+      // Initialize Glide
+      glideInstance.current = new Glide(glideRef.current!, {
+        type: 'slider',
+        startAt: initialIndex >= 0 ? initialIndex : 0,
+        perView: 1,
+        gap: 0,
+        keyboard: true,
+        animationDuration: 400,
+        animationTimingFunc: 'cubic-bezier(0.165, 0.840, 0.440, 1.000)',
+      });
 
-    glideInstance.current.mount();
+      glideInstance.current.mount();
+    }, 100);
 
     return () => {
+      clearTimeout(timer);
       glideInstance.current?.destroy();
+      glideInstance.current = null;
     };
-  }, [open, initialIndex]);
+  }, [open, project]); // Changed dependency to project instead of initialIndex
 
   if (!open) return null;
 
@@ -72,7 +79,7 @@ export default function ProjectModal({
   return (
     <>
       {/* Navigation controls rendered outside Dialog through portal */}
-      {ReactDOM.createPortal(
+      {open && ReactDOM.createPortal(
         <>
           {/* Navigation arrows */}
           <button 
