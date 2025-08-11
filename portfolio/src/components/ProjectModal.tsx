@@ -76,29 +76,42 @@ export default function ProjectModal({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-[1200px] w-[90vw] max-h-[85vh] p-0 overflow-hidden">
-        {/* Navigation arrows - Outside modal content on desktop, overlapping on mobile */}
-        <button 
-          ref={prevRef}
-          className="absolute top-1/2 -translate-y-1/2 left-2 lg:-left-14 w-10 lg:w-12 h-10 lg:h-12 rounded-full bg-background/90 lg:bg-background border-2 shadow-xl flex items-center justify-center hover:bg-accent transition-colors z-50 cursor-pointer"
-          aria-label="Previous project"
-        >
-          <ChevronLeft className="w-5 lg:w-6 h-5 lg:h-6" />
-        </button>
-        <button 
-          ref={nextRef}
-          className="absolute top-1/2 -translate-y-1/2 right-2 lg:-right-14 w-10 lg:w-12 h-10 lg:h-12 rounded-full bg-background/90 lg:bg-background border-2 shadow-xl flex items-center justify-center hover:bg-accent transition-colors z-50 cursor-pointer"
-          aria-label="Next project"
-        >
-          <ChevronRight className="w-5 lg:w-6 h-5 lg:h-6" />
-        </button>
+      {/* Navigation arrows positioned outside the dialog */}
+      <button 
+        ref={prevRef}
+        className="fixed top-1/2 -translate-y-1/2 left-4 lg:left-8 w-12 h-12 rounded-full bg-background border-2 shadow-2xl flex items-center justify-center hover:bg-accent transition-colors z-[60] cursor-pointer"
+        aria-label="Previous project"
+      >
+        <ChevronLeft className="w-6 h-6" />
+      </button>
+      <button 
+        ref={nextRef}
+        className="fixed top-1/2 -translate-y-1/2 right-4 lg:right-8 w-12 h-12 rounded-full bg-background border-2 shadow-2xl flex items-center justify-center hover:bg-accent transition-colors z-[60] cursor-pointer"
+        aria-label="Next project"
+      >
+        <ChevronRight className="w-6 h-6" />
+      </button>
 
+      {/* Dots indicator positioned below the dialog */}
+      <div className="fixed bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-[60] bg-background/90 backdrop-blur px-4 py-2 rounded-full shadow-xl">
+        {sortedProjects.map((_, index) => (
+          <button
+            key={index}
+            className="glide__bullet w-2 h-2 rounded-full bg-muted-foreground/40 transition-all hover:bg-muted-foreground/60"
+            data-glide-dir={`=${index}`}
+            onClick={() => glideInstance.current?.go(`=${index}`)}
+            aria-label={`Go to project ${index + 1}`}
+          />
+        ))}
+      </div>
+
+      <DialogContent className="max-w-[1200px] w-[90vw] max-h-[80vh] p-0 overflow-hidden">
         <div ref={glideRef} className="glide relative">
           <div className="glide__track" data-glide-el="track">
             <ul className="glide__slides">
               {sortedProjects.map((proj) => (
                 <li key={proj.id} className="glide__slide">
-                  <div className="grid md:grid-cols-5 gap-0 max-h-[85vh] overflow-y-auto">
+                  <div className="grid md:grid-cols-5 gap-0 max-h-[80vh] overflow-y-auto">
                     {/* Left side - Image */}
                     <div className="md:col-span-2 relative h-full min-h-[300px] bg-muted">
                       {proj.image ? (
@@ -275,18 +288,6 @@ export default function ProjectModal({
                 </li>
               ))}
             </ul>
-          </div>
-
-          {/* Bullets - At the bottom of modal */}
-          <div className="glide__bullets flex justify-center gap-2 py-4 bg-background" data-glide-el="controls[nav]">
-            {sortedProjects.map((_, index) => (
-              <button
-                key={index}
-                className="glide__bullet w-2 h-2 rounded-full bg-muted-foreground/30 transition-all hover:bg-muted-foreground/50"
-                data-glide-dir={`=${index}`}
-                aria-label={`Go to project ${index + 1}`}
-              />
-            ))}
           </div>
         </div>
       </DialogContent>
