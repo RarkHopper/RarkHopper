@@ -1,4 +1,5 @@
-import { Calendar, Code, ExternalLink, Github, Trophy, Users } from 'lucide-react';
+import { useEffect } from 'react';
+import { Calendar, ChevronLeft, ChevronRight, Code, ExternalLink, Github, Trophy, Users } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import {
@@ -13,14 +14,62 @@ interface ProjectModalProps {
   project: Project | null;
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  onNavigate?: (direction: 'prev' | 'next') => void;
+  hasPrevious?: boolean;
+  hasNext?: boolean;
 }
 
-export default function ProjectModal({ project, open, onOpenChange }: ProjectModalProps) {
+export default function ProjectModal({ 
+  project, 
+  open, 
+  onOpenChange, 
+  onNavigate,
+  hasPrevious = false,
+  hasNext = false 
+}: ProjectModalProps) {
+  // Keyboard navigation
+  useEffect(() => {
+    if (!open || !onNavigate) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowLeft' && hasPrevious) {
+        onNavigate('prev');
+      } else if (e.key === 'ArrowRight' && hasNext) {
+        onNavigate('next');
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [open, onNavigate, hasPrevious, hasNext]);
+
   if (!project) return null;
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-[90vw] w-[90vw] lg:w-[1400px] max-h-[85vh] overflow-y-auto p-0">
+        {/* Navigation buttons */}
+        {onNavigate && (
+          <>
+            <button
+              onClick={() => onNavigate('prev')}
+              disabled={!hasPrevious}
+              className="absolute left-2 top-1/2 -translate-y-1/2 z-50 w-10 h-10 rounded-full bg-background/80 backdrop-blur border shadow-lg flex items-center justify-center hover:bg-background transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+              aria-label="Previous project"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+            <button
+              onClick={() => onNavigate('next')}
+              disabled={!hasNext}
+              className="absolute right-2 top-1/2 -translate-y-1/2 z-50 w-10 h-10 rounded-full bg-background/80 backdrop-blur border shadow-lg flex items-center justify-center hover:bg-background transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+              aria-label="Next project"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </>
+        )}
+        
         <div className="grid md:grid-cols-5 gap-0">
           {/* Left side - Image */}
           <div className="md:col-span-2 relative h-full min-h-[300px] bg-muted">
