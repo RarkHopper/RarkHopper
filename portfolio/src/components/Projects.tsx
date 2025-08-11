@@ -11,7 +11,7 @@ import {
 } from '@/components/ui/card';
 import { projects } from '@/masterdata/profile';
 import type { Project } from '@/masterdata/profile';
-import ProjectModal from './ProjectModal';
+import ProjectModalSimple from './ProjectModalSimple';
 import ScrollAnimation from './ScrollAnimation';
 import '@/styles/scrollbar.css';
 
@@ -33,6 +33,8 @@ export default function Projects() {
 
   const handleProjectClick = (project: Project) => {
     console.log('Projects: Opening modal for', project.id, project.title);
+    console.log('Project object:', project);
+    console.log('SortedProjects order:', sortedProjects.map(p => p.id));
     setSelectedProject(project);
     setModalOpen(true);
   };
@@ -158,7 +160,7 @@ export default function Projects() {
                 <ScrollAnimation key={project.id} animation="fadeUp" delay={0.1 * index}>
                   <Card
                     className="overflow-hidden flex flex-col cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1 relative p-0 h-full"
-                    onClick={() => handleProjectClick(project, index)}
+                    onClick={() => handleProjectClick(project)}
                   >
                     {/* Image with Ongoing indicator */}
                     <div className="relative aspect-video bg-muted">
@@ -226,7 +228,7 @@ export default function Projects() {
                           className="w-full"
                           onClick={(e) => {
                             e.stopPropagation();
-                            handleProjectClick(project, index);
+                            handleProjectClick(project);
                           }}
                         >
                           詳細を見る
@@ -242,7 +244,7 @@ export default function Projects() {
       </ScrollAnimation>
 
       {/* Project Detail Modal */}
-      <ProjectModal 
+      <ProjectModalSimple 
         project={selectedProject}
         open={modalOpen}
         onOpenChange={setModalOpen}
