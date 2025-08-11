@@ -3,7 +3,7 @@ import { GraduationCap, Mail } from 'lucide-react';
 import { lazy, Suspense, useEffect, useRef } from 'react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa6';
 import { Button } from '@/components/ui/button';
-import { profile } from '@/masterdata/profile';
+import { personalInfo } from '@/masterdata/profile';
 
 // Lazy load the 3D background component
 const BackgroundScene = lazy(() => import('./BackgroundScene'));
@@ -89,7 +89,7 @@ export default function Hero() {
             <img
               ref={avatarRef}
               src="/user-icon.jpg"
-              alt={`${profile.name.nickname} Avatar`}
+              alt={`${personalInfo.name.nickname} Avatar`}
               className="mb-8 h-32 w-32 rounded-full border-4 border-border object-cover shadow-lg"
             />
 
@@ -98,7 +98,7 @@ export default function Hero() {
               ref={titleRef}
               className="mb-4 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl"
             >
-              {profile.name.nickname}
+              {personalInfo.name.nickname}
             </h1>
 
             <p
@@ -107,7 +107,7 @@ export default function Hero() {
               }}
               className="mb-2 text-lg text-muted-foreground"
             >
-              {profile.name.ja} / {profile.name.en}
+              {personalInfo.name.ja} / {personalInfo.name.en}
             </p>
 
             {/* University info */}
@@ -119,7 +119,7 @@ export default function Hero() {
             >
               <GraduationCap className="h-4 w-4" />
               <span>
-                {profile.university} {profile.department} {profile.grade}年
+                {personalInfo.university} {personalInfo.department} {personalInfo.grade}年
               </span>
             </div>
 
@@ -130,8 +130,8 @@ export default function Hero() {
               }}
               className="mb-8 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg"
             >
-              {profile.bio.short}
-              <span className="ml-1 opacity-80">{profile.bio.long}</span>
+              {personalInfo.bio.short}
+              <span className="ml-1 opacity-80">{personalInfo.bio.long}</span>
             </p>
 
             {/* CTA Buttons */}
@@ -158,7 +158,7 @@ export default function Hero() {
             >
               <Button variant="ghost" size="icon" asChild>
                 <a
-                  href={profile.contact.github}
+                  href={personalInfo.contact.github}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="GitHub"
@@ -168,7 +168,7 @@ export default function Hero() {
               </Button>
               <Button variant="ghost" size="icon" asChild>
                 <a
-                  href={profile.contact.linkedin}
+                  href={personalInfo.contact.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"
@@ -177,7 +177,7 @@ export default function Hero() {
                 </a>
               </Button>
               <Button variant="ghost" size="icon" asChild>
-                <a href={`mailto:${profile.contact.email}`} aria-label="Email">
+                <a href={`mailto:${personalInfo.contact.email}`} aria-label="Email">
                   <Mail className="h-5 w-5" />
                 </a>
               </Button>

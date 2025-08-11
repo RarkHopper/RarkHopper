@@ -3,22 +3,22 @@ import { Briefcase, Code, Rocket, Trophy } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { experience, experienceText, skillCategories } from '@/masterdata/profile';
+import { experience, skillCategories, uiTexts } from '@/masterdata/profile';
 import ScrollAnimation from './ScrollAnimation';
 
 const experiences = [
   {
-    category: experienceText.categories.work,
+    category: uiTexts.experience.categories.work,
     icon: <Briefcase className="w-4 h-4" />,
     items: experience.work,
   },
   {
-    category: experienceText.categories.awards,
+    category: uiTexts.experience.categories.awards,
     icon: <Trophy className="w-4 h-4" />,
     items: experience.awards,
   },
   {
-    category: experienceText.categories.activities,
+    category: uiTexts.experience.categories.activities,
     icon: <Rocket className="w-4 h-4" />,
     items: experience.activities,
   },

@@ -111,7 +111,7 @@ export default function ProjectModalSimple({ project, open, onOpenChange }: Proj
             </button>
 
             {/* Dots indicator */}
-            <div className="fixed bottom-[calc(12.5vh-30px)] left-1/2 -translate-x-1/2 flex gap-2 z-[9999] bg-background/90 backdrop-blur px-4 py-2 rounded-full shadow-xl">
+            <div className="fixed bottom-20 left-1/2 -translate-x-1/2 flex gap-2 z-[9999] bg-background/90 backdrop-blur px-4 py-2 rounded-full shadow-xl">
               {sortedProjects.map((project, index) => (
                 <button
                   key={`${project.id}-dot`}
@@ -147,7 +147,7 @@ export default function ProjectModalSimple({ project, open, onOpenChange }: Proj
         }}
       >
         <DialogContent
-          className="w-[90vw] h-[75vh] max-w-[1400px] p-0 overflow-hidden"
+          className="w-[90vw] h-[65vh] max-w-[1400px] p-0 overflow-hidden"
           onPointerDownOutside={(e) => {
             const target = e.target as HTMLElement;
 

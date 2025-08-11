@@ -1,24 +1,24 @@
 import { Briefcase, Rocket, Trophy } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { experience, experienceText } from '@/masterdata/profile';
+import { experience, uiTexts } from '@/masterdata/profile';
 import ScrollAnimation from './ScrollAnimation';
 
 const experiences = [
   {
-    category: experienceText.categories.work,
+    category: uiTexts.experience.categories.work,
     icon: <Briefcase className="w-5 h-5" />,
     iconSrc: '/briefcase-icon.svg',
     items: experience.work,
   },
   {
-    category: experienceText.categories.awards,
+    category: uiTexts.experience.categories.awards,
     icon: <Trophy className="w-5 h-5" />,
     iconSrc: '/trophy-icon.svg',
     items: experience.awards,
   },
   {
-    category: experienceText.categories.activities,
+    category: uiTexts.experience.categories.activities,
     icon: <Rocket className="w-5 h-5" />,
     iconSrc: '/rocket-icon.svg',
     items: experience.activities,
@@ -31,10 +31,10 @@ export default function Experience() {
       <ScrollAnimation animation="fadeUp">
         <div className="mx-auto flex max-w-[980px] flex-col items-center gap-4 text-center">
           <h2 className="text-3xl font-bold leading-tight tracking-tighter md:text-4xl lg:text-5xl">
-            {experienceText.title}
+            {uiTexts.experience.title}
           </h2>
           <p className="max-w-[750px] text-lg text-muted-foreground sm:text-xl">
-            {experienceText.subtitle}
+            {uiTexts.experience.subtitle}
           </p>
         </div>
       </ScrollAnimation>
@@ -51,13 +51,13 @@ export default function Experience() {
                   {/* Category indicator */}
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary/50 to-primary/20" />
                   <div className="absolute top-2 right-2">
-                    {category.category === experienceText.categories.work && (
+                    {category.category === uiTexts.experience.categories.work && (
                       <Briefcase className="w-4 h-4 text-muted-foreground/50" />
                     )}
-                    {category.category === experienceText.categories.awards && (
+                    {category.category === uiTexts.experience.categories.awards && (
                       <Trophy className="w-4 h-4 text-muted-foreground/50" />
                     )}
-                    {category.category === experienceText.categories.activities && (
+                    {category.category === uiTexts.experience.categories.activities && (
                       <Rocket className="w-4 h-4 text-muted-foreground/50" />
                     )}
                   </div>

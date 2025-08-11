@@ -1,71 +1,16 @@
+// ================================================================
 // Personal Profile Master Data
-export const profile = {
-  name: {
-    ja: '品川朝陽',
-    en: 'Shinagawa Asahi',
-    nickname: 'RarkHopper',
-  },
-  birthDate: '2003-12-18',
-  age: 21,
-  university: '北海道情報大学',
-  department: 'システム情報学科',
-  grade: 3,
-  location: '北海道',
+// ================================================================
+// このファイルはサイトの表示順に整理されています
+// 1. 型定義
+// 2. 個人プロフィール情報 (personalInfo)
+// 3. 各セクションのデータ (サイト表示順)
+// 4. 各セクションのUIテキスト
+// ================================================================
 
-  titles: ['未踏IT採択クリエータ', '100Program ファイナリスト'],
-
-  bio: {
-    short: '生徒の「好き」を起点にしたプログラミング教育支援システムを開発中。',
-    long: '不登校から始まり、Minecraftで見つけたプログラミングの楽しさを、次世代に伝えたい。',
-    education:
-      '6年間、独学でプログラミングを学び、気がつけば様々なプロジェクトにチャレンジする人に',
-  },
-
-  contact: {
-    github: 'https://github.com/RarkHopper',
-    discord: 'RarkHopper',
-    email: 'contact@example.com',
-    linkedin: 'https://linkedin.com',
-  },
-
-  interests: [
-    { icon: 'code', label: 'プログラミング', description: '新しい技術を学ぶことが大好き' },
-    { icon: 'mountain', label: 'アウトドア', description: '登山やキャンプで自然を満喫' },
-    { icon: 'music', label: 'リズムゲーム', description: '音ゲーで反射神経を鍛える' },
-    { icon: 'heart', label: '教育支援', description: '次世代にプログラミングの楽しさを伝える' },
-  ],
-
-  // About section content
-  about: {
-    subtitle: '不登校から見つけたプログラミングの楽しさを、次世代に伝えたい',
-    paragraphs: [
-      {
-        id: 'about-p1',
-        text: '小中学生時代は不登校でしたが、高校でMinecraftのプログラミングに出会い、人生が変わりました。PocketMine-MPプラグイン制作やサーバ運営を通じて、コードを書く楽しさと、それが誰かの笑顔につながる喜びを知りました。',
-        hasHighlight: false,
-      },
-      {
-        id: 'about-p2',
-        text: '現在は北海道情報大学でシステム情報学を学びながら、未踏IT人材育成事業に採択され、生徒の「好き」を起点にしたプログラミング教育支援システムを開発しています。',
-        hasHighlight: true,
-        highlightText: '未踏IT',
-      },
-      {
-        id: 'about-p3',
-        text: '複数のインターンやハッカソンを通じて実践的なスキルを磨き、100Programでは2チーム同時ファイナリスト・オーディエンス賞最多受賞という成果を残しました。技術を通じて、かつての自分のような子どもたちに、新しい可能性を届けたいと考えています。',
-        hasHighlight: false,
-      },
-    ],
-    highlights: [
-      { icon: '/pictogram-programming.svg', title: 'Programming', subtitle: '6年以上の経験' },
-      { icon: '/pictogram-teaching.svg', title: 'Education', subtitle: 'プログラミング講師' },
-      { icon: '/pictogram-outdoor.svg', title: '登山', subtitle: '北海道の山々' },
-      { icon: '/pictogram-rhythm.svg', title: 'ベース', subtitle: '音楽も大好き' },
-    ],
-  },
-} as const;
-
-// Project type definition
+// ================================================================
+// 型定義
+// ================================================================
 export interface Project {
   id: string;
   title: string;
@@ -89,7 +34,131 @@ export interface Project {
   }>;
 }
 
-// Project Master Data
+// ================================================================
+// 個人プロフィール情報 (全セクション共通)
+// ================================================================
+export const personalInfo = {
+  // 基本情報
+  name: {
+    ja: '品川朝陽',
+    en: 'Shinagawa Asahi',
+    nickname: 'RarkHopper',
+  },
+  birthDate: '2003-12-18',
+  age: 21,
+  university: '北海道情報大学',
+  department: 'システム情報学科',
+  grade: 3,
+  location: '北海道',
+
+  // タイトル・称号
+  titles: ['未踏IT採択クリエータ', '100Program ファイナリスト'],
+
+  // 自己紹介
+  bio: {
+    short: '生徒の「好き」を起点にしたプログラミング教育支援システムを開発中。',
+    long: '不登校から始まり、Minecraftで見つけたプログラミングの楽しさを、次世代に伝えたい。',
+    education:
+      '6年間、独学でプログラミングを学び、気がつけば様々なプロジェクトにチャレンジする人に',
+  },
+
+  // 連絡先
+  contact: {
+    github: 'https://github.com/RarkHopper',
+    discord: 'RarkHopper',
+    email: 'contact@example.com',
+    linkedin: 'https://linkedin.com',
+  },
+
+  // 興味・関心
+  interests: [
+    { icon: 'code', label: 'プログラミング', description: '新しい技術を学ぶことが大好き' },
+    { icon: 'mountain', label: 'アウトドア', description: '登山やキャンプで自然を満喫' },
+    { icon: 'music', label: 'リズムゲーム', description: '音ゲーで反射神経を鍛える' },
+    { icon: 'heart', label: '教育支援', description: '次世代にプログラミングの楽しさを伝える' },
+  ],
+} as const;
+
+// ================================================================
+// セクション1: Hero (src/components/Hero.tsx)
+// ================================================================
+// HeroセクションはpersonalInfoのデータのみ使用
+
+// ================================================================
+// セクション2: About (src/components/About.tsx)
+// ================================================================
+export const aboutData = {
+  subtitle: '不登校から見つけたプログラミングの楽しさを、次世代に伝えたい',
+  paragraphs: [
+    {
+      id: 'about-p1',
+      text: '小中学生時代は不登校でしたが、高校でMinecraftのプログラミングに出会い、人生が変わりました。PocketMine-MPプラグイン制作やサーバ運営を通じて、コードを書く楽しさと、それが誰かの笑顔につながる喜びを知りました。',
+      hasHighlight: false,
+    },
+    {
+      id: 'about-p2',
+      text: '現在は北海道情報大学でシステム情報学を学びながら、未踏IT人材育成事業に採択され、生徒の「好き」を起点にしたプログラミング教育支援システムを開発しています。',
+      hasHighlight: true,
+      highlightText: '未踏IT',
+    },
+    {
+      id: 'about-p3',
+      text: '複数のインターンやハッカソンを通じて実践的なスキルを磨き、100Programでは2チーム同時ファイナリスト・オーディエンス賞最多受賞という成果を残しました。技術を通じて、かつての自分のような子どもたちに、新しい可能性を届けたいと考えています。',
+      hasHighlight: false,
+    },
+  ],
+  highlights: [
+    { icon: '/pictogram-programming.svg', title: 'Programming', subtitle: '6年以上の経験' },
+    { icon: '/pictogram-teaching.svg', title: 'Education', subtitle: 'プログラミング講師' },
+    { icon: '/pictogram-outdoor.svg', title: '登山', subtitle: '北海道の山々' },
+    { icon: '/pictogram-rhythm.svg', title: 'ベース', subtitle: '音楽も大好き' },
+  ],
+};
+
+// ================================================================
+// セクション3: Timeline (src/components/Timeline.tsx)
+// ================================================================
+export const timeline = [
+  {
+    year: '2020',
+    month: 4,
+    age: 16,
+    title: 'プログラミング開始',
+    description: 'MinecraftのPocketMine-MPでPHPを学ぶ',
+  },
+  {
+    year: '2022',
+    month: 4,
+    age: 18,
+    title: '北海道情報大学',
+    description: '大学へ進学',
+  },
+  {
+    year: '2024',
+    month: 3,
+    age: 20,
+    title: '100Program',
+    description: 'ファイナリスト・最多オーディエンス賞',
+  },
+  {
+    year: '2024',
+    month: 10,
+    age: 20,
+    title: '新雪プログラム',
+    description: 'マチョプリ！プロジェクト採択',
+  },
+  {
+    year: '2025',
+    month: 6,
+    age: 21,
+    title: '未踏IT採択',
+    description: 'プログラミング教育支援システムで採択',
+  },
+] as const;
+
+// ================================================================
+// セクション4: Projects (src/components/Projects.tsx)
+// ================================================================
 export const projects: Project[] = [
   {
     id: 'mitou-education',
@@ -202,7 +271,9 @@ export const projects: Project[] = [
   },
 ] as const;
 
-// Skills Master Data
+// ================================================================
+// セクション5: Skills (src/components/Skills.tsx, SkillsAndExperience.tsx)
+// ================================================================
 export const skillCategories = [
   {
     title: 'Languages',
@@ -281,69 +352,9 @@ export const skillCategories = [
   },
 ] as const;
 
-// Timeline Master Data
-export const timeline = [
-  {
-    year: '2020',
-    month: 4,
-    age: 16,
-    title: 'プログラミング開始',
-    description: 'MinecraftのPocketMine-MPでPHPを学ぶ',
-  },
-  {
-    year: '2022',
-    month: 4,
-    age: 18,
-    title: '北海道情報大学',
-    description: '大学へ進学',
-  },
-  {
-    year: '2024',
-    month: 3,
-    age: 20,
-    title: '100Program',
-    description: 'ファイナリスト・最多オーディエンス賞',
-  },
-  {
-    year: '2024',
-    month: 10,
-    age: 20,
-    title: '新雪プログラム',
-    description: 'マチョプリ！プロジェクト採択',
-  },
-  {
-    year: '2025',
-    month: 6,
-    age: 21,
-    title: '未踏IT採択',
-    description: 'プログラミング教育支援システムで採択',
-  },
-] as const;
-
-// Contact section text
-export const contactText = {
-  title: 'Get In Touch',
-  subtitle: 'プロジェクトのご相談、技術的な質問、その他お気軽にご連絡ください',
-  cardTitle: 'Contact Information',
-  cardDescription: '以下のチャンネルからお気軽にご連絡ください',
-  footer: {
-    text: '現在、未踏ITのプロジェクトに注力していますが、興味深いプロジェクトやコラボレーションの機会があればぜひお声がけください！',
-    highlightText: '未踏IT',
-  },
-} as const;
-
-// Experience section text
-export const experienceText = {
-  title: 'Experience & Activities',
-  subtitle: 'インターン、採択プログラム、受賞歴など',
-  categories: {
-    work: 'Work Experience',
-    awards: 'Awards & Programs',
-    activities: 'Activities',
-  },
-} as const;
-
-// Experience Master Data
+// ================================================================
+// セクション6: Experience (src/components/Experience.tsx, SkillsAndExperience.tsx)
+// ================================================================
 export const experience = {
   work: [
     {
@@ -421,4 +432,37 @@ export const experience = {
       tags: ['PHP', 'コミュニティ運営'],
     },
   ],
+} as const;
+
+// ================================================================
+// セクション7: Contact (src/components/Contact.tsx)
+// ================================================================
+// Contactセクションはcontact情報とUIテキストを使用
+
+// ================================================================
+// UIテキスト定義（サイト依存のテキスト）
+// ================================================================
+export const uiTexts = {
+  // Experience section text
+  experience: {
+    title: 'Experience & Activities',
+    subtitle: 'インターン、採択プログラム、受賞歴など',
+    categories: {
+      work: 'Work Experience',
+      awards: 'Awards & Programs',
+      activities: 'Activities',
+    },
+  },
+
+  // Contact section text
+  contact: {
+    title: 'Get In Touch',
+    subtitle: 'プロジェクトのご相談、技術的な質問、その他お気軽にご連絡ください',
+    cardTitle: 'Contact Information',
+    cardDescription: '以下のチャンネルからお気軽にご連絡ください',
+    footer: {
+      text: '現在、未踏ITのプロジェクトに注力していますが、興味深いプロジェクトやコラボレーションの機会があればぜひお声がけください！',
+      highlightText: '未踏IT',
+    },
+  },
 } as const;

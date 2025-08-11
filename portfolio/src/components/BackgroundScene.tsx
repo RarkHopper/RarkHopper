@@ -164,7 +164,6 @@ export default function BackgroundScene() {
           fov: 60,
         }}
         style={{ background: 'transparent' }}
-        dpr={[1, 1.5]} // Limit pixel ratio for performance
       >
         {/* Fog for depth */}
         <fog attach="fog" args={['#09090b', 15, 45]} />

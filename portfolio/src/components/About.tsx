@@ -1,5 +1,5 @@
 import { Card, CardContent } from '@/components/ui/card';
-import { profile } from '@/masterdata/profile';
+import { aboutData } from '@/masterdata/profile';
 import ScrollAnimation from './ScrollAnimation';
 
 export default function About() {
@@ -13,7 +13,7 @@ export default function About() {
             About Me
           </h2>
           <p className="max-w-[750px] text-lg text-muted-foreground sm:text-xl">
-            {profile.about.subtitle}
+            {aboutData.subtitle}
           </p>
         </div>
       </ScrollAnimation>
@@ -23,7 +23,7 @@ export default function About() {
           <Card className="border-none shadow-none bg-transparent">
             <CardContent className="space-y-6 p-0">
               <div className="prose prose-gray dark:prose-invert max-w-none">
-                {profile.about.paragraphs.map((paragraph, index) => (
+                {aboutData.paragraphs.map((paragraph, index) => (
                   <p
                     key={paragraph.id}
                     className={`text-lg leading-relaxed ${index > 0 ? 'mt-4' : ''}`}
@@ -48,7 +48,7 @@ export default function About() {
                 stagger={0.1}
                 className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8"
               >
-                {profile.about.highlights.map((highlight) => (
+                {aboutData.highlights.map((highlight) => (
                   <Card key={highlight.title} className="text-center p-4">
                     <img
                       src={highlight.icon}
