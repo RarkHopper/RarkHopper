@@ -25,7 +25,6 @@ export default function ProjectModalSimple({
   onOpenChange,
 }: ProjectModalProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isNavigating, setIsNavigating] = useState(false);
 
   // Sort projects same way as in Projects component
   const sortedProjects = useMemo(() => {
@@ -57,65 +56,61 @@ export default function ProjectModalSimple({
   const currentProject = sortedProjects[currentIndex];
 
   const handlePrev = (e: React.MouseEvent) => {
+    console.log('handlePrev clicked');
     e.stopPropagation();
     e.preventDefault();
-    setIsNavigating(true);
     
     const newIndex = currentIndex > 0 ? currentIndex - 1 : sortedProjects.length - 1;
     setCurrentIndex(newIndex);
     console.log('Navigate prev to index:', newIndex);
-    
-    setTimeout(() => setIsNavigating(false), 100);
   };
   
   const handleNext = (e: React.MouseEvent) => {
+    console.log('handleNext clicked');
     e.stopPropagation();
     e.preventDefault();
-    setIsNavigating(true);
     
     const newIndex = currentIndex < sortedProjects.length - 1 ? currentIndex + 1 : 0;
     setCurrentIndex(newIndex);
     console.log('Navigate next to index:', newIndex);
-    
-    setTimeout(() => setIsNavigating(false), 100);
   };
   
   const handleGoTo = (index: number) => (e: React.MouseEvent) => {
+    console.log('handleGoTo clicked, target index:', index);
     e.stopPropagation();
     e.preventDefault();
-    setIsNavigating(true);
     
     setCurrentIndex(index);
     console.log('Navigate to index:', index);
-    
-    setTimeout(() => setIsNavigating(false), 100);
   };
 
   return (
     <>
       {/* Navigation controls rendered through portal */}
       {open && ReactDOM.createPortal(
-        <div data-modal-navigation="true">
+        <div data-modal-navigation="true" style={{ pointerEvents: 'auto' }}>
           {/* Navigation arrows */}
           <button 
-            className="fixed top-1/2 -translate-y-1/2 left-4 lg:left-8 w-12 h-12 rounded-full bg-background border-2 shadow-2xl flex items-center justify-center hover:bg-accent transition-colors z-[100] cursor-pointer"
+            className="fixed top-1/2 -translate-y-1/2 left-4 lg:left-8 w-12 h-12 rounded-full bg-background border-2 shadow-2xl flex items-center justify-center hover:bg-accent transition-colors z-[9999] cursor-pointer"
             aria-label="Previous project"
-            onMouseDown={handlePrev}
+            onClick={handlePrev}
+            style={{ pointerEvents: 'auto' }}
             type="button"
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
           <button 
-            className="fixed top-1/2 -translate-y-1/2 right-4 lg:right-8 w-12 h-12 rounded-full bg-background border-2 shadow-2xl flex items-center justify-center hover:bg-accent transition-colors z-[100] cursor-pointer"
+            className="fixed top-1/2 -translate-y-1/2 right-4 lg:right-8 w-12 h-12 rounded-full bg-background border-2 shadow-2xl flex items-center justify-center hover:bg-accent transition-colors z-[9999] cursor-pointer"
             aria-label="Next project"
-            onMouseDown={handleNext}
+            onClick={handleNext}
+            style={{ pointerEvents: 'auto' }}
             type="button"
           >
             <ChevronRight className="w-6 h-6" />
           </button>
 
           {/* Dots indicator */}
-          <div className="fixed bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-[100] bg-background/90 backdrop-blur px-4 py-2 rounded-full shadow-xl">
+          <div className="fixed bottom-[calc(12.5vh-30px)] left-1/2 -translate-x-1/2 flex gap-2 z-[9999] bg-background/90 backdrop-blur px-4 py-2 rounded-full shadow-xl">
             {sortedProjects.map((_, index) => (
               <button
                 key={index}
@@ -124,7 +119,7 @@ export default function ProjectModalSimple({
                     ? 'bg-primary w-6' 
                     : 'bg-muted-foreground/50 hover:bg-muted-foreground/70'
                 }`}
-                onMouseDown={handleGoTo(index)}
+                onClick={handleGoTo(index)}
                 aria-label={`Go to project ${index + 1}`}
                 type="button"
               />
@@ -137,20 +132,29 @@ export default function ProjectModalSimple({
       <Dialog 
         open={open} 
         onOpenChange={(newOpen) => {
-          // Don't close if we're navigating
-          if (isNavigating) {
-            return;
+          // Check if the event came from navigation controls
+          const event = window.event as MouseEvent | PointerEvent;
+          if (event && event.target) {
+            const target = event.target as HTMLElement;
+            if (target.closest('[data-modal-navigation]')) {
+              console.log('Dialog close prevented - navigation control clicked');
+              return; // Don't close the dialog
+            }
           }
+          
           onOpenChange(newOpen);
         }}
       >
         <DialogContent 
-          className="max-w-[1200px] w-[90vw] max-h-[85vh] p-0 overflow-hidden"
+          className="w-[90vw] h-[75vh] max-w-[1400px] p-0 overflow-hidden"
           onPointerDownOutside={(e) => {
-            // Check if the click target is one of our navigation controls
             const target = e.target as HTMLElement;
+            
+            // Check if the click is on our navigation controls
             if (target.closest('[data-modal-navigation]')) {
+              console.log('Click on navigation control detected, preventing close');
               e.preventDefault();
+              return;
             }
           }}
         >
@@ -160,7 +164,7 @@ export default function ProjectModalSimple({
           </VisuallyHidden>
           
           {currentProject && (
-            <div className="grid md:grid-cols-5 gap-0 max-h-[85vh] overflow-y-auto">
+            <div className="grid md:grid-cols-5 gap-0 h-full overflow-y-auto">
               {/* Left side - Image */}
               <div className="md:col-span-2 relative h-[300px] md:h-full bg-muted">
                 {currentProject.image ? (
@@ -232,8 +236,8 @@ export default function ProjectModalSimple({
                         </h3>
                         <ul className="space-y-2">
                           {currentProject.highlights.map((highlight, index) => (
-                            <li key={index} className="flex items-center gap-2 text-sm">
-                              <span className="text-primary">✨</span>
+                            <li key={index} className="flex items-start gap-2 text-sm">
+                              <span className="text-primary mt-0.5">•</span>
                               <span>{highlight}</span>
                             </li>
                           ))}
