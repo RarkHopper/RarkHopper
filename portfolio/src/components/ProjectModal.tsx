@@ -7,7 +7,10 @@ import { Button } from '@/components/ui/button';
 import {
   Dialog,
   DialogContent,
+  DialogTitle,
+  DialogDescription,
 } from '@/components/ui/dialog';
+import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 import { projects } from '@/masterdata/profile';
 import type { Project } from '@/masterdata/profile';
 
@@ -41,9 +44,10 @@ export default function ProjectModal({
 
   // Find initial index with useMemo to avoid recalculation
   const initialIndex = useMemo(() => {
-    const index = project ? sortedProjects.findIndex(p => p.id === project.id) : 0;
-    console.log('ProjectModal: Finding index for', project?.id, '-> index:', index);
-    return index;
+    if (!project) return 0;
+    const index = sortedProjects.findIndex(p => p.id === project.id);
+    console.log('ProjectModal: Finding index for', project.id, '-> index:', index);
+    return index >= 0 ? index : 0;
   }, [project, sortedProjects]);
 
   useEffect(() => {
@@ -76,17 +80,26 @@ export default function ProjectModal({
 
   const handlePrev = (e: React.MouseEvent) => {
     e.stopPropagation();
-    glideInstance.current?.go('<');
+    console.log('handlePrev clicked, glideInstance:', glideInstance.current);
+    if (glideInstance.current) {
+      glideInstance.current.go('<');
+    }
   };
   
   const handleNext = (e: React.MouseEvent) => {
     e.stopPropagation();
-    glideInstance.current?.go('>');
+    console.log('handleNext clicked, glideInstance:', glideInstance.current);
+    if (glideInstance.current) {
+      glideInstance.current.go('>');
+    }
   };
   
   const handleGoTo = (index: number) => (e: React.MouseEvent) => {
     e.stopPropagation();
-    glideInstance.current?.go(`=${index}`);
+    console.log('handleGoTo clicked, index:', index, 'glideInstance:', glideInstance.current);
+    if (glideInstance.current) {
+      glideInstance.current.go(`=${index}`);
+    }
   };
 
   return (
@@ -127,6 +140,10 @@ export default function ProjectModal({
 
       <Dialog open={open} onOpenChange={onOpenChange}>
         <DialogContent className="max-w-[1200px] w-[90vw] max-h-[85vh] p-0 overflow-hidden">
+          <VisuallyHidden>
+            <DialogTitle>プロジェクト詳細</DialogTitle>
+            <DialogDescription>プロジェクトの詳細情報を表示しています</DialogDescription>
+          </VisuallyHidden>
           <div ref={glideRef} className="glide relative">
             <div className="glide__track" data-glide-el="track">
               <ul className="glide__slides">
