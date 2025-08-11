@@ -112,7 +112,7 @@ export default function Timeline() {
                   itemsRef.current[index] = el;
                 }}
                 type="button"
-                className={`group relative flex gap-4 p-4 rounded-lg transition-all duration-300 ${
+                className={`group relative flex gap-3 p-4 rounded-lg transition-all duration-300 w-full ${
                   hoveredIndex === index ? 'bg-primary/10 scale-105' : 'hover:bg-muted/50'
                 }`}
                 onMouseEnter={() => setHoveredIndex(index)}
@@ -123,16 +123,14 @@ export default function Timeline() {
                   }
                 }}
               >
-                <div className="flex flex-col items-center">
-                  <div
-                    className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full font-bold text-sm transition-all duration-300 ${
-                      hoveredIndex === index
-                        ? 'bg-primary text-primary-foreground scale-110'
-                        : 'bg-primary/20 text-primary'
-                    }`}
-                  >
-                    {event.age}
-                  </div>
+                <div
+                  className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full font-bold text-sm transition-all duration-300 ${
+                    hoveredIndex === index
+                      ? 'bg-primary text-primary-foreground scale-110'
+                      : 'bg-primary/20 text-primary'
+                  }`}
+                >
+                  {event.age}
                 </div>
 
                 <div className="flex-1">
