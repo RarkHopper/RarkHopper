@@ -27,6 +27,8 @@ export default function ProjectModal({
 }: ProjectModalProps) {
   const glideRef = useRef<HTMLDivElement>(null);
   const glideInstance = useRef<Glide | null>(null);
+  const prevRef = useRef<HTMLButtonElement>(null);
+  const nextRef = useRef<HTMLButtonElement>(null);
 
   // Sort projects same way as in Projects component
   const sortedProjects = [...projects].sort((a, b) => {
@@ -56,6 +58,14 @@ export default function ProjectModal({
     });
 
     glideInstance.current.mount();
+    
+    // Set up arrow click handlers manually
+    if (prevRef.current) {
+      prevRef.current.onclick = () => glideInstance.current?.go('<');
+    }
+    if (nextRef.current) {
+      nextRef.current.onclick = () => glideInstance.current?.go('>');
+    }
 
     return () => {
       glideInstance.current?.destroy();
@@ -67,7 +77,23 @@ export default function ProjectModal({
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-[1200px] w-[90vw] max-h-[85vh] p-0 overflow-hidden">
-        <div ref={glideRef} className="glide">
+        {/* Navigation arrows - Outside modal content on desktop, overlapping on mobile */}
+        <button 
+          ref={prevRef}
+          className="absolute top-1/2 -translate-y-1/2 left-2 lg:-left-14 w-10 lg:w-12 h-10 lg:h-12 rounded-full bg-background/90 lg:bg-background border-2 shadow-xl flex items-center justify-center hover:bg-accent transition-colors z-50 cursor-pointer"
+          aria-label="Previous project"
+        >
+          <ChevronLeft className="w-5 lg:w-6 h-5 lg:h-6" />
+        </button>
+        <button 
+          ref={nextRef}
+          className="absolute top-1/2 -translate-y-1/2 right-2 lg:-right-14 w-10 lg:w-12 h-10 lg:h-12 rounded-full bg-background/90 lg:bg-background border-2 shadow-xl flex items-center justify-center hover:bg-accent transition-colors z-50 cursor-pointer"
+          aria-label="Next project"
+        >
+          <ChevronRight className="w-5 lg:w-6 h-5 lg:h-6" />
+        </button>
+
+        <div ref={glideRef} className="glide relative">
           <div className="glide__track" data-glide-el="track">
             <ul className="glide__slides">
               {sortedProjects.map((proj) => (
@@ -251,30 +277,12 @@ export default function ProjectModal({
             </ul>
           </div>
 
-          {/* Navigation arrows - Inside but not overlapping content */}
-          <div className="glide__arrows" data-glide-el="controls">
-            <button 
-              className="glide__arrow glide__arrow--left absolute top-1/2 -translate-y-1/2 left-2 md:left-4 w-10 h-10 rounded-full bg-background/90 backdrop-blur border shadow-lg flex items-center justify-center hover:bg-background transition-colors z-20"
-              data-glide-dir="<"
-              aria-label="Previous project"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            <button 
-              className="glide__arrow glide__arrow--right absolute top-1/2 -translate-y-1/2 right-2 md:right-4 w-10 h-10 rounded-full bg-background/90 backdrop-blur border shadow-lg flex items-center justify-center hover:bg-background transition-colors z-20"
-              data-glide-dir=">"
-              aria-label="Next project"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          </div>
-
-          {/* Bullets */}
-          <div className="glide__bullets absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10" data-glide-el="controls[nav]">
+          {/* Bullets - At the bottom of modal */}
+          <div className="glide__bullets flex justify-center gap-2 py-4 bg-background" data-glide-el="controls[nav]">
             {sortedProjects.map((_, index) => (
               <button
                 key={index}
-                className="glide__bullet w-2 h-2 rounded-full bg-primary/30 transition-all hover:bg-primary/50 data-[active=true]:bg-primary data-[active=true]:w-6"
+                className="glide__bullet w-2 h-2 rounded-full bg-muted-foreground/30 transition-all hover:bg-muted-foreground/50"
                 data-glide-dir={`=${index}`}
                 aria-label={`Go to project ${index + 1}`}
               />
