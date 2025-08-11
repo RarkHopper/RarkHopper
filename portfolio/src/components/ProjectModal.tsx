@@ -53,8 +53,15 @@ export default function ProjectModal({
   useEffect(() => {
     if (!glideRef.current || !open) return;
 
+    // Destroy existing instance if any
+    if (glideInstance.current) {
+      glideInstance.current.destroy();
+      glideInstance.current = null;
+    }
+
     // Small delay to ensure DOM is ready
     const timer = setTimeout(() => {
+      console.log('Initializing Glide with startAt:', initialIndex);
       // Initialize Glide
       glideInstance.current = new Glide(glideRef.current!, {
         type: 'slider',
@@ -67,14 +74,17 @@ export default function ProjectModal({
       });
 
       glideInstance.current.mount();
+      console.log('Glide mounted, current index:', glideInstance.current.index);
     }, 100);
 
     return () => {
       clearTimeout(timer);
-      glideInstance.current?.destroy();
-      glideInstance.current = null;
+      if (glideInstance.current) {
+        glideInstance.current.destroy();
+        glideInstance.current = null;
+      }
     };
-  }, [open, initialIndex]); // Use initialIndex to properly track changes
+  }, [open, initialIndex]); // Re-initialize when modal opens or index changes
 
   if (!open) return null;
 
@@ -109,14 +119,14 @@ export default function ProjectModal({
         <>
           {/* Navigation arrows */}
           <button 
-            className="fixed top-1/2 -translate-y-1/2 left-4 lg:left-8 w-12 h-12 rounded-full bg-background border-2 shadow-2xl flex items-center justify-center hover:bg-accent transition-colors z-[60] cursor-pointer"
+            className="fixed top-1/2 -translate-y-1/2 left-4 lg:left-8 w-12 h-12 rounded-full bg-background border-2 shadow-2xl flex items-center justify-center hover:bg-accent transition-colors z-[100] cursor-pointer"
             aria-label="Previous project"
             onClick={handlePrev}
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
           <button 
-            className="fixed top-1/2 -translate-y-1/2 right-4 lg:right-8 w-12 h-12 rounded-full bg-background border-2 shadow-2xl flex items-center justify-center hover:bg-accent transition-colors z-[60] cursor-pointer"
+            className="fixed top-1/2 -translate-y-1/2 right-4 lg:right-8 w-12 h-12 rounded-full bg-background border-2 shadow-2xl flex items-center justify-center hover:bg-accent transition-colors z-[100] cursor-pointer"
             aria-label="Next project"
             onClick={handleNext}
           >
@@ -124,7 +134,7 @@ export default function ProjectModal({
           </button>
 
           {/* Dots indicator */}
-          <div className="fixed bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-[60] bg-background/90 backdrop-blur px-4 py-2 rounded-full shadow-xl">
+          <div className="fixed bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-[100] bg-background/90 backdrop-blur px-4 py-2 rounded-full shadow-xl">
             {sortedProjects.map((_, index) => (
               <button
                 key={index}
