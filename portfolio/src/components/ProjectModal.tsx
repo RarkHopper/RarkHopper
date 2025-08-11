@@ -1,18 +1,22 @@
-import { useEffect, useRef, useState, useMemo, useCallback } from 'react';
-import ReactDOM from 'react-dom';
 import Glide from '@glidejs/glide';
-import { Calendar, ChevronLeft, ChevronRight, Code, ExternalLink, Github, Trophy, Users } from 'lucide-react';
+import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
+import {
+  Calendar,
+  ChevronLeft,
+  ChevronRight,
+  Code,
+  ExternalLink,
+  Github,
+  Trophy,
+  Users,
+} from 'lucide-react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import ReactDOM from 'react-dom';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import {
-  Dialog,
-  DialogContent,
-  DialogTitle,
-  DialogDescription,
-} from '@/components/ui/dialog';
-import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
-import { projects } from '@/masterdata/profile';
+import { Dialog, DialogContent, DialogDescription, DialogTitle } from '@/components/ui/dialog';
 import type { Project } from '@/masterdata/profile';
+import { projects } from '@/masterdata/profile';
 
 // Import Glide styles
 import '@glidejs/glide/dist/css/glide.core.min.css';
@@ -24,11 +28,7 @@ interface ProjectModalProps {
   onOpenChange: (open: boolean) => void;
 }
 
-export default function ProjectModal({ 
-  project, 
-  open, 
-  onOpenChange,
-}: ProjectModalProps) {
+export default function ProjectModal({ project, open, onOpenChange }: ProjectModalProps) {
   const glideRef = useRef<HTMLDivElement>(null);
   const glideInstance = useRef<Glide | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -55,9 +55,9 @@ export default function ProjectModal({
     }
 
     // Calculate the target index
-    const targetIndex = sortedProjects.findIndex(p => p.id === project.id);
+    const targetIndex = sortedProjects.findIndex((p) => p.id === project.id);
     const initialIndex = targetIndex >= 0 ? targetIndex : 0;
-    
+
     console.log('Initializing Glide for project:', project.id, 'at index:', initialIndex);
 
     // Check if slides are ready
@@ -93,7 +93,12 @@ export default function ProjectModal({
 
     // Add event listeners
     glide.on('mount.before', () => {
-      console.log('Before mount - glide.index:', glide.index, 'settings.startAt:', glide.settings.startAt);
+      console.log(
+        'Before mount - glide.index:',
+        glide.index,
+        'settings.startAt:',
+        glide.settings.startAt,
+      );
     });
 
     glide.on('move.after', () => {
@@ -104,29 +109,31 @@ export default function ProjectModal({
     glide.on('mount.after', () => {
       console.log('Glide mounted successfully, index:', glide.index);
       setIsGlideReady(true);
-      
+
       // Always fix the transform to use percentage
       const slidesContainer = glideRef.current?.querySelector('.glide__slides') as HTMLElement;
       if (slidesContainer) {
         console.log('Original transform:', slidesContainer.style.transform);
-        
+
         // Calculate and apply percentage-based transform
         const translateX = -(glide.index * 100);
         slidesContainer.style.transform = `translate3d(${translateX}%, 0, 0)`;
         console.log('Fixed transform to:', slidesContainer.style.transform);
-        
+
         // Debug: Check slide visibility
         const slides = slidesContainer.querySelectorAll('.glide__slide');
         slides.forEach((slide, idx) => {
           const slideEl = slide as HTMLElement;
-          console.log(`Slide ${idx}: visible=${slideEl.offsetWidth > 0}, offsetLeft=${slideEl.offsetLeft}`);
+          console.log(
+            `Slide ${idx}: visible=${slideEl.offsetWidth > 0}, offsetLeft=${slideEl.offsetLeft}`,
+          );
         });
       }
-      
+
       // Set the current index
       setCurrentIndex(glide.index);
     });
-    
+
     // Add a run.after event to fix transform after any movement
     glide.on('run.after', () => {
       const slidesContainer = glideRef.current?.querySelector('.glide__slides') as HTMLElement;
@@ -172,86 +179,87 @@ export default function ProjectModal({
     e.stopPropagation();
     e.preventDefault();
     setIsNavigating(true);
-    
+
     if (glideInstance.current && isGlideReady) {
       glideInstance.current.go('<');
       console.log('Navigate prev');
     }
-    
+
     setTimeout(() => setIsNavigating(false), 100);
   };
-  
+
   const handleNext = (e: React.MouseEvent) => {
     e.stopPropagation();
     e.preventDefault();
     setIsNavigating(true);
-    
+
     if (glideInstance.current && isGlideReady) {
       glideInstance.current.go('>');
       console.log('Navigate next');
     }
-    
+
     setTimeout(() => setIsNavigating(false), 100);
   };
-  
+
   const handleGoTo = (index: number) => (e: React.MouseEvent) => {
     e.stopPropagation();
     e.preventDefault();
     setIsNavigating(true);
-    
+
     if (glideInstance.current && isGlideReady) {
       glideInstance.current.go(`=${index}`);
       console.log('Navigate to:', index);
     }
-    
+
     setTimeout(() => setIsNavigating(false), 100);
   };
 
   return (
     <>
       {/* Navigation controls rendered through portal */}
-      {open && ReactDOM.createPortal(
-        <div data-modal-navigation="true">
-          {/* Navigation arrows */}
-          <button 
-            className="fixed top-1/2 -translate-y-1/2 left-4 lg:left-8 w-12 h-12 rounded-full bg-background border-2 shadow-2xl flex items-center justify-center hover:bg-accent transition-colors z-[100] cursor-pointer"
-            aria-label="Previous project"
-            onMouseDown={handlePrev}
-            type="button"
-          >
-            <ChevronLeft className="w-6 h-6" />
-          </button>
-          <button 
-            className="fixed top-1/2 -translate-y-1/2 right-4 lg:right-8 w-12 h-12 rounded-full bg-background border-2 shadow-2xl flex items-center justify-center hover:bg-accent transition-colors z-[100] cursor-pointer"
-            aria-label="Next project"
-            onMouseDown={handleNext}
-            type="button"
-          >
-            <ChevronRight className="w-6 h-6" />
-          </button>
+      {open &&
+        ReactDOM.createPortal(
+          <div data-modal-navigation="true">
+            {/* Navigation arrows */}
+            <button
+              className="fixed top-1/2 -translate-y-1/2 left-4 lg:left-8 w-12 h-12 rounded-full bg-background border-2 shadow-2xl flex items-center justify-center hover:bg-accent transition-colors z-[100] cursor-pointer"
+              aria-label="Previous project"
+              onMouseDown={handlePrev}
+              type="button"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+            <button
+              className="fixed top-1/2 -translate-y-1/2 right-4 lg:right-8 w-12 h-12 rounded-full bg-background border-2 shadow-2xl flex items-center justify-center hover:bg-accent transition-colors z-[100] cursor-pointer"
+              aria-label="Next project"
+              onMouseDown={handleNext}
+              type="button"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
 
-          {/* Dots indicator */}
-          <div className="fixed bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-[100] bg-background/90 backdrop-blur px-4 py-2 rounded-full shadow-xl">
-            {sortedProjects.map((_, index) => (
-              <button
-                key={index}
-                className={`w-2.5 h-2.5 rounded-full transition-all ${
-                  index === currentIndex 
-                    ? 'bg-primary w-6' 
-                    : 'bg-muted-foreground/50 hover:bg-muted-foreground/70'
-                }`}
-                onMouseDown={handleGoTo(index)}
-                aria-label={`Go to project ${index + 1}`}
-                type="button"
-              />
-            ))}
-          </div>
-        </div>,
-        document.body
-      )}
+            {/* Dots indicator */}
+            <div className="fixed bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-[100] bg-background/90 backdrop-blur px-4 py-2 rounded-full shadow-xl">
+              {sortedProjects.map((project, index) => (
+                <button
+                  key={`${project.id}-dot`}
+                  className={`w-2.5 h-2.5 rounded-full transition-all ${
+                    index === currentIndex
+                      ? 'bg-primary w-6'
+                      : 'bg-muted-foreground/50 hover:bg-muted-foreground/70'
+                  }`}
+                  onMouseDown={handleGoTo(index)}
+                  aria-label={`Go to project ${index + 1}`}
+                  type="button"
+                />
+              ))}
+            </div>
+          </div>,
+          document.body,
+        )}
 
-      <Dialog 
-        open={open} 
+      <Dialog
+        open={open}
         onOpenChange={(newOpen) => {
           // Don't close if we're navigating
           if (isNavigating) {
@@ -260,7 +268,7 @@ export default function ProjectModal({
           onOpenChange(newOpen);
         }}
       >
-        <DialogContent 
+        <DialogContent
           className="max-w-[1200px] w-[90vw] max-h-[85vh] p-0 overflow-hidden"
           onPointerDownOutside={(e) => {
             // Check if the click target is one of our navigation controls
@@ -307,12 +315,8 @@ export default function ProjectModal({
                       <div className="md:col-span-3 p-6 lg:p-8 space-y-5">
                         {/* Header */}
                         <div>
-                          <h2 className="text-2xl font-bold mb-2">
-                            {proj.title}
-                          </h2>
-                          <p className="text-base text-muted-foreground">
-                            {proj.description}
-                          </p>
+                          <h2 className="text-2xl font-bold mb-2">{proj.title}</h2>
+                          <p className="text-base text-muted-foreground">{proj.description}</p>
                         </div>
 
                         {/* Meta Information */}
@@ -350,8 +354,8 @@ export default function ProjectModal({
                                   主な成果
                                 </h3>
                                 <ul className="space-y-2">
-                                  {proj.highlights.map((highlight, index) => (
-                                    <li key={index} className="flex items-center gap-2 text-sm">
+                                  {proj.highlights.map((highlight) => (
+                                    <li key={highlight} className="flex items-center gap-2 text-sm">
                                       <span className="text-primary">✨</span>
                                       <span>{highlight}</span>
                                     </li>
@@ -381,8 +385,8 @@ export default function ProjectModal({
                             <div>
                               <h3 className="font-semibold mb-2 text-sm">詳細説明</h3>
                               <div className="text-sm text-muted-foreground space-y-2">
-                                {proj.detailedDescription.split('\n').map((paragraph, index) => (
-                                  <p key={index}>{paragraph}</p>
+                                {proj.detailedDescription.split('\n').map((paragraph, idx) => (
+                                  <p key={`para-${proj.id}-${idx}`}>{paragraph}</p>
                                 ))}
                               </div>
                             </div>
@@ -395,8 +399,8 @@ export default function ProjectModal({
                               <div>
                                 <h3 className="font-semibold mb-2 text-sm">主な機能</h3>
                                 <ul className="space-y-1.5">
-                                  {proj.features.map((feature, index) => (
-                                    <li key={index} className="flex items-start gap-2 text-sm">
+                                  {proj.features.map((feature) => (
+                                    <li key={feature} className="flex items-start gap-2 text-sm">
                                       <span className="text-primary mt-0.5">•</span>
                                       <span>{feature}</span>
                                     </li>
@@ -410,8 +414,8 @@ export default function ProjectModal({
                               <div>
                                 <h3 className="font-semibold mb-2 text-sm">技術的な挑戦</h3>
                                 <div className="space-y-2">
-                                  {proj.challenges.map((challenge, index) => (
-                                    <div key={index} className="text-sm">
+                                  {proj.challenges.map((challenge, idx) => (
+                                    <div key={`challenge-${proj.id}-${idx}`} className="text-sm">
                                       <div className="font-medium text-xs text-primary mb-0.5">
                                         課題
                                       </div>

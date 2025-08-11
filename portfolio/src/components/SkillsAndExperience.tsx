@@ -40,6 +40,7 @@ export default function SkillsAndExperience() {
   const [activeSkillCategory, setActiveSkillCategory] = useState(0);
   const skillRefs = useRef<(HTMLDivElement | null)[]>([]);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: activeSkillCategory is needed to re-trigger animation on tab change
   useEffect(() => {
     // Animate skill bars when category changes
     skillRefs.current.forEach((skill, index) => {

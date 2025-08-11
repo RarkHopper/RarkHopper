@@ -9,8 +9,8 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { projects } from '@/masterdata/profile';
 import type { Project } from '@/masterdata/profile';
+import { projects } from '@/masterdata/profile';
 import ProjectModalSimple from './ProjectModalSimple';
 import ScrollAnimation from './ScrollAnimation';
 import '@/styles/scrollbar.css';
@@ -34,7 +34,10 @@ export default function Projects() {
   const handleProjectClick = (project: Project) => {
     console.log('Projects: Opening modal for', project.id, project.title);
     console.log('Project object:', project);
-    console.log('SortedProjects order:', sortedProjects.map(p => p.id));
+    console.log(
+      'SortedProjects order:',
+      sortedProjects.map((p) => p.id),
+    );
     setSelectedProject(project);
     setModalOpen(true);
   };
@@ -59,10 +62,7 @@ export default function Projects() {
         <div className="lg:hidden relative">
           <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-primary/20 scrollbar-track-transparent">
             {sortedProjects.map((project) => (
-              <div
-                key={project.id}
-                className="flex-none w-[320px] md:w-[360px] snap-center h-full"
-              >
+              <div key={project.id} className="flex-none w-[320px] md:w-[360px] snap-center h-full">
                 <Card
                   className="overflow-hidden flex flex-col cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1 relative p-0 min-h-full"
                   onClick={() => handleProjectClick(project)}
@@ -107,7 +107,11 @@ export default function Projects() {
                       {project.highlights && project.highlights.length > 0 && (
                         <div className="flex flex-wrap gap-1 mb-3">
                           {project.highlights.slice(0, 2).map((highlight) => (
-                            <Badge key={highlight} variant="outline" className="text-xs border-primary/50 text-primary">
+                            <Badge
+                              key={highlight}
+                              variant="outline"
+                              className="text-xs border-primary/50 text-primary"
+                            >
                               {highlight}
                             </Badge>
                           ))}
@@ -144,7 +148,7 @@ export default function Projects() {
               </div>
             ))}
           </div>
-          
+
           {/* Scroll indicator */}
           <div className="absolute -right-2 top-1/2 -translate-y-1/2 bg-gradient-to-l from-background via-background/80 to-transparent w-20 h-full pointer-events-none md:hidden" />
           <div className="absolute -left-2 top-1/2 -translate-y-1/2 bg-gradient-to-r from-background via-background/80 to-transparent w-20 h-full pointer-events-none md:hidden" />
@@ -199,7 +203,11 @@ export default function Projects() {
                     {project.highlights && project.highlights.length > 0 && (
                       <div className="flex flex-wrap gap-1 mb-3">
                         {project.highlights.slice(0, 2).map((highlight) => (
-                          <Badge key={highlight} variant="outline" className="text-xs border-primary/50 text-primary">
+                          <Badge
+                            key={highlight}
+                            variant="outline"
+                            className="text-xs border-primary/50 text-primary"
+                          >
                             {highlight}
                           </Badge>
                         ))}
@@ -239,11 +247,7 @@ export default function Projects() {
       </div>
 
       {/* Project Detail Modal */}
-      <ProjectModalSimple 
-        project={selectedProject}
-        open={modalOpen}
-        onOpenChange={setModalOpen}
-      />
+      <ProjectModalSimple project={selectedProject} open={modalOpen} onOpenChange={setModalOpen} />
     </section>
   );
 }

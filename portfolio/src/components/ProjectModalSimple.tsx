@@ -1,17 +1,21 @@
-import { useEffect, useState, useMemo } from 'react';
+import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
+import {
+  Calendar,
+  ChevronLeft,
+  ChevronRight,
+  Code,
+  ExternalLink,
+  Github,
+  Trophy,
+  Users,
+} from 'lucide-react';
+import { useEffect, useMemo, useState } from 'react';
 import ReactDOM from 'react-dom';
-import { Calendar, ChevronLeft, ChevronRight, Code, ExternalLink, Github, Trophy, Users } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import {
-  Dialog,
-  DialogContent,
-  DialogTitle,
-  DialogDescription,
-} from '@/components/ui/dialog';
-import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
-import { projects } from '@/masterdata/profile';
+import { Dialog, DialogContent, DialogDescription, DialogTitle } from '@/components/ui/dialog';
 import type { Project } from '@/masterdata/profile';
+import { projects } from '@/masterdata/profile';
 
 interface ProjectModalProps {
   project: Project | null;
@@ -19,11 +23,7 @@ interface ProjectModalProps {
   onOpenChange: (open: boolean) => void;
 }
 
-export default function ProjectModalSimple({ 
-  project, 
-  open, 
-  onOpenChange,
-}: ProjectModalProps) {
+export default function ProjectModalSimple({ project, open, onOpenChange }: ProjectModalProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // Sort projects same way as in Projects component
@@ -41,7 +41,7 @@ export default function ProjectModalSimple({
   // Update current index when project or open state changes
   useEffect(() => {
     if (open && project) {
-      const index = sortedProjects.findIndex(p => p.id === project.id);
+      const index = sortedProjects.findIndex((p) => p.id === project.id);
       if (index >= 0) {
         setCurrentIndex(index);
         console.log('Set current index to:', index, 'for project:', project.id);
@@ -59,27 +59,27 @@ export default function ProjectModalSimple({
     console.log('handlePrev clicked');
     e.stopPropagation();
     e.preventDefault();
-    
+
     const newIndex = currentIndex > 0 ? currentIndex - 1 : sortedProjects.length - 1;
     setCurrentIndex(newIndex);
     console.log('Navigate prev to index:', newIndex);
   };
-  
+
   const handleNext = (e: React.MouseEvent) => {
     console.log('handleNext clicked');
     e.stopPropagation();
     e.preventDefault();
-    
+
     const newIndex = currentIndex < sortedProjects.length - 1 ? currentIndex + 1 : 0;
     setCurrentIndex(newIndex);
     console.log('Navigate next to index:', newIndex);
   };
-  
+
   const handleGoTo = (index: number) => (e: React.MouseEvent) => {
     console.log('handleGoTo clicked, target index:', index);
     e.stopPropagation();
     e.preventDefault();
-    
+
     setCurrentIndex(index);
     console.log('Navigate to index:', index);
   };
@@ -87,69 +87,70 @@ export default function ProjectModalSimple({
   return (
     <>
       {/* Navigation controls rendered through portal */}
-      {open && ReactDOM.createPortal(
-        <div data-modal-navigation="true" style={{ pointerEvents: 'auto' }}>
-          {/* Navigation arrows */}
-          <button 
-            className="fixed top-1/2 -translate-y-1/2 left-4 lg:left-8 w-12 h-12 rounded-full bg-background border-2 shadow-2xl flex items-center justify-center hover:bg-accent transition-colors z-[9999] cursor-pointer"
-            aria-label="Previous project"
-            onClick={handlePrev}
-            style={{ pointerEvents: 'auto' }}
-            type="button"
-          >
-            <ChevronLeft className="w-6 h-6" />
-          </button>
-          <button 
-            className="fixed top-1/2 -translate-y-1/2 right-4 lg:right-8 w-12 h-12 rounded-full bg-background border-2 shadow-2xl flex items-center justify-center hover:bg-accent transition-colors z-[9999] cursor-pointer"
-            aria-label="Next project"
-            onClick={handleNext}
-            style={{ pointerEvents: 'auto' }}
-            type="button"
-          >
-            <ChevronRight className="w-6 h-6" />
-          </button>
+      {open &&
+        ReactDOM.createPortal(
+          <div data-modal-navigation="true" style={{ pointerEvents: 'auto' }}>
+            {/* Navigation arrows */}
+            <button
+              className="fixed top-1/2 -translate-y-1/2 left-4 lg:left-8 w-12 h-12 rounded-full bg-background border-2 shadow-2xl flex items-center justify-center hover:bg-accent transition-colors z-[9999] cursor-pointer"
+              aria-label="Previous project"
+              onClick={handlePrev}
+              style={{ pointerEvents: 'auto' }}
+              type="button"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+            <button
+              className="fixed top-1/2 -translate-y-1/2 right-4 lg:right-8 w-12 h-12 rounded-full bg-background border-2 shadow-2xl flex items-center justify-center hover:bg-accent transition-colors z-[9999] cursor-pointer"
+              aria-label="Next project"
+              onClick={handleNext}
+              style={{ pointerEvents: 'auto' }}
+              type="button"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
 
-          {/* Dots indicator */}
-          <div className="fixed bottom-[calc(12.5vh-30px)] left-1/2 -translate-x-1/2 flex gap-2 z-[9999] bg-background/90 backdrop-blur px-4 py-2 rounded-full shadow-xl">
-            {sortedProjects.map((_, index) => (
-              <button
-                key={index}
-                className={`w-2.5 h-2.5 rounded-full transition-all ${
-                  index === currentIndex 
-                    ? 'bg-primary w-6' 
-                    : 'bg-muted-foreground/50 hover:bg-muted-foreground/70'
-                }`}
-                onClick={handleGoTo(index)}
-                aria-label={`Go to project ${index + 1}`}
-                type="button"
-              />
-            ))}
-          </div>
-        </div>,
-        document.body
-      )}
+            {/* Dots indicator */}
+            <div className="fixed bottom-[calc(12.5vh-30px)] left-1/2 -translate-x-1/2 flex gap-2 z-[9999] bg-background/90 backdrop-blur px-4 py-2 rounded-full shadow-xl">
+              {sortedProjects.map((project, index) => (
+                <button
+                  key={`${project.id}-dot`}
+                  className={`w-2.5 h-2.5 rounded-full transition-all ${
+                    index === currentIndex
+                      ? 'bg-primary w-6'
+                      : 'bg-muted-foreground/50 hover:bg-muted-foreground/70'
+                  }`}
+                  onClick={handleGoTo(index)}
+                  aria-label={`Go to project ${index + 1}`}
+                  type="button"
+                />
+              ))}
+            </div>
+          </div>,
+          document.body,
+        )}
 
-      <Dialog 
-        open={open} 
+      <Dialog
+        open={open}
         onOpenChange={(newOpen) => {
           // Check if the event came from navigation controls
           const event = window.event as MouseEvent | PointerEvent;
-          if (event && event.target) {
+          if (event?.target) {
             const target = event.target as HTMLElement;
             if (target.closest('[data-modal-navigation]')) {
               console.log('Dialog close prevented - navigation control clicked');
               return; // Don't close the dialog
             }
           }
-          
+
           onOpenChange(newOpen);
         }}
       >
-        <DialogContent 
+        <DialogContent
           className="w-[90vw] h-[75vh] max-w-[1400px] p-0 overflow-hidden"
           onPointerDownOutside={(e) => {
             const target = e.target as HTMLElement;
-            
+
             // Check if the click is on our navigation controls
             if (target.closest('[data-modal-navigation]')) {
               console.log('Click on navigation control detected, preventing close');
@@ -162,7 +163,7 @@ export default function ProjectModalSimple({
             <DialogTitle>プロジェクト詳細</DialogTitle>
             <DialogDescription>プロジェクトの詳細情報を表示しています</DialogDescription>
           </VisuallyHidden>
-          
+
           {currentProject && (
             <div className="grid md:grid-cols-5 gap-0 h-full overflow-y-auto">
               {/* Left side - Image */}
@@ -192,12 +193,8 @@ export default function ProjectModalSimple({
               <div className="md:col-span-3 p-6 lg:p-8 space-y-5">
                 {/* Header */}
                 <div>
-                  <h2 className="text-2xl font-bold mb-2">
-                    {currentProject.title}
-                  </h2>
-                  <p className="text-base text-muted-foreground">
-                    {currentProject.description}
-                  </p>
+                  <h2 className="text-2xl font-bold mb-2">{currentProject.title}</h2>
+                  <p className="text-base text-muted-foreground">{currentProject.description}</p>
                 </div>
 
                 {/* Meta Information */}
@@ -235,8 +232,8 @@ export default function ProjectModalSimple({
                           主な成果
                         </h3>
                         <ul className="space-y-2">
-                          {currentProject.highlights.map((highlight, index) => (
-                            <li key={index} className="flex items-start gap-2 text-sm">
+                          {currentProject.highlights.map((highlight) => (
+                            <li key={highlight} className="flex items-start gap-2 text-sm">
                               <span className="text-primary mt-0.5">•</span>
                               <span>{highlight}</span>
                             </li>
@@ -266,8 +263,8 @@ export default function ProjectModalSimple({
                     <div>
                       <h3 className="font-semibold mb-2 text-sm">詳細説明</h3>
                       <div className="text-sm text-muted-foreground space-y-2">
-                        {currentProject.detailedDescription.split('\n').map((paragraph, index) => (
-                          <p key={index}>{paragraph}</p>
+                        {currentProject.detailedDescription.split('\n').map((paragraph, idx) => (
+                          <p key={`para-${currentProject.id}-${idx}`}>{paragraph}</p>
                         ))}
                       </div>
                     </div>
@@ -280,8 +277,8 @@ export default function ProjectModalSimple({
                       <div>
                         <h3 className="font-semibold mb-2 text-sm">主な機能</h3>
                         <ul className="space-y-1.5">
-                          {currentProject.features.map((feature, index) => (
-                            <li key={index} className="flex items-start gap-2 text-sm">
+                          {currentProject.features.map((feature) => (
+                            <li key={feature} className="flex items-start gap-2 text-sm">
                               <span className="text-primary mt-0.5">•</span>
                               <span>{feature}</span>
                             </li>
@@ -295,17 +292,13 @@ export default function ProjectModalSimple({
                       <div>
                         <h3 className="font-semibold mb-2 text-sm">技術的な挑戦</h3>
                         <div className="space-y-2">
-                          {currentProject.challenges.map((challenge, index) => (
-                            <div key={index} className="text-sm">
-                              <div className="font-medium text-xs text-primary mb-0.5">
-                                課題
-                              </div>
+                          {currentProject.challenges.map((challenge, idx) => (
+                            <div key={`challenge-${currentProject.id}-${idx}`} className="text-sm">
+                              <div className="font-medium text-xs text-primary mb-0.5">課題</div>
                               <div className="text-xs text-muted-foreground mb-1">
                                 {challenge.problem}
                               </div>
-                              <div className="font-medium text-xs text-primary mb-0.5">
-                                解決策
-                              </div>
+                              <div className="font-medium text-xs text-primary mb-0.5">解決策</div>
                               <div className="text-xs text-muted-foreground">
                                 {challenge.solution}
                               </div>

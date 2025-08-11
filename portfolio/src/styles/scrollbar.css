@@ -32,7 +32,7 @@
   .scrollbar-thin {
     scrollbar-width: none;
   }
-  
+
   .scrollbar-thin::-webkit-scrollbar {
     display: none;
   }

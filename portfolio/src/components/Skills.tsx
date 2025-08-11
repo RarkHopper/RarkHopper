@@ -38,22 +38,24 @@ export default function Skills() {
     });
   }, []);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: activeCategory is needed to re-trigger animation on tab change
   useEffect(() => {
     // Animate skill bars when category changes
     const bars = document.querySelectorAll('.skill-bar');
-    
+
     bars.forEach((bar, index) => {
       const element = bar as HTMLElement;
       const targetWidth = element.getAttribute('data-width');
-      
-      gsap.fromTo(element,
+
+      gsap.fromTo(
+        element,
         { width: 0 },
         {
           width: targetWidth,
           duration: 0.8,
           delay: index * 0.03,
           ease: 'power2.out',
-        }
+        },
       );
     });
   }, [activeCategory]);
@@ -94,11 +96,8 @@ export default function Skills() {
         <ScrollAnimation animation="fadeIn">
           <div className="bg-card rounded-lg p-6 border">
             <div className="space-y-4">
-              {skillCategories[activeCategory].skills.map((skill, skillIndex) => (
-                <div
-                  key={skill.name}
-                  className="group"
-                >
+              {skillCategories[activeCategory].skills.map((skill) => (
+                <div key={skill.name} className="group">
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-sm font-medium">{skill.name}</span>
                     <span className="text-xs text-muted-foreground">{skill.years}年</span>
