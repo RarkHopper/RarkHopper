@@ -32,6 +32,7 @@ export default function Projects() {
   });
 
   const handleProjectClick = (project: Project) => {
+    console.log('Projects: Opening modal for', project.id, project.title);
     setSelectedProject(project);
     setModalOpen(true);
   };

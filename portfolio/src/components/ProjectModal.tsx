@@ -41,7 +41,9 @@ export default function ProjectModal({
 
   // Find initial index with useMemo to avoid recalculation
   const initialIndex = useMemo(() => {
-    return project ? sortedProjects.findIndex(p => p.id === project.id) : 0;
+    const index = project ? sortedProjects.findIndex(p => p.id === project.id) : 0;
+    console.log('ProjectModal: Finding index for', project?.id, '-> index:', index);
+    return index;
   }, [project, sortedProjects]);
 
   useEffect(() => {
@@ -68,13 +70,24 @@ export default function ProjectModal({
       glideInstance.current?.destroy();
       glideInstance.current = null;
     };
-  }, [open, project]); // Changed dependency to project instead of initialIndex
+  }, [open, initialIndex]); // Use initialIndex to properly track changes
 
   if (!open) return null;
 
-  const handlePrev = () => glideInstance.current?.go('<');
-  const handleNext = () => glideInstance.current?.go('>');
-  const handleGoTo = (index: number) => glideInstance.current?.go(`=${index}`);
+  const handlePrev = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    glideInstance.current?.go('<');
+  };
+  
+  const handleNext = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    glideInstance.current?.go('>');
+  };
+  
+  const handleGoTo = (index: number) => (e: React.MouseEvent) => {
+    e.stopPropagation();
+    glideInstance.current?.go(`=${index}`);
+  };
 
   return (
     <>
@@ -103,7 +116,7 @@ export default function ProjectModal({
               <button
                 key={index}
                 className="glide__bullet w-2.5 h-2.5 rounded-full bg-muted-foreground/50 transition-all hover:bg-primary/70"
-                onClick={() => handleGoTo(index)}
+                onClick={handleGoTo(index)}
                 aria-label={`Go to project ${index + 1}`}
               />
             ))}
