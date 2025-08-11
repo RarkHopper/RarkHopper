@@ -1,7 +1,7 @@
 import { gsap } from 'gsap';
 import { GraduationCap, Mail } from 'lucide-react';
 import { lazy, Suspense, useEffect, useRef } from 'react';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaGithub, FaLinkedin } from 'react-icons/fa6';
 import { Button } from '@/components/ui/button';
 import { profile } from '@/masterdata/profile';
 
