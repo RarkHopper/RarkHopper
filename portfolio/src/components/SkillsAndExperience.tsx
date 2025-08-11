@@ -59,7 +59,7 @@ export default function SkillsAndExperience() {
         },
       );
     });
-  }, []);
+  }, [activeSkillCategory]);
 
   return (
     <section className="relative container py-12 md:py-24 lg:py-32">

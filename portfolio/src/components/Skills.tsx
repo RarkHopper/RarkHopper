@@ -18,7 +18,6 @@ const getSkillColor = (years: number) => {
 
 export default function Skills() {
   const [activeCategory, setActiveCategory] = useState(0);
-  const skillRefs = useRef<(HTMLDivElement | null)[]>([]);
   const categoryRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
   useEffect(() => {
@@ -41,24 +40,23 @@ export default function Skills() {
 
   useEffect(() => {
     // Animate skill bars when category changes
-    skillRefs.current.forEach((skill, index) => {
-      if (!skill) return;
-
-      const bar = skill.querySelector('.skill-bar');
-      if (!bar) return;
-
-      gsap.fromTo(
-        bar,
+    const bars = document.querySelectorAll('.skill-bar');
+    
+    bars.forEach((bar, index) => {
+      const element = bar as HTMLElement;
+      const targetWidth = element.getAttribute('data-width');
+      
+      gsap.fromTo(element,
         { width: 0 },
         {
-          width: bar.getAttribute('data-width'),
+          width: targetWidth,
           duration: 0.8,
           delay: index * 0.03,
           ease: 'power2.out',
-        },
+        }
       );
     });
-  }, []);
+  }, [activeCategory]);
 
   return (
     <section id="skills" className="container py-12 md:py-24 lg:py-32">
@@ -99,9 +97,6 @@ export default function Skills() {
               {skillCategories[activeCategory].skills.map((skill, skillIndex) => (
                 <div
                   key={skill.name}
-                  ref={(el) => {
-                    skillRefs.current[skillIndex] = el;
-                  }}
                   className="group"
                 >
                   <div className="flex items-center justify-between mb-2">
@@ -110,9 +105,9 @@ export default function Skills() {
                   </div>
                   <div className="h-2 bg-muted rounded-full overflow-hidden">
                     <div
-                      className={`skill-bar h-full rounded-full transition-all ${getSkillColor(skill.years)}`}
+                      className={`skill-bar h-full rounded-full ${getSkillColor(skill.years)}`}
                       data-width={getSkillWidth(skill.years)}
-                      style={{ width: 0 }}
+                      style={{ width: '0%' }}
                     />
                   </div>
                 </div>
