@@ -76,43 +76,45 @@ export default function ProjectModal({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-[1200px] w-[90vw] max-h-[80vh] p-0 overflow-hidden">
-        {/* Navigation arrows inside DialogContent */}
+      <DialogContent className="max-w-[1400px] w-[95vw] max-h-[90vh] px-16 py-12 overflow-hidden">
+        {/* Navigation arrows - outside of content area but inside DialogContent */}
         <button 
           ref={prevRef}
-          className="absolute top-1/2 -translate-y-1/2 left-4 w-10 h-10 rounded-full bg-background/95 border shadow-lg flex items-center justify-center hover:bg-accent transition-colors z-10 cursor-pointer"
+          className="absolute top-1/2 -translate-y-1/2 left-4 w-12 h-12 rounded-full bg-background border-2 shadow-lg flex items-center justify-center hover:bg-accent transition-colors z-20 cursor-pointer"
           aria-label="Previous project"
           onClick={(e) => e.stopPropagation()}
         >
-          <ChevronLeft className="w-5 h-5" />
+          <ChevronLeft className="w-6 h-6" />
         </button>
         <button 
           ref={nextRef}
-          className="absolute top-1/2 -translate-y-1/2 right-4 w-10 h-10 rounded-full bg-background/95 border shadow-lg flex items-center justify-center hover:bg-accent transition-colors z-10 cursor-pointer"
+          className="absolute top-1/2 -translate-y-1/2 right-4 w-12 h-12 rounded-full bg-background border-2 shadow-lg flex items-center justify-center hover:bg-accent transition-colors z-20 cursor-pointer"
           aria-label="Next project"
           onClick={(e) => e.stopPropagation()}
         >
-          <ChevronRight className="w-5 h-5" />
+          <ChevronRight className="w-6 h-6" />
         </button>
 
-        {/* Dots indicator at the bottom of DialogContent */}
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10 bg-background/90 backdrop-blur px-3 py-2 rounded-full">
+        {/* Dots indicator - at the bottom outside of content */}
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
           {sortedProjects.map((_, index) => (
             <button
               key={index}
-              className="glide__bullet w-2 h-2 rounded-full bg-muted-foreground/40 transition-all hover:bg-muted-foreground/60"
+              className="glide__bullet w-2.5 h-2.5 rounded-full bg-muted-foreground/50 transition-all hover:bg-primary/70"
               data-glide-dir={`=${index}`}
               onClick={() => glideInstance.current?.go(`=${index}`)}
               aria-label={`Go to project ${index + 1}`}
             />
           ))}
         </div>
-        <div ref={glideRef} className="glide relative">
+        
+        {/* Content area with proper boundaries */}
+        <div ref={glideRef} className="glide relative w-full h-full">
           <div className="glide__track" data-glide-el="track">
             <ul className="glide__slides">
               {sortedProjects.map((proj) => (
                 <li key={proj.id} className="glide__slide">
-                  <div className="grid md:grid-cols-5 gap-0 h-[calc(80vh-4rem)] overflow-y-auto">
+                  <div className="grid md:grid-cols-5 gap-0 h-full max-h-[calc(90vh-8rem)] overflow-y-auto rounded-lg border bg-background">
                     {/* Left side - Image */}
                     <div className="md:col-span-2 relative h-full min-h-[300px] bg-muted">
                       {proj.image ? (
