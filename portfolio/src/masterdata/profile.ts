@@ -65,8 +65,32 @@ export const profile = {
   },
 } as const;
 
+// Project type definition
+export interface Project {
+  id: string;
+  title: string;
+  description: string;
+  year: string;
+  month?: number;
+  tags: string[];
+  github: string | null;
+  demo?: string;
+  image?: string;
+  isOngoing?: boolean;
+  program?: string;
+  status?: string;
+  highlights?: string[];
+  team?: number;
+  detailedDescription?: string;
+  features?: string[];
+  challenges?: Array<{
+    problem: string;
+    solution: string;
+  }>;
+}
+
 // Project Master Data
-export const projects = [
+export const projects: Project[] = [
   {
     id: 'mitou-education',
     title: '未踏IT：プログラミング教育支援システム',
@@ -81,6 +105,27 @@ export const projects = [
     highlights: ['未踏IT採択', 'コンテキスト制御RAG', '教材ナレッジグラフ化'],
     image: '/project-placeholder-1.svg',
     github: 'https://github.com/RarkHopper',
+    team: 2,
+    detailedDescription: `従来のプログラミング教育が抱える「画一的なカリキュラム」「生徒の興味との乖離」という課題を解決するため、AIを活用した教育支援システムを開発中。
+    
+生徒一人ひとりの興味や理解度に合わせて、リアルタイムで教材を生成・最適化することで、より効果的で楽しいプログラミング学習体験を実現します。`,
+    features: [
+      '生徒の興味分析システム',
+      'RAG構成による動的教材生成',
+      'ナレッジグラフベースの学習パス最適化',
+      'リアルタイムフィードバック機能',
+      '教師向けダッシュボード',
+    ],
+    challenges: [
+      {
+        problem: '多様な生徒の興味に対応する教材生成の精度',
+        solution: 'RAG構成とファインチューニングを組み合わせた高精度な生成システムの実装',
+      },
+      {
+        problem: '教材の教育的品質の担保',
+        solution: 'ナレッジグラフを活用した学習順序の最適化と教育専門家によるレビュー',
+      },
+    ],
   },
   {
     id: 'uwb-survival',
@@ -148,9 +193,7 @@ export const projects = [
     description:
       '5年間のMinecraftサーバ運営。独自プラグイン開発とコミュニティ管理を通じて、プログラミングスキルを実践的に習得。',
     year: '2019-2024',
-    month: null,
     status: '5年間運営',
-    program: null,
     isOngoing: false,
     tags: ['PHP', 'PocketMine-MP', 'MySQL', 'Linux'],
     highlights: ['独自プラグイン開発', 'コミュニティ運営'],

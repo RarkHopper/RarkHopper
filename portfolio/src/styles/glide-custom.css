@@ -1,0 +1,48 @@
+/* Custom Glide.js styles */
+.glide__slide {
+  opacity: 0.6;
+  transform: scale(0.9);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.glide__slide--active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Smooth bullet active state */
+.glide__bullet--active {
+  background-color: hsl(var(--primary));
+  width: 2rem;
+}
+
+/* Better mouse dragging experience */
+.glide--dragging {
+  cursor: grabbing !important;
+}
+
+.glide--dragging * {
+  cursor: grabbing !important;
+}
+
+/* Remove default outline on focus */
+.glide__arrow:focus,
+.glide__bullet:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px hsl(var(--ring));
+}
+
+/* Smooth transitions */
+.glide__track {
+  transition: height 0.3s ease;
+}
+
+/* Better touch experience */
+.glide__slides {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
