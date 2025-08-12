@@ -1,7 +1,13 @@
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useEffect, useRef, useState } from 'react';
 import { timeline } from '@/masterdata/profile';
 import ScrollAnimation from './ScrollAnimation';
+
+// ScrollTriggerプラグインを登録
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 export default function Timeline() {
   const itemsRef = useRef<(HTMLButtonElement | null)[]>([]);

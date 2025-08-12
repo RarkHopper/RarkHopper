@@ -2,6 +2,11 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useEffect, useRef } from 'react';
 
+// ScrollTriggerプラグインを登録
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
+
 interface ScrollAnimationProps {
   children: React.ReactNode;
   className?: string;
@@ -22,11 +27,6 @@ export default function ScrollAnimation({
   const elementRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // useEffect内でScrollTriggerプラグインを登録
-    if (typeof window !== 'undefined') {
-      gsap.registerPlugin(ScrollTrigger);
-    }
-
     if (!elementRef.current) return;
 
     const element = elementRef.current;

@@ -54,11 +54,7 @@ export default function Contact() {
 
               <div className="pt-6 text-center">
                 <p className="text-sm text-muted-foreground">
-                  {uiTexts.contact.footer.text.split(uiTexts.contact.footer.highlightText)[0]}
-                  <span className="font-semibold text-primary">
-                    {uiTexts.contact.footer.highlightText}
-                  </span>
-                  {uiTexts.contact.footer.text.split(uiTexts.contact.footer.highlightText)[1]}
+                  {uiTexts.contact.footer.text}
                 </p>
               </div>
             </CardContent>
