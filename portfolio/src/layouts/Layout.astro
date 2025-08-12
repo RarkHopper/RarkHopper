@@ -5,6 +5,8 @@ export interface Props {
 }
 
 const { title, description = 'My Portfolio' } = Astro.props;
+const siteUrl = import.meta.env.SITE || 'https://rarkhopper.tech';
+const ogImageUrl = `${siteUrl}/user-icon.jpg`;
 ---
 
 <!doctype html>
@@ -13,21 +15,22 @@ const { title, description = 'My Portfolio' } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/jpeg" href="/user-icon.jpg" />
     <meta name="generator" content={Astro.generator} />
     
     <!-- OGP / Social Media Meta Tags -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="/og-image.svg" />
+    <meta property="og:image" content={ogImageUrl} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="ja_JP" />
+    <meta property="og:url" content={siteUrl} />
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="/og-image.svg" />
+    <meta name="twitter:image" content={ogImageUrl} />
     
     <!-- Additional Meta Tags -->
     <meta name="author" content="RarkHopper (品川朝陽)" />

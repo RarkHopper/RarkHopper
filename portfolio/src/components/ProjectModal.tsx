@@ -39,6 +39,26 @@ export default function ProjectModal({ project, open, onOpenChange }: ProjectMod
     });
   }, []);
 
+  // Preload adjacent images when modal opens
+  useEffect(() => {
+    if (open && sortedProjects.length > 0) {
+      const preloadImage = (project: Project) => {
+        if (project.modalImage || project.image) {
+          const img = new Image();
+          img.src = project.modalImage || project.image || '';
+        }
+      };
+
+      // Preload current, previous, and next images
+      const prevIndex = currentIndex > 0 ? currentIndex - 1 : sortedProjects.length - 1;
+      const nextIndex = currentIndex < sortedProjects.length - 1 ? currentIndex + 1 : 0;
+
+      preloadImage(sortedProjects[currentIndex]);
+      preloadImage(sortedProjects[prevIndex]);
+      preloadImage(sortedProjects[nextIndex]);
+    }
+  }, [open, currentIndex, sortedProjects]);
+
   // Update current index when project or open state changes
   useEffect(() => {
     if (open && project) {
@@ -160,11 +180,12 @@ export default function ProjectModal({ project, open, onOpenChange }: ProjectMod
             <div className="grid md:grid-cols-5 gap-0 h-full">
               {/* Left side - Image */}
               <div className="md:col-span-2 relative h-[300px] md:h-full bg-muted">
-                {(currentProject.modalImage || currentProject.image) ? (
+                {currentProject.modalImage || currentProject.image ? (
                   <img
                     src={currentProject.modalImage || currentProject.image}
                     alt={currentProject.title}
                     className="w-full h-full object-cover"
+                    loading="lazy"
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center text-muted-foreground">
@@ -195,9 +216,7 @@ export default function ProjectModal({ project, open, onOpenChange }: ProjectMod
                   {currentProject.program && (
                     <div className="flex items-center gap-1 text-muted-foreground">
                       <Trophy className="w-4 h-4" />
-                      <span>
-                        {currentProject.program}
-                      </span>
+                      <span>{currentProject.program}</span>
                     </div>
                   )}
                   {currentProject.team && (

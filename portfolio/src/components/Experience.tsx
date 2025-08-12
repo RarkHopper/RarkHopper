@@ -1,5 +1,4 @@
 import { Briefcase, Rocket, Trophy } from 'lucide-react';
-import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { experience, uiTexts } from '@/masterdata/profile';
 import ScrollAnimation from './ScrollAnimation';
@@ -68,8 +67,7 @@ export default function Experience() {
                       <span className="text-muted-foreground/70"> • {item.period}</span>
                     </CardDescription>
                   </CardHeader>
-                  <CardContent className="flex-1 flex flex-col">
-                  </CardContent>
+                  <CardContent className="flex-1 flex flex-col"></CardContent>
                 </Card>
               )),
             )}

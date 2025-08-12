@@ -69,6 +69,7 @@ export default function Projects() {
                         src={project.image}
                         alt={project.title}
                         className="w-full h-full object-cover"
+                        loading="lazy"
                       />
                     )}
                     {project.isOngoing && (
@@ -84,11 +85,7 @@ export default function Projects() {
                           <Badge variant="outline" className="text-xs">
                             {project.year}
                           </Badge>
-                          {project.program && (
-                            <Badge className="text-xs">
-                              {project.program}
-                            </Badge>
-                          )}
+                          {project.program && <Badge className="text-xs">{project.program}</Badge>}
                         </div>
                         <CardTitle className="text-lg line-clamp-2">{project.title}</CardTitle>
                         <CardDescription className="text-sm mt-2 line-clamp-3">
@@ -163,6 +160,7 @@ export default function Projects() {
                       src={project.image}
                       alt={project.title}
                       className="w-full h-full object-cover"
+                      loading="lazy"
                     />
                   )}
                   {project.isOngoing && (

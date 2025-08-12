@@ -150,7 +150,7 @@ export const projects: Project[] = [
     id: 'mitou-education',
     title: 'プログラミング教育支援システム',
     description:
-      '生徒の興味に基づいて教材を動的に生成・再構成するシステム。RAG構成とナレッジグラフを活用し、興味に基づいた学習体験を実現',
+      '生徒の興味や理解度に合わせて教材をリアルタイムに生成・再構成するプログラミング教育支援システム。RAG構成とナレッジグラフで興味領域と学習内容を結びつける',
     year: '2025',
     month: 6,
     program: '未踏IT',
@@ -160,9 +160,8 @@ export const projects: Project[] = [
     image: '/projects/mitoupj.png',
     github: null,
     team: 2,
-    detailedDescription: `従来のプログラミング教育が抱える「画一的なカリキュラム」「生徒の興味との乖離」という課題を解決するため、AIを活用した教育支援システムを開発中。
-    
-生徒一人ひとりの興味や理解度に合わせて、リアルタイムで教材を生成・最適化することで、より効果的で楽しいプログラミング学習体験を実現します。`,
+    detailedDescription: `従来のプログラミング教育が抱える「画一的なカリキュラム」や「生徒の興味との乖離」という課題を解消するため、AIを活用して生徒ごとに学習体験を動的に最適化するシステム。
+生徒の興味・理解度・進捗データをもとに、RAG構成で教材を生成し、ナレッジグラフで興味領域と技術領域の関連を明示化。これにより、初学者でも自分の興味とプログラミングの結びつきを実感しやすく、学びのモチベーションを継続できる。`,
     features: [
       'RAG構成による動的教材生成',
       '興味に基づいたプロジェクト生成',
@@ -183,7 +182,10 @@ export const projects: Project[] = [
     id: 'uwb-survival',
     title: 'UWB電子サバイバルゲーム',
     description:
-      'UWBと画像認識を組み合わせた対戦型ゲーム。リアルタイムでプレイヤーの位置を追跡し、弾を使わずに場所を問わないレジャー化を実現',
+      'UWB測位と画像認識を組み合わせ、リアルタイムで位置を追跡する対戦型サバイバルゲーム。弾を使わず安全かつ屋内外問わず遊べる。',
+    detailedDescription: `
+    UWBタグでプレイヤー位置を数十センチ精度で測定し、カメラ映像と組み合わせてヒット判定を行う対戦型ゲーム。
+レーザータグやサバイバルゲームのような臨場感を、弾や専用フィールド不要で楽しめる。`,
     year: '2025',
     month: 4,
     team: 5,
@@ -198,7 +200,11 @@ export const projects: Project[] = [
     id: 'taruwoshiru',
     title: '酒造樽のトレーサビリティ管理システム',
     description:
-      '北海道のミズナラを使ったの国産樽の流通を管理し、樽のトレーサビリティを高めるシステム',
+      '北海道産ミズナラ樽の受け渡しを管理し、トレーサビリティを担保するシステム。樽詰めや取り出しの履歴も管理できる。',
+    detailedDescription: `
+    国産ウイスキー需要の高まりとともに注目される北海道産ミズナラ樽の価値を高めるため、製造後の受け渡しや樽詰め・取り出しの履歴を一元管理するWebシステム。
+前に何が入っていた樽かという情報はウイスキーの品質や風味に直結するため、この履歴を担保することで樽の価値を保証する。
+ミチタル株式会社との共同開発案件。`,
     year: '2025',
     month: 4,
     team: 5,
@@ -214,7 +220,10 @@ export const projects: Project[] = [
     id: 'machopri',
     title: 'マチョプリ！- 3D身体撮影システム',
     description:
-      '筋トレの成果を3Dスキャンで記録・可視化。3D Gaussian Splattingによる人体の"マチョ盛り"で誰でもマッチョに',
+      '3Dスキャンで筋トレ成果を記録し、3D Gaussian Splattingで立体的かつ“マチョ盛り”に可視化する。',
+    detailedDescription: `
+    筋トレのモチベーション向上を目的に、40台のWebカメラを配置したブース型撮影機で全身を同時撮影し、3D Gaussian Splattingで立体再構築する。
+新雪プログラム採択案件。`,
     year: '2024',
     month: 10,
     team: 4,
@@ -229,26 +238,29 @@ export const projects: Project[] = [
   {
     id: 'hiu-syokken',
     title: '食券自動発行システム',
-    description:
-      '学食での混雑を避けるための、QR掲示型の食券発見システム',
+    description: '学食の混雑緩和を目的としたQRコード式食券自動発行システム。',
+    detailedDescription: `
+    授業の過程で作成したシステムで、他の学生がメンテしやすいように生HTMLにLitを組み込んだわかりやすい実装にこだわった。
+レシートプリンタとNode.jsを連携させ、QRコード読み取り後すぐに印刷できる。`,
     year: '2024',
     team: 6,
-    status: '開発終了',
     isOngoing: false,
     tags: ['Express', 'Lit', 'MariaDB', 'Axum'],
     highlights: [],
     image: '/projects/hiusyokken.png',
     modalImage: '/projects/hiusyokken-modal.png',
-    features: [
-      '食券を購入する機能',
-      'QRコードを読み取り、食券を発行する機能',
-    ],
+    github: null,
+    features: ['食券を購入する機能', 'QRコードを読み取り、食券を発行する機能'],
   },
   {
     id: 'gps-reminder',
     title: 'gpsでリマインドしてくれる日用品残量チェッカー',
     description:
       '位置情報を活用し、必要な日用品を「買えるその瞬間」にリマインドする。100Program 5期でオーディエンス賞最多受賞。',
+    detailedDescription: `
+    ユーザーの現在地と日用品の消耗度をもとに、購入可能な店舗が近いときだけリマインドを送るスマホアプリ。
+GPSとスケジューリングを組み合わせ、「通知が多すぎて無視される問題」を回避する。
+100Program 5期でファイナリストおよび最多オーディエンス賞を受賞。`,
     year: '2024',
     month: 3,
     team: 3,
@@ -259,16 +271,15 @@ export const projects: Project[] = [
     image: '/projects/gpsremind.png',
     modalImage: '/projects/gpsremind-modal.png',
     github: null,
-    features: [
-      '日用品の消耗度の自動計算',
-      '必要な日用品を売っている店舗が近づいたらリマインド',
-    ],
+    features: ['日用品の消耗度の自動計算', '必要な日用品を売っている店舗が近づいたらリマインド'],
   },
   {
     id: 'wakaran-sns',
     title: 'ワイらのための「わからない」を楽しむSNS',
-    description:
-      '「わからない」といった疑問や悩みを共有できるSNS。成果型のSNSよりも、あえて弱いところをシェアすることで安心できる環境を作る。',
+    description: '成果発表型ではなく“わからない”を共有して安心できるSNS。',
+    detailedDescription: `質問サイトや成果共有SNSでは拾いきれない「説明しづらい疑問」や「学びの途中の不安」を安心して投稿できるSNS。
+投稿には「わかる投稿」「わからない投稿」などの種類を設定でき、ユーザー同士で共感や意見交換ができる。
+100Program 5期ファイナリスト案件。`,
     year: '2024',
     month: 3,
     team: 3,
@@ -288,10 +299,12 @@ export const projects: Project[] = [
   {
     id: 'fallendead',
     title: 'FallenDead',
-    description:
-      '1,000体のゾンビが襲いかかるモードと、銃でのPvPを実装した統合版Minecraftサーバー',
+    description: '1,000体のゾンビが襲いかかるモードと、銃でのPvPを実装した統合版Minecraftサーバー',
+    detailedDescription: `最大1,000体のゾンビがプレイヤーを襲うサバイバルモードと、マップ上3拠点を奪い合う2チーム制PvPを実装したMinecraftサーバー。
+PocketMine-MP用の独自プラグインを開発し、30人以上の同時接続に対応。
+A*アルゴリズムによるゾンビ経路探索が重かったため、ルート短縮やスタックゾンビ削除のためのロケットランチャーゾンビを実装し、ゲーム性とパフォーマンスを両立させた。
+初めてのプロジェクトで、サーバーの立ち上げからプラグイン開発、運営までを経験。`,
     year: '2020-2023',
-    status: '開発終了',
     isOngoing: false,
     tags: ['Minecraft', 'PocketMine-MP', 'SQLite', 'Linux'],
     highlights: [],
@@ -402,7 +415,7 @@ export const experience = {
   ],
   awards: [
     {
-      title: '未踏IT人材育成事業',
+      title: '未踏IT人材発掘・育成事業',
       role: '採択',
       period: '2025年',
     },

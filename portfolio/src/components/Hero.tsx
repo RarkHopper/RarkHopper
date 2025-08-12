@@ -19,19 +19,11 @@ export default function Hero() {
   useEffect(() => {
     const ctx = gsap.context(() => {
       // Initial states
-      gsap.set(
-        [
-          avatarRef.current,
-          titleRef.current,
-          ...textRefs.current,
-          ...buttonRefs.current,
-        ],
-        {
-          opacity: 0,
-          y: 20,
-        },
-      );
-      
+      gsap.set([avatarRef.current, titleRef.current, ...textRefs.current, ...buttonRefs.current], {
+        opacity: 0,
+        y: 20,
+      });
+
       // Program logos appear immediately without animation
       gsap.set(programsRef.current, {
         opacity: 1,
@@ -200,32 +192,35 @@ export default function Hero() {
           </div>
 
           {/* Program Logos Cards - positioned at right top */}
-          <div ref={programsRef} className="absolute -right-4 sm:-right-6 lg:-right-8 top-8 hidden lg:block">
+          <div
+            ref={programsRef}
+            className="absolute -right-4 sm:-right-6 lg:-right-8 top-8 hidden lg:block"
+          >
             <div className="flex flex-col items-end gap-1">
               <p className="text-xs text-muted-foreground/60 px-3 pb-1">Achievements</p>
               <div className="flex flex-row gap-2">
-              {personalInfo.programs.map((program) => (
-                <a
-                  key={program.id}
-                  href={program.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative overflow-hidden transition-all duration-500 hover:-translate-y-1"
-                >
-                  <div
-                    className="relative p-2.5
+                {personalInfo.programs.map((program) => (
+                  <a
+                    key={program.id}
+                    href={program.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative overflow-hidden transition-all duration-500 hover:-translate-y-1"
+                  >
+                    <div
+                      className="relative p-2.5
                     bg-black/[0.02] dark:bg-white/[0.02] backdrop-blur-md border border-black/[0.03] dark:border-white/[0.05] rounded-xl
                     hover:bg-black/[0.04] dark:hover:bg-white/[0.05] hover:border-black/[0.06] dark:hover:border-white/10
                     transition-all duration-300"
-                  >
-                    <img
-                      src={program.logo}
-                      alt={program.name}
-                      className="h-12 w-12 object-contain"
-                    />
-                  </div>
-                </a>
-              ))}
+                    >
+                      <img
+                        src={program.logo}
+                        alt={program.name}
+                        className="h-12 w-12 object-contain"
+                      />
+                    </div>
+                  </a>
+                ))}
               </div>
             </div>
           </div>

@@ -37,8 +37,7 @@ export default function Contact() {
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2"
                   >
-                    <FaXTwitter className="h-5 w-5" />
-                    X (Twitter): @rRarkHopper
+                    <FaXTwitter className="h-5 w-5" />X (Twitter): @rRarkHopper
                   </a>
                 </Button>
 
