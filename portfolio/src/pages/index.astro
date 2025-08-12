@@ -1,0 +1,20 @@
+---
+import Contact from '../components/Contact';
+import Header from '../components/Header';
+import Hero from '../components/Hero';
+import Projects from '../components/Projects';
+import SkillsAndExperience from '../components/SkillsAndExperience';
+import Timeline from '../components/Timeline';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="RarkHopper - Portfolio" description="北海道情報大学 システム情報学科 3年 / 未踏IT採択クリエータ。生徒の「好き」を起点にしたプログラミング教育支援システムを開発中。">
+  <Header client:load />
+  <main>
+    <Hero client:load />
+    <Timeline client:visible />
+    <Projects client:visible />
+    <SkillsAndExperience client:visible />
+    <Contact client:visible />
+  </main>
+</Layout>

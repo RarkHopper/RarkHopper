@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <rect width="100" height="100" fill="none"/>
+  <g>
+    <!-- Mountain -->
+    <path d="M25 70 L50 30 L75 70 Z" fill="#64748b"/>
+    <path d="M50 30 L42 45 L58 45 Z" fill="white"/>
+    <!-- Trees -->
+    <path d="M20 70 L23 65 L26 70" fill="#16a34a"/>
+    <path d="M74 70 L77 65 L80 70" fill="#16a34a"/>
+  </g>
+</svg>

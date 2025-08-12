@@ -1,17 +1,31 @@
-FROM oven/bun:debian
+FROM mcr.microsoft.com/devcontainers/python:dev-3.13-bookworm
 
-COPY --from=ubuntu:24.04 /root/.bashrc /root/.bashrc
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-RUN apt update -qy && \
-    apt install -qy \
-        locales \
-        vim
+RUN apt-get update -qy \
+    && apt-get install -qy --no-install-recommends \
+    make \
+    vim \
+    wget \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
-# ロケール設定（ja_JP.UTF-8 を有効化）
-RUN echo "ja_JP.UTF-8 UTF-8" >> /etc/locale.gen && \
-    locale-gen && \
-    update-locale LANG=ja_JP.UTF-8
+# install Node.js
+RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash - \
+    && apt-get install -y --no-install-recommends nodejs \
+    && npm install -g npm@11.4.2 \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
-ENV LANG=ja_JP.UTF-8
-ENV LANGUAGE=ja_JP:ja
-ENV LC_ALL=ja_JP.UTF-8
+RUN NPM_PREFIX=$(npm config get prefix) \
+    && mkdir -p "$NPM_PREFIX/lib/node_modules" \
+    && chown -R vscode:vscode "$NPM_PREFIX/lib/node_modules"
+
+USER vscode
+
+ENV NPM_CONFIG_PREFIX=/home/vscode/.npm-global
+ENV PATH=$NPM_CONFIG_PREFIX/bin:$PATH
+
+RUN mkdir -p $NPM_CONFIG_PREFIX && \
+    npm config set prefix "$NPM_CONFIG_PREFIX" && \
+    echo 'export PATH="$HOME/.npm-global/bin:$PATH"' >> ~/.bashrc
