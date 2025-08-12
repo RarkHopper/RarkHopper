@@ -1,5 +1,4 @@
 ---
-import About from '../components/About';
 import Contact from '../components/Contact';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
@@ -13,10 +12,9 @@ import Layout from '../layouts/Layout.astro';
   <Header client:load />
   <main>
     <Hero client:load />
-    <About client:load />
-    <Timeline client:load />
-    <Projects client:load />
-    <SkillsAndExperience client:load />
-    <Contact client:load />
+    <Timeline client:visible />
+    <Projects client:visible />
+    <SkillsAndExperience client:visible />
+    <Contact client:visible />
   </main>
 </Layout>

@@ -69,21 +69,6 @@ export default function Experience() {
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="flex-1 flex flex-col">
-                    <p className="text-xs text-muted-foreground mb-3 flex-1 line-clamp-3">
-                      {item.description}
-                    </p>
-                    <div className="flex flex-wrap gap-1 mt-auto">
-                      {item.tags.slice(0, 3).map((tag) => (
-                        <Badge key={tag} variant="secondary" className="text-xs py-0 px-2">
-                          {tag}
-                        </Badge>
-                      ))}
-                      {item.tags.length > 3 && (
-                        <Badge variant="outline" className="text-xs py-0 px-2">
-                          +{item.tags.length - 3}
-                        </Badge>
-                      )}
-                    </div>
                   </CardContent>
                 </Card>
               )),

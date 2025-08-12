@@ -1,4 +1,5 @@
-import { Github, Mail, MessageSquare } from 'lucide-react';
+import { Mail } from 'lucide-react';
+import { FaXTwitter } from 'react-icons/fa6';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { personalInfo, uiTexts } from '@/masterdata/profile';
@@ -31,23 +32,13 @@ export default function Contact() {
               <div className="flex flex-col gap-4">
                 <Button asChild size="lg" className="w-full">
                   <a
-                    href={personalInfo.contact.github}
+                    href={personalInfo.contact.x}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2"
                   >
-                    <Github className="h-5 w-5" />
-                    GitHub: @{personalInfo.name.nickname}
-                  </a>
-                </Button>
-
-                <Button asChild size="lg" variant="outline" className="w-full">
-                  <a
-                    href={`https://discord.com/users/${personalInfo.contact.discord}`}
-                    className="flex items-center justify-center gap-2"
-                  >
-                    <MessageSquare className="h-5 w-5" />
-                    Discord: {personalInfo.contact.discord}
+                    <FaXTwitter className="h-5 w-5" />
+                    X (Twitter): @rRarkHopper
                   </a>
                 </Button>
 
