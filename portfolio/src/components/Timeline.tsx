@@ -105,7 +105,7 @@ export default function Timeline() {
   };
 
   return (
-    <section id="timeline" className="container py-12 md:py-24 lg:py-32">
+    <section id="timeline" className="container py-12 md:py-24 lg:py-32 scroll-mt-16">
       <ScrollAnimation animation="fadeUp">
         <div className="mx-auto flex max-w-[980px] flex-col items-center gap-4 text-center mb-12">
           <h2 className="text-3xl font-bold leading-tight tracking-tighter md:text-4xl lg:text-5xl">
