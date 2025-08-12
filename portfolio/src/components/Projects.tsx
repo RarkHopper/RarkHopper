@@ -28,7 +28,7 @@ export default function Projects() {
   };
 
   return (
-    <section id="projects" className="relative container py-12 md:py-24 lg:py-32">
+    <section id="projects" className="relative container py-12 md:py-24 lg:py-32 scroll-mt-16">
       {/* Background overlay for better text readability */}
       <div className="absolute inset-0 bg-background/60 backdrop-blur-sm" />
       <ScrollAnimation animation="fadeUp">

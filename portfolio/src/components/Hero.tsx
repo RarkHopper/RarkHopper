@@ -79,7 +79,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section ref={containerRef} className="relative overflow-hidden">
+    <section id="hero" ref={containerRef} className="relative overflow-hidden scroll-mt-16">
       {/* 3D Background Scene */}
       <Suspense
         fallback={

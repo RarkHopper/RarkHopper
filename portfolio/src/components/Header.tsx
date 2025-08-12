@@ -35,8 +35,14 @@ export default function Header() {
           </a>
 
           <nav className="hidden md:flex gap-6">
-            <a href="#about" className="text-sm font-medium hover:text-primary transition-colors">
-              About
+            <a href="#hero" className="text-sm font-medium hover:text-primary transition-colors">
+              Home
+            </a>
+            <a
+              href="#timeline"
+              className="text-sm font-medium hover:text-primary transition-colors"
+            >
+              Timeline
             </a>
             <a
               href="#projects"
@@ -44,14 +50,11 @@ export default function Header() {
             >
               Projects
             </a>
-            <a href="#skills" className="text-sm font-medium hover:text-primary transition-colors">
-              Skills
-            </a>
             <a
-              href="#experience"
+              href="#skills-experience"
               className="text-sm font-medium hover:text-primary transition-colors"
             >
-              Experience
+              Skills
             </a>
             <a href="#contact" className="text-sm font-medium hover:text-primary transition-colors">
               Contact
@@ -79,10 +82,16 @@ export default function Header() {
       {isMenuOpen && (
         <nav className="md:hidden border-t px-4 py-2">
           <a
-            href="#about"
+            href="#hero"
             className="block py-2 text-sm font-medium hover:text-primary transition-colors"
           >
-            About
+            Home
+          </a>
+          <a
+            href="#timeline"
+            className="block py-2 text-sm font-medium hover:text-primary transition-colors"
+          >
+            Timeline
           </a>
           <a
             href="#projects"
@@ -91,16 +100,10 @@ export default function Header() {
             Projects
           </a>
           <a
-            href="#skills"
+            href="#skills-experience"
             className="block py-2 text-sm font-medium hover:text-primary transition-colors"
           >
             Skills
-          </a>
-          <a
-            href="#experience"
-            className="block py-2 text-sm font-medium hover:text-primary transition-colors"
-          >
-            Experience
           </a>
           <a
             href="#contact"
