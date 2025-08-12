@@ -144,21 +144,7 @@ export default function ProjectModal({ project, open, onOpenChange }: ProjectMod
           document.body,
         )}
 
-      <Dialog
-        open={open}
-        onOpenChange={(newOpen) => {
-          // Check if the event came from navigation controls
-          const event = window.event as MouseEvent | PointerEvent;
-          if (event?.target) {
-            const target = event.target as HTMLElement;
-            if (target.closest('[data-modal-navigation]')) {
-              return; // Don't close the dialog
-            }
-          }
-
-          onOpenChange(newOpen);
-        }}
-      >
+      <Dialog open={open} onOpenChange={onOpenChange}>
         <DialogContent
           className="w-[90vw] h-[75vh] max-w-[1400px] p-0 overflow-hidden"
           onPointerDownOutside={(e) => {
