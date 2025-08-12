@@ -21,43 +21,59 @@ export default function Skills() {
   const categoryRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
   useEffect(() => {
-    // Animate category tabs
-    categoryRefs.current.forEach((cat, index) => {
-      if (!cat) return;
-      gsap.fromTo(
-        cat,
-        { opacity: 0, y: 20 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.5,
-          delay: index * 0.1,
-          ease: 'power2.out',
-        },
-      );
+    // GSAPコンテキストを作成して適切なクリーンアップを行う
+    const ctx = gsap.context(() => {
+      // カテゴリータブのアニメーション
+      categoryRefs.current.forEach((cat, index) => {
+        if (!cat) return;
+        gsap.fromTo(
+          cat,
+          { opacity: 0, y: 20 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+            delay: index * 0.1,
+            ease: 'power2.out',
+          },
+        );
+      });
     });
+
+    // クリーンアップ関数：すべてのGSAPアニメーションを削除
+    return () => {
+      ctx.revert();
+    };
   }, []);
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: activeCategory is needed to re-trigger animation on tab change
   useEffect(() => {
-    // Animate skill bars when category changes
-    const bars = document.querySelectorAll('.skill-bar');
+    // GSAPコンテキストを作成して適切なクリーンアップを行う
+    const ctx = gsap.context(() => {
+      // カテゴリー変更時のスキルバーのアニメーション
+      const bars = document.querySelectorAll('.skill-bar');
 
-    bars.forEach((bar, index) => {
-      const element = bar as HTMLElement;
-      const targetWidth = element.getAttribute('data-width');
+      bars.forEach((bar, index) => {
+        const element = bar as HTMLElement;
+        const targetWidth = element.getAttribute('data-width');
 
-      gsap.fromTo(
-        element,
-        { width: 0 },
-        {
-          width: targetWidth,
-          duration: 0.8,
-          delay: index * 0.03,
-          ease: 'power2.out',
-        },
-      );
+        gsap.fromTo(
+          element,
+          { width: 0 },
+          {
+            width: targetWidth,
+            duration: 0.8,
+            delay: index * 0.03,
+            ease: 'power2.out',
+          },
+        );
+      });
     });
+
+    // クリーンアップ関数：すべてのGSAPアニメーションを削除
+    return () => {
+      ctx.revert();
+    };
   }, [activeCategory]);
 
   return (

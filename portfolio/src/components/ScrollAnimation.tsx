@@ -22,7 +22,7 @@ export default function ScrollAnimation({
   const elementRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Register ScrollTrigger plugin inside useEffect
+    // useEffect内でScrollTriggerプラグインを登録
     if (typeof window !== 'undefined') {
       gsap.registerPlugin(ScrollTrigger);
     }
@@ -32,76 +32,71 @@ export default function ScrollAnimation({
     const element = elementRef.current;
     const childElements = element.children;
 
-    // Animation configurations
-    const animations = {
-      fadeUp: {
-        from: { opacity: 0, y: 50 },
-        to: { opacity: 1, y: 0 },
-      },
-      fadeIn: {
-        from: { opacity: 0 },
-        to: { opacity: 1 },
-      },
-      scaleIn: {
-        from: { opacity: 0, scale: 0.8 },
-        to: { opacity: 1, scale: 1 },
-      },
-      slideInLeft: {
-        from: { opacity: 0, x: -100 },
-        to: { opacity: 1, x: 0 },
-      },
-      slideInRight: {
-        from: { opacity: 0, x: 100 },
-        to: { opacity: 1, x: 0 },
-      },
-    };
+    // GSAPコンテキストを作成して適切なクリーンアップを行う
+    const ctx = gsap.context(() => {
+      // アニメーション設定
+      const animations = {
+        fadeUp: {
+          from: { opacity: 0, y: 50 },
+          to: { opacity: 1, y: 0 },
+        },
+        fadeIn: {
+          from: { opacity: 0 },
+          to: { opacity: 1 },
+        },
+        scaleIn: {
+          from: { opacity: 0, scale: 0.8 },
+          to: { opacity: 1, scale: 1 },
+        },
+        slideInLeft: {
+          from: { opacity: 0, x: -100 },
+          to: { opacity: 1, x: 0 },
+        },
+        slideInRight: {
+          from: { opacity: 0, x: 100 },
+          to: { opacity: 1, x: 0 },
+        },
+      };
 
-    const config = animations[animation];
+      const config = animations[animation];
 
-    // Set initial state
-    if (stagger > 0 && childElements.length > 0) {
-      gsap.set(childElements, config.from);
-    } else {
-      gsap.set(element, config.from);
-    }
+      // 初期状態を設定
+      if (stagger > 0 && childElements.length > 0) {
+        gsap.set(childElements, config.from);
+      } else {
+        gsap.set(element, config.from);
+      }
 
-    // Create animation with ScrollTrigger
-    const scrollTriggerConfig = {
-      trigger: element,
-      start: 'top 80%',
-      toggleActions: 'play none none reset',
-    };
+      // ScrollTriggerを使用したアニメーションを作成
+      const scrollTriggerConfig = {
+        trigger: element,
+        start: 'top 80%',
+        toggleActions: 'play none none reset',
+      };
 
-    if (stagger > 0 && childElements.length > 0) {
-      gsap.to(childElements, {
-        ...config.to,
-        duration,
-        delay,
-        stagger,
-        ease: 'power3.out',
-        scrollTrigger: scrollTriggerConfig,
-      });
-    } else {
-      gsap.to(element, {
-        ...config.to,
-        duration,
-        delay,
-        ease: 'power3.out',
-        scrollTrigger: scrollTriggerConfig,
-      });
-    }
+      if (stagger > 0 && childElements.length > 0) {
+        gsap.to(childElements, {
+          ...config.to,
+          duration,
+          delay,
+          stagger,
+          ease: 'power3.out',
+          scrollTrigger: scrollTriggerConfig,
+        });
+      } else {
+        gsap.to(element, {
+          ...config.to,
+          duration,
+          delay,
+          ease: 'power3.out',
+          scrollTrigger: scrollTriggerConfig,
+        });
+      }
+    }, element); // この要素にコンテキストをスコープ
 
-    // Cleanup
+    // クリーンアップ関数：すべてのGSAPアニメーションとScrollTriggerを削除
     return () => {
-      // Kill all ScrollTrigger instances related to this element
-      ScrollTrigger.getAll().forEach((trigger) => {
-        if (trigger.trigger === element || trigger.trigger?.parentElement === element) {
-          trigger.kill();
-        }
-      });
-
-      // Refresh ScrollTrigger after cleanup
-      ScrollTrigger.refresh();
+      ctx.revert(); // このコンテキスト内で作成されたすべてのGSAPアニメーションとScrollTriggerを削除
     };
   }, [animation, delay, duration, stagger]);
 

@@ -9,72 +9,80 @@ export default function Timeline() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   useEffect(() => {
-    // Animate left side items
-    itemsRef.current.forEach((item, index) => {
-      if (!item) return;
+    // GSAPコンテキストを作成して適切なクリーンアップを行う
+    const ctx = gsap.context(() => {
+      // 左側のアイテムのアニメーション
+      itemsRef.current.forEach((item, index) => {
+        if (!item) return;
 
-      gsap.fromTo(
-        item,
-        {
-          opacity: 0,
-          x: -50,
-        },
-        {
-          opacity: 1,
-          x: 0,
-          duration: 0.8,
-          delay: index * 0.15,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: item,
-            start: 'top 85%',
-            toggleActions: 'play none none none',
+        gsap.fromTo(
+          item,
+          {
+            opacity: 0,
+            x: -50,
           },
-        },
-      );
+          {
+            opacity: 1,
+            x: 0,
+            duration: 0.8,
+            delay: index * 0.15,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: item,
+              start: 'top 85%',
+              toggleActions: 'play none none none',
+            },
+          },
+        );
+      });
+
+      // 右側のドットのアニメーション
+      dotsRef.current.forEach((dot, index) => {
+        if (!dot) return;
+
+        gsap.fromTo(
+          dot,
+          {
+            scale: 0,
+          },
+          {
+            scale: 1,
+            duration: 0.5,
+            delay: index * 0.15 + 0.4,
+            ease: 'back.out(1.7)',
+            scrollTrigger: {
+              trigger: dot,
+              start: 'top 85%',
+              toggleActions: 'play none none none',
+            },
+          },
+        );
+      });
+
+      // タイムラインの線のアニメーション
+      const line = document.querySelector('.timeline-line');
+      if (line) {
+        gsap.fromTo(
+          line,
+          { scaleY: 0, transformOrigin: 'top' },
+          {
+            scaleY: 1,
+            duration: 1.5,
+            ease: 'power2.inOut',
+            scrollTrigger: {
+              trigger: line,
+              start: 'top 85%',
+              toggleActions: 'play none none none',
+            },
+          },
+        );
+      }
     });
 
-    // Animate right side dots
-    dotsRef.current.forEach((dot, index) => {
-      if (!dot) return;
-
-      gsap.fromTo(
-        dot,
-        {
-          scale: 0,
-        },
-        {
-          scale: 1,
-          duration: 0.5,
-          delay: index * 0.15 + 0.4,
-          ease: 'back.out(1.7)',
-          scrollTrigger: {
-            trigger: dot,
-            start: 'top 85%',
-            toggleActions: 'play none none none',
-          },
-        },
-      );
-    });
-
-    // Animate timeline line
-    const line = document.querySelector('.timeline-line');
-    if (line) {
-      gsap.fromTo(
-        line,
-        { scaleY: 0, transformOrigin: 'top' },
-        {
-          scaleY: 1,
-          duration: 1.5,
-          ease: 'power2.inOut',
-          scrollTrigger: {
-            trigger: line,
-            start: 'top 85%',
-            toggleActions: 'play none none none',
-          },
-        },
-      );
-    }
+    // クリーンアップ関数：すべてのGSAPアニメーションとScrollTriggerを削除
+    return () => {
+      ctx.revert(); // このコンテキスト内で作成されたすべてのGSAPアニメーションとScrollTriggerを削除
+    };
   }, []);
 
   const getPosition = (year: string, month: number) => {
