@@ -11,7 +11,8 @@ import {
 } from '@/components/ui/card';
 import type { Project } from '@/masterdata/profile';
 import { projects } from '@/masterdata/profile';
-import ProjectModalSimple from './ProjectModalSimple';
+import OngoingIndicator from './OngoingIndicator';
+import ProjectModal from './ProjectModal';
 import ScrollAnimation from './ScrollAnimation';
 import '@/styles/scrollbar.css';
 
@@ -32,12 +33,6 @@ export default function Projects() {
   });
 
   const handleProjectClick = (project: Project) => {
-    console.log('Projects: Opening modal for', project.id, project.title);
-    console.log('Project object:', project);
-    console.log(
-      'SortedProjects order:',
-      sortedProjects.map((p) => p.id),
-    );
     setSelectedProject(project);
     setModalOpen(true);
   };
@@ -64,11 +59,11 @@ export default function Projects() {
             {sortedProjects.map((project) => (
               <div key={project.id} className="flex-none w-[320px] md:w-[360px] snap-center h-full">
                 <Card
-                  className="overflow-hidden flex flex-col cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1 relative p-0 min-h-full"
+                  className="overflow-hidden flex flex-col cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1 relative p-0 h-full"
                   onClick={() => handleProjectClick(project)}
                 >
                   {/* Image with Ongoing indicator */}
-                  <div className="relative aspect-video bg-muted">
+                  <div className="relative aspect-video bg-muted flex-shrink-0">
                     {project.image && (
                       <img
                         src={project.image}
@@ -78,59 +73,57 @@ export default function Projects() {
                     )}
                     {project.isOngoing && (
                       <div className="absolute top-3 right-3">
-                        <div className="flex items-center gap-1 bg-primary/90 backdrop-blur text-primary-foreground px-2.5 py-1.5 rounded-full text-xs font-medium">
-                          <div className="h-2 w-2 rounded-full bg-white animate-pulse" />
-                          <span>進行中</span>
-                        </div>
+                        <OngoingIndicator />
                       </div>
                     )}
                   </div>
-                  <div className="p-6 flex flex-col flex-1">
-                    <CardHeader className="p-0 pb-3">
-                      <div className="flex items-start justify-between mb-2">
-                        <Badge variant="outline" className="text-xs">
-                          {project.year}
-                        </Badge>
-                        {project.program && (
-                          <Badge className="text-xs">
-                            {project.program}
-                            {project.status && ` ${project.status}`}
+                  <div className="p-6 flex flex-col flex-1 justify-between">
+                    <div>
+                      <CardHeader className="p-0 pb-3">
+                        <div className="flex items-start justify-between mb-2">
+                          <Badge variant="outline" className="text-xs">
+                            {project.year}
                           </Badge>
+                          {project.program && (
+                            <Badge className="text-xs">
+                              {project.program}
+                            </Badge>
+                          )}
+                        </div>
+                        <CardTitle className="text-lg line-clamp-2">{project.title}</CardTitle>
+                        <CardDescription className="text-sm mt-2 line-clamp-3">
+                          {project.description}
+                        </CardDescription>
+                      </CardHeader>
+                      <CardContent className="p-0 pt-3">
+                        {project.highlights && project.highlights.length > 0 && (
+                          <div className="flex flex-wrap gap-1 mb-3">
+                            {project.highlights.slice(0, 2).map((highlight) => (
+                              <Badge
+                                key={highlight}
+                                variant="outline"
+                                className="text-xs border-primary/50 text-primary"
+                              >
+                                {highlight}
+                              </Badge>
+                            ))}
+                          </div>
                         )}
-                      </div>
-                      <CardTitle className="text-lg line-clamp-2">{project.title}</CardTitle>
-                      <CardDescription className="text-sm mt-2 line-clamp-3">
-                        {project.description}
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent className="flex-1 p-0 pt-3">
-                      {project.highlights && project.highlights.length > 0 && (
-                        <div className="flex flex-wrap gap-1 mb-3">
-                          {project.highlights.slice(0, 2).map((highlight) => (
-                            <Badge
-                              key={highlight}
-                              variant="outline"
-                              className="text-xs border-primary/50 text-primary"
-                            >
-                              {highlight}
+                        <div className="flex flex-wrap gap-1">
+                          {project.tags.slice(0, 3).map((tag) => (
+                            <Badge key={tag} variant="secondary" className="text-xs">
+                              {tag}
                             </Badge>
                           ))}
+                          {project.tags.length > 3 && (
+                            <Badge variant="secondary" className="text-xs">
+                              +{project.tags.length - 3}
+                            </Badge>
+                          )}
                         </div>
-                      )}
-                      <div className="flex flex-wrap gap-1">
-                        {project.tags.slice(0, 3).map((tag) => (
-                          <Badge key={tag} variant="secondary" className="text-xs">
-                            {tag}
-                          </Badge>
-                        ))}
-                        {project.tags.length > 3 && (
-                          <Badge variant="secondary" className="text-xs">
-                            +{project.tags.length - 3}
-                          </Badge>
-                        )}
-                      </div>
-                    </CardContent>
-                    <CardFooter className="p-0 pt-4 mt-auto">
+                      </CardContent>
+                    </div>
+                    <CardFooter className="p-0 pt-4">
                       <Button
                         size="sm"
                         variant="outline"
@@ -160,11 +153,11 @@ export default function Projects() {
             {sortedProjects.map((project) => (
               <Card
                 key={project.id}
-                className="overflow-hidden flex flex-col cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1 relative p-0 min-h-full"
+                className="overflow-hidden flex flex-col cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1 relative p-0 h-full"
                 onClick={() => handleProjectClick(project)}
               >
                 {/* Image with Ongoing indicator */}
-                <div className="relative aspect-video bg-muted">
+                <div className="relative aspect-video bg-muted flex-shrink-0">
                   {project.image && (
                     <img
                       src={project.image}
@@ -174,58 +167,57 @@ export default function Projects() {
                   )}
                   {project.isOngoing && (
                     <div className="absolute top-3 right-3">
-                      <div className="flex items-center gap-1 bg-primary/90 backdrop-blur text-primary-foreground px-2.5 py-1.5 rounded-full text-xs font-medium">
-                        <div className="h-2 w-2 rounded-full bg-white animate-pulse" />
-                        <span>進行中</span>
-                      </div>
+                      <OngoingIndicator />
                     </div>
                   )}
                 </div>
-                <div className="p-6">
-                  <CardHeader className="p-0 pb-3">
-                    <div className="flex items-start justify-between mb-2">
-                      <Badge variant="outline" className="text-xs">
-                        {project.year}
-                      </Badge>
-                      {project.program && (
-                        <Badge className="text-xs">
-                          {project.program}
-                          {project.status && ` ${project.status}`}
+                <div className="p-6 flex flex-col flex-1 justify-between">
+                  <div>
+                    <CardHeader className="p-0 pb-3">
+                      <div className="flex items-start justify-between mb-2">
+                        <Badge variant="outline" className="text-xs">
+                          {project.year}
                         </Badge>
+                        {project.program && (
+                          <Badge className="text-xs">
+                            {project.program}
+                            {project.status && ` ${project.status}`}
+                          </Badge>
+                        )}
+                      </div>
+                      <CardTitle className="text-lg line-clamp-2">{project.title}</CardTitle>
+                      <CardDescription className="text-sm mt-2 line-clamp-3">
+                        {project.description}
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent className="p-0 pt-3">
+                      {project.highlights && project.highlights.length > 0 && (
+                        <div className="flex flex-wrap gap-1 mb-3">
+                          {project.highlights.slice(0, 2).map((highlight) => (
+                            <Badge
+                              key={highlight}
+                              variant="outline"
+                              className="text-xs border-primary/50 text-primary"
+                            >
+                              {highlight}
+                            </Badge>
+                          ))}
+                        </div>
                       )}
-                    </div>
-                    <CardTitle className="text-lg line-clamp-2">{project.title}</CardTitle>
-                    <CardDescription className="text-sm mt-2 line-clamp-3">
-                      {project.description}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="flex-1 p-0 pt-3">
-                    {project.highlights && project.highlights.length > 0 && (
-                      <div className="flex flex-wrap gap-1 mb-3">
-                        {project.highlights.slice(0, 2).map((highlight) => (
-                          <Badge
-                            key={highlight}
-                            variant="outline"
-                            className="text-xs border-primary/50 text-primary"
-                          >
-                            {highlight}
+                      <div className="flex flex-wrap gap-1">
+                        {project.tags.slice(0, 3).map((tag) => (
+                          <Badge key={tag} variant="secondary" className="text-xs">
+                            {tag}
                           </Badge>
                         ))}
+                        {project.tags.length > 3 && (
+                          <Badge variant="secondary" className="text-xs">
+                            +{project.tags.length - 3}
+                          </Badge>
+                        )}
                       </div>
-                    )}
-                    <div className="flex flex-wrap gap-1">
-                      {project.tags.slice(0, 3).map((tag) => (
-                        <Badge key={tag} variant="secondary" className="text-xs">
-                          {tag}
-                        </Badge>
-                      ))}
-                      {project.tags.length > 3 && (
-                        <Badge variant="secondary" className="text-xs">
-                          +{project.tags.length - 3}
-                        </Badge>
-                      )}
-                    </div>
-                  </CardContent>
+                    </CardContent>
+                  </div>
                   <CardFooter className="p-0 pt-4">
                     <Button
                       size="sm"
@@ -247,7 +239,7 @@ export default function Projects() {
       </div>
 
       {/* Project Detail Modal */}
-      <ProjectModalSimple project={selectedProject} open={modalOpen} onOpenChange={setModalOpen} />
+      <ProjectModal project={selectedProject} open={modalOpen} onOpenChange={setModalOpen} />
     </section>
   );
 }
