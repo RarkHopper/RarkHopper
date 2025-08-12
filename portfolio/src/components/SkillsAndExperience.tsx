@@ -42,24 +42,32 @@ export default function SkillsAndExperience() {
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: activeSkillCategory is needed to re-trigger animation on tab change
   useEffect(() => {
-    // Animate skill bars when category changes
-    skillRefs.current.forEach((skill, index) => {
-      if (!skill) return;
+    // GSAPコンテキストを作成して適切なクリーンアップを行う
+    const ctx = gsap.context(() => {
+      // カテゴリー変更時のスキルバーのアニメーション
+      skillRefs.current.forEach((skill, index) => {
+        if (!skill) return;
 
-      const bar = skill.querySelector('.skill-bar');
-      if (!bar) return;
+        const bar = skill.querySelector('.skill-bar');
+        if (!bar) return;
 
-      gsap.fromTo(
-        bar,
-        { width: 0 },
-        {
-          width: bar.getAttribute('data-width'),
-          duration: 0.8,
-          delay: index * 0.03,
-          ease: 'power2.out',
-        },
-      );
+        gsap.fromTo(
+          bar,
+          { width: 0 },
+          {
+            width: bar.getAttribute('data-width'),
+            duration: 0.8,
+            delay: index * 0.03,
+            ease: 'power2.out',
+          },
+        );
+      });
     });
+
+    // クリーンアップ関数：すべてのGSAPアニメーションを削除
+    return () => {
+      ctx.revert();
+    };
   }, [activeSkillCategory]);
 
   return (
