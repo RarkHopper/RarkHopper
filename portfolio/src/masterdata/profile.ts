@@ -405,17 +405,17 @@ export const experience = {
     {
       title: '株式会社infiniteloop',
       role: '長期インターン',
-      period: '2022年〜現在',
+      period: '2023年〜現在',
     },
     {
       title: '株式会社コロプラ',
       role: '2 Weeks インターン',
-      period: '2023年',
+      period: '2025年',
     },
     {
       title: 'プログラミングスクール',
       role: '講師',
-      period: '2023年〜現在',
+      period: '2024年〜現在',
     },
   ],
   awards: [
@@ -423,11 +423,6 @@ export const experience = {
       title: '未踏IT人材発掘・育成事業',
       role: '採択',
       period: '2025年',
-    },
-    {
-      title: '100Program 5期',
-      role: '2チーム同時ファイナリスト',
-      period: '2024年',
     },
     {
       title: '新雪プログラム',
@@ -447,6 +442,11 @@ export const experience = {
     {
       title: '北海道情報大学 ビジネスプレゼンテーションコンテスト',
       role: 'アイディア賞',
+      period: '2024年',
+    },
+    {
+      title: '100Program 5期',
+      role: '2チーム同時ファイナリスト',
       period: '2024年',
     },
   ],
