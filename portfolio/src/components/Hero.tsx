@@ -16,6 +16,11 @@ export default function Hero() {
   const buttonRefs = useRef<(HTMLDivElement | null)[]>([]);
   const programsRef = useRef<HTMLDivElement>(null);
 
+  // Typed setter function for text refs
+  const setTextRef = (index: number) => (el: HTMLParagraphElement | null) => {
+    textRefs.current[index] = el;
+  };
+
   useEffect(() => {
     const ctx = gsap.context(() => {
       // Initial states
@@ -108,33 +113,21 @@ export default function Hero() {
               {personalInfo.name.nickname}
             </h1>
 
-            <p
-              ref={(el) => {
-                textRefs.current[0] = el;
-              }}
-              className="mb-2 text-lg text-muted-foreground"
-            >
+            <p ref={setTextRef(0)} className="mb-2 text-lg text-muted-foreground">
               {personalInfo.name.ja} / {personalInfo.name.en}
             </p>
 
             {/* University info */}
-            <div
-              ref={(el) => {
-                textRefs.current[1] = el as HTMLParagraphElement;
-              }}
-              className="mb-6 flex items-center gap-2 text-muted-foreground"
-            >
+            <p ref={setTextRef(1)} className="mb-6 flex items-center gap-2 text-muted-foreground">
               <GraduationCap className="h-4 w-4" />
               <span>
                 {personalInfo.university} {personalInfo.department} {personalInfo.grade}年
               </span>
-            </div>
+            </p>
 
             {/* Bio */}
             <p
-              ref={(el) => {
-                textRefs.current[2] = el;
-              }}
+              ref={setTextRef(2)}
               className="mb-8 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg"
             >
               {personalInfo.bio.short}
