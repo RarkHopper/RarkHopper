@@ -53,9 +53,7 @@ export default function Contact() {
               </div>
 
               <div className="pt-6 text-center">
-                <p className="text-sm text-muted-foreground">
-                  {uiTexts.contact.footer.text}
-                </p>
+                <p className="text-sm text-muted-foreground">{uiTexts.contact.footer.text}</p>
               </div>
             </CardContent>
           </Card>

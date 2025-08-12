@@ -71,7 +71,10 @@ export default function SkillsAndExperience() {
   }, [activeSkillCategory]);
 
   return (
-    <section id="skills-experience" className="relative container py-12 md:py-24 lg:py-32 scroll-mt-16">
+    <section
+      id="skills-experience"
+      className="relative container py-12 md:py-24 lg:py-32 scroll-mt-16"
+    >
       {/* Background overlay for better text readability */}
       <div className="absolute inset-0 bg-background/60 backdrop-blur-sm" />
       <ScrollAnimation animation="fadeUp">

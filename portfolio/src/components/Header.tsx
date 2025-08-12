@@ -38,7 +38,10 @@ export default function Header() {
             <a href="#hero" className="text-sm font-medium hover:text-primary transition-colors">
               Home
             </a>
-            <a href="#timeline" className="text-sm font-medium hover:text-primary transition-colors">
+            <a
+              href="#timeline"
+              className="text-sm font-medium hover:text-primary transition-colors"
+            >
               Timeline
             </a>
             <a
@@ -47,7 +50,10 @@ export default function Header() {
             >
               Projects
             </a>
-            <a href="#skills-experience" className="text-sm font-medium hover:text-primary transition-colors">
+            <a
+              href="#skills-experience"
+              className="text-sm font-medium hover:text-primary transition-colors"
+            >
               Skills
             </a>
             <a href="#contact" className="text-sm font-medium hover:text-primary transition-colors">
