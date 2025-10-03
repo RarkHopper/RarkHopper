@@ -19,12 +19,9 @@
 
 ##  その他
 * Minecraftサーバ(PocketMine-MP) 運営 5年
-* 株式会社infiniteloop インターン 3年 ～
-* 株式会社コロプラ インターン
-* BEENOS株式会社 インターン
-* プログラミングスクール 講師 1年 ～
 
 ## 関連ページ
 * ![X (Twitter)](https://x.com/rRarkHopper)
 * ![未踏名鑑](https://scrapbox.io/mitou-meikan/%E5%93%81%E5%B7%9D_%E6%9C%9D%E9%99%BD)
+
 
