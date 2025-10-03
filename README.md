@@ -21,5 +21,7 @@
 * Minecraftサーバ(PocketMine-MP) 運営 5年
 * 株式会社infiniteloop インターン 3年 ～
 * 株式会社コロプラ インターン
+* BEENOS株式会社 インターン
 * プログラミングスクール 講師 1年 ～
+
 
