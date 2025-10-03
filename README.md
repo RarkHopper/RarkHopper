@@ -1,4 +1,4 @@
-# RarkHopper
+# ![RarkHopper](rarkhopper.tech)
 北海道情報大学 学部3年生  
 
 
@@ -24,4 +24,7 @@
 * BEENOS株式会社 インターン
 * プログラミングスクール 講師 1年 ～
 
+## 関連ページ
+* ![X (Twitter)](https://x.com/rRarkHopper)
+* ![未踏名鑑](https://scrapbox.io/mitou-meikan/%E5%93%81%E5%B7%9D_%E6%9C%9D%E9%99%BD)
 
