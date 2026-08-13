@@ -20,7 +20,7 @@ import { createVoronoiCells } from "./layout-voronoi.mjs";
  * @property {number} detailY
  */
 
-const WIDTH = 720;
+const WIDTH = 560;
 const CENTER_X = WIDTH / 2;
 const CENTER_Y = 150;
 const RADIUS = 132;
