@@ -1,7 +1,7 @@
 PHPerです（願望）
 
 <p align="center">
-  <img src="./language-statistic/dist/language.svg" alt="Treemap of languages used across RarkHopper's GitHub repositories" width="550">
+  <img src="./language-statistic/dist/language.svg" alt="Treemap of languages used across RarkHopper's GitHub repositories" width="846">
 </p>
 
 <p align="center">
