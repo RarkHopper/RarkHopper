@@ -46,12 +46,12 @@ jobs:
 
       - name: Commit generated files when changed
         run: |
-          if git diff --quiet -- dist/language.svg; then
+          if git diff --quiet -- dist/language.svg dist/scatter.svg; then
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -- dist/language.svg
+          git add -- dist/language.svg dist/scatter.svg
           git commit -m "Update language statistic"
           git push
