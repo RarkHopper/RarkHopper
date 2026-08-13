@@ -20,11 +20,10 @@ import { createVoronoiCells } from "./layout-voronoi.mjs";
  * @property {number} detailY
  */
 
-const WIDTH = 560;
-const CENTER_X = WIDTH / 2;
-const CENTER_Y = 150;
 const RADIUS = 132;
-const HEIGHT = CENTER_Y + RADIUS + 18;
+const SIZE = RADIUS * 2;
+const CENTER_X = RADIUS;
+const CENTER_Y = RADIUS;
 const MAX_FONT_SIZE = 11;
 const MIN_FONT_SIZE = 3;
 const DETAIL_FONT_RATIO = 0.72;
@@ -217,7 +216,7 @@ export function renderLanguageStatisticSvg(statistics) {
   const cells = createVoronoiCells(prepared, CENTER_X, CENTER_Y, RADIUS);
 
   return `<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${HEIGHT}" viewBox="0 0 ${WIDTH} ${HEIGHT}" role="img" aria-labelledby="title description">
+<svg xmlns="http://www.w3.org/2000/svg" width="${SIZE}" height="${SIZE}" viewBox="0 0 ${SIZE} ${SIZE}" role="img" aria-labelledby="title description">
   <title id="title">Repository languages</title>
   <desc id="description">Language proportions across personally owned repositories</desc>
   <style>
