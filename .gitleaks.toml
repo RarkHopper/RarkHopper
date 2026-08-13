@@ -1,0 +1,11 @@
+title = "RarkHopper gitleaks configuration"
+
+[extend]
+useDefault = true
+
+[[rules]]
+id = "repository-reference-in-generated-output"
+description = "Repository reference in public generated output"
+regex = '''(?i)(?:github\.com/(?:repos/)?|["']full_name["']\s*:\s*["'])[a-z0-9_.-]+/[a-z0-9_.-]+'''
+path = '''^language-statistic/dist/'''
+tags = ["privacy"]
