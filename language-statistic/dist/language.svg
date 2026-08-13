@@ -1,44 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="264" height="264" viewBox="0 0 264 264" role="img" aria-labelledby="title description">
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="440" viewBox="0 0 700 440" role="img" aria-labelledby="title description">
   <title id="title">Repository languages</title>
   <desc id="description">Language proportions across personally owned repositories</desc>
   <style>
-    text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-variant-numeric: tabular-nums; }
+    text { fill: #1f2328; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-variant-numeric: tabular-nums; }
+    .cell, .frame { fill: none; stroke: #8b949e; vector-effect: non-scaling-stroke; }
+    .cell { stroke-width: 0.75; stroke-opacity: 0.55; }
+    .frame { stroke-width: 1; }
+    .detail { font-weight: 400; }
+    @media (prefers-color-scheme: dark) { text { fill: #f0f6fc; } }
   </style>
-  <defs><clipPath id="circle"><circle cx="132" cy="132" r="132" /></clipPath></defs>
-  <g clip-path="url(#circle)">
-    <path d="M 38.662 38.662 L 34.194 43.354 L 29.963 48.26 L 25.977 53.368 L 22.246 58.665 L 18.78 64.138 L 15.586 69.776 L 12.673 75.563 L 10.048 81.486 L 7.716 87.531 L 5.684 93.682 L 3.956 99.927 L 2.536 106.248 L 1.429 112.632 L 0.636 119.062 L 0.159 125.523 L 0 132 L 0.159 138.477 L 0.636 144.938 L 1.429 151.368 L 2.536 157.752 L 3.956 164.073 L 5.684 170.318 L 7.716 176.469 L 10.048 182.514 L 12.673 188.437 L 15.586 194.224 L 18.78 199.862 L 22.246 205.335 L 25.977 210.632 L 29.963 215.74 L 32.885 219.128 L 48.865 225.859 L 113.725 222.874 L 134.55 214.141 L 144.896 206.981 L 150.949 201.521 L 160.985 190.789 L 162.754 188.286 L 170.187 175.017 L 147.237 52.221 L 124.868 39.176 L 64.727 29.232 L 60.409 30.107 L 41.852 35.624 Z" fill="#3572A5" />
-    <path d="M 170.187 175.017 L 176.801 178.396 L 208.329 184.483 L 258.428 169.912 L 260.044 164.073 L 261.464 157.752 L 262.571 151.368 L 263.364 144.938 L 263.841 138.477 L 264 132 L 263.841 125.523 L 263.364 119.062 L 262.571 112.632 L 261.464 106.248 L 260.044 99.927 L 258.316 93.682 L 256.284 87.531 L 253.952 81.486 L 251.327 75.563 L 248.414 69.776 L 245.22 64.138 L 241.754 58.665 L 238.023 53.368 L 234.037 48.26 L 229.806 43.354 L 225.338 38.662 L 220.646 34.194 L 215.74 29.963 L 210.856 26.151 L 170.034 35.818 L 165.419 37.95 L 147.237 52.221 Z" fill="#3178c6" />
-    <path d="M 145.139 263.34 L 151.368 262.571 L 157.752 261.464 L 164.073 260.044 L 170.318 258.316 L 176.469 256.284 L 181.522 254.335 L 186.325 241.65 L 186.768 233.707 L 158.485 205.228 L 154.436 205.189 L 144.896 206.981 L 134.55 214.141 L 128.424 244.952 L 129.924 248.377 L 137.908 258.232 Z" fill="#a52a22" />
-    <path d="M 176.801 178.396 L 162.754 188.286 L 160.985 190.789 L 158.485 205.228 L 186.768 233.707 L 203.632 228.803 L 215.277 213.211 L 208.329 184.483 Z" fill="#00ADD8" />
-    <path d="M 48.865 225.859 L 46.814 232.79 L 48.26 234.037 L 53.368 238.023 L 58.665 241.754 L 64.138 245.22 L 69.776 248.414 L 75.563 251.327 L 81.486 253.952 L 87.531 256.284 L 93.682 258.316 L 99.927 260.044 L 106.248 261.464 L 109.421 262.014 L 116.908 251.845 L 119.322 244.235 L 113.725 222.874 Z" fill="#4F5D95" />
-    <path d="M 130.875 4.771 L 128.191 0.094 L 125.523 0.159 L 119.062 0.636 L 112.632 1.429 L 106.248 2.536 L 99.927 3.956 L 93.682 5.684 L 87.531 7.716 L 81.486 10.048 L 75.563 12.673 L 69.776 15.586 L 64.138 18.78 L 63.39 19.254 L 64.727 29.232 L 124.868 39.176 Z" fill="#e34c26" />
-    <path d="M 144.938 0.636 L 141.655 0.393 L 130.875 4.771 L 124.868 39.176 L 147.237 52.221 L 165.419 37.95 L 146 0.767 Z" fill="#41b883" />
-    <path d="M 215.277 213.211 L 229.908 220.528 L 234.037 215.74 L 238.023 210.632 L 241.754 205.335 L 245.22 199.862 L 248.414 194.224 L 251.327 188.437 L 253.952 182.514 L 256.284 176.469 L 258.316 170.318 L 258.428 169.912 L 208.329 184.483 Z" fill="#f1e05a" />
-    <path d="M 178.756 8.598 L 176.469 7.716 L 170.318 5.684 L 164.073 3.956 L 157.752 2.536 L 151.368 1.429 L 146 0.767 L 165.419 37.95 L 170.034 35.818 Z" fill="#dea584" />
-    <path d="M 210.632 25.977 L 205.335 22.246 L 199.862 18.78 L 194.224 15.586 L 188.437 12.673 L 182.514 10.048 L 178.756 8.598 L 170.034 35.818 L 210.856 26.151 Z" fill="#663399" />
-    <path d="M 128.424 244.952 L 134.55 214.141 L 113.725 222.874 L 119.322 244.235 Z" fill="#239dad" />
-    <path d="M 210.632 238.023 L 215.74 234.037 L 220.646 229.806 L 225.338 225.338 L 229.806 220.646 L 229.908 220.528 L 215.277 213.211 L 203.632 228.803 L 210.271 238.278 Z" fill="#89e051" />
-    <path d="M 186.325 241.65 L 192.658 249.202 L 194.224 248.414 L 199.862 245.22 L 205.335 241.754 L 210.271 238.278 L 203.632 228.803 L 186.768 233.707 Z" fill="#427819" />
-    <path d="M 129.924 248.377 L 128.424 244.952 L 119.322 244.235 L 116.908 251.845 L 120.365 254.49 Z" fill="#701516" />
-    <path d="M 129.924 248.377 L 120.365 254.49 L 121.299 263.529 L 125.523 263.841 L 132 264 L 136.87 263.88 L 137.908 258.232 Z" fill="#000080" />
-    <path d="M 53.368 25.977 L 48.26 29.963 L 43.354 34.194 L 41.852 35.624 L 60.409 30.107 L 56.805 23.556 Z" fill="#c6538c" />
-    <path d="M 181.522 254.335 L 182.514 253.952 L 188.437 251.327 L 192.658 249.202 L 186.325 241.65 Z" fill="#DA5B0B" />
-    <path d="M 154.436 205.189 L 150.949 201.521 L 144.896 206.981 Z" fill="#384d54" />
-    <path d="M 109.421 262.014 L 112.632 262.571 L 119.062 263.364 L 121.299 263.529 L 120.365 254.49 L 116.908 251.845 Z" fill="#f34b7d" />
-    <path d="M 58.665 22.246 L 56.805 23.556 L 60.409 30.107 L 64.727 29.232 L 63.39 19.254 Z" fill="#3D6117" />
-    <path d="M 138.477 263.841 L 144.938 263.364 L 145.139 263.34 L 137.908 258.232 L 136.87 263.88 Z" fill="#526ee8" />
-    <path d="M 170.187 175.017 L 162.754 188.286 L 176.801 178.396 Z" fill="#b07219" />
-    <path d="M 158.485 205.228 L 160.985 190.789 L 150.949 201.521 L 154.436 205.189 Z" fill="#012456" />
-    <path d="M 138.477 0.159 L 132 0 L 128.191 0.094 L 130.875 4.771 L 141.655 0.393 Z" fill="#5e5086" />
-    <path d="M 34.194 220.646 L 38.662 225.338 L 43.354 229.806 L 46.814 232.79 L 48.865 225.859 L 32.885 219.128 Z" fill="#8b949e" />
-    <text fill="#f0f6fc" text-anchor="middle"><tspan x="83.103" y="129.005" font-size="11" font-weight="600">Python</tspan><tspan x="83.103" y="139.191" font-size="7.92">49.1% (16 repos)</tspan></text>
-    <text fill="#f0f6fc" text-anchor="middle"><tspan x="206.607" y="105.912" font-size="11" font-weight="600">TypeScript</tspan><tspan x="206.607" y="116.098" font-size="7.92">25.4% (19 repos)</tspan></text>
-    <text fill="#f0f6fc" text-anchor="middle"><tspan x="155.999" y="234.634" font-size="8.75" font-weight="600">Jinja</tspan><tspan x="155.999" y="242.737" font-size="6.3">4.2% (5 repos)</tspan></text>
-    <text fill="#f0f6fc" text-anchor="middle"><tspan x="187.866" y="203.281" font-size="7.75" font-weight="600">Go</tspan><tspan x="187.866" y="210.457" font-size="5.58">4.2% (9 repos)</tspan></text>
-    <text fill="#f0f6fc" text-anchor="middle"><tspan x="88.401" y="238.409" font-size="7" font-weight="600">PHP</tspan><tspan x="88.401" y="244.891" font-size="5.04">3.4% (17 repos)</tspan></text>
-    <text fill="#f0f6fc" text-anchor="middle"><tspan x="101.637" y="18.575" font-size="8" font-weight="600">HTML</tspan><tspan x="101.637" y="25.983" font-size="5.76">3.2% (20 repos)</tspan></text>
-    <text fill="#f0f6fc" text-anchor="middle"><tspan x="143.273" y="26.563" font-size="5.5" font-weight="600">Vue</tspan><tspan x="143.273" y="31.656" font-size="3.96">2.5% (7 repos)</tspan></text>
-    <text fill="#1f2328" text-anchor="middle"><tspan x="231.47" y="193.362" font-size="4.5" font-weight="600">JavaScript</tspan><tspan x="231.47" y="197.529" font-size="3.24">2.5% (21 repos)</tspan></text>
-  </g>
+    <g><rect class="cell" x="0" y="0" width="343.56" height="440" /><title>Python — 49.1% — 16 repositories</title>
+    <text class="label" x="171.78" text-anchor="middle"><tspan x="171.78" y="218.46" font-size="11" font-weight="600"><tspan fill="#3572A5">●</tspan> Python</tspan><tspan class="detail" x="171.78" y="229.134" font-size="7.92">49.1% (16 repos)</tspan></text>
+    </g>
+    <g><rect class="cell" x="343.56" y="0" width="356.44" height="219.305" /><title>TypeScript — 25.4% — 19 repositories</title>
+    <text class="label" x="521.78" text-anchor="middle"><tspan x="521.78" y="108.112" font-size="11" font-weight="600"><tspan fill="#3178c6">●</tspan> TypeScript</tspan><tspan class="detail" x="521.78" y="118.787" font-size="7.92">25.4% (19 repos)</tspan></text>
+    </g>
+    <g><rect class="cell" x="343.56" y="219.305" width="117.648" height="110.905" /><title>Jinja — 4.2% — 5 repositories</title>
+    <text class="label" x="402.384" text-anchor="middle"><tspan x="402.384" y="273.217" font-size="11" font-weight="600"><tspan fill="#a52a22">●</tspan> Jinja</tspan><tspan class="detail" x="402.384" y="283.892" font-size="7.92">4.2% (5 repos)</tspan></text>
+    </g>
+    <g><rect class="cell" x="343.56" y="330.21" width="117.648" height="109.79" /><title>Go — 4.2% — 9 repositories</title>
+    <text class="label" x="402.384" text-anchor="middle"><tspan x="402.384" y="383.565" font-size="11" font-weight="600"><tspan fill="#00ADD8">●</tspan> Go</tspan><tspan class="detail" x="402.384" y="394.239" font-size="7.92">4.2% (9 repos)</tspan></text>
+    </g>
+    <g><rect class="cell" x="461.208" y="219.305" width="92.918" height="113.404" /><title>PHP — 3.4% — 17 repositories</title>
+    <text class="label" x="507.667" text-anchor="middle"><tspan x="507.667" y="274.467" font-size="11" font-weight="600"><tspan fill="#4F5D95">●</tspan> PHP</tspan><tspan class="detail" x="507.667" y="285.141" font-size="7.92">3.4% (17 repos)</tspan></text>
+    </g>
+    <g><rect class="cell" x="461.208" y="332.709" width="92.918" height="107.291" /><title>HTML — 3.2% — 20 repositories</title>
+    <text class="label" x="507.667" text-anchor="middle"><tspan x="507.667" y="384.814" font-size="11" font-weight="600"><tspan fill="#e34c26">●</tspan> HTML</tspan><tspan class="detail" x="507.667" y="395.489" font-size="7.92">3.2% (20 repos)</tspan></text>
+    </g>
+    <g><rect class="cell" x="554.126" y="219.305" width="73.467" height="106.531" /><title>JavaScript — 2.5% — 21 repositories</title>
+    <text class="label" x="590.86" text-anchor="middle"><tspan x="590.86" y="271.24" font-size="9.5" font-weight="600"><tspan fill="#f1e05a">●</tspan> JavaScript</tspan><tspan class="detail" x="590.86" y="280.459" font-size="6.84">2.5% (21 repos)</tspan></text>
+    </g>
+    <g><rect class="cell" x="627.594" y="219.305" width="72.406" height="106.531" /><title>Vue — 2.5% — 7 repositories</title>
+    <text class="label" x="663.797" text-anchor="middle"><tspan x="663.797" y="271.03" font-size="11" font-weight="600"><tspan fill="#41b883">●</tspan> Vue</tspan><tspan class="detail" x="663.797" y="281.705" font-size="7.92">2.5% (7 repos)</tspan></text>
+    </g>
+    <g><rect class="cell" x="554.126" y="325.836" width="56.048" height="58.453" /><title>Rust — 1.1% — 4 repositories</title>
+    <text class="label" x="582.15" text-anchor="middle"><tspan x="582.15" y="353.873" font-size="8.5" font-weight="600"><tspan fill="#dea584">●</tspan> Rust</tspan><tspan class="detail" x="582.15" y="362.121" font-size="6.12">1.1% (4 repos)</tspan></text>
+    </g>
+    <g><rect class="cell" x="554.126" y="384.289" width="56.048" height="55.711" /><title>CSS — 1.0% — 17 repositories</title>
+    <text class="label" x="582.15" text-anchor="middle"><tspan x="582.15" y="411.095" font-size="7.5" font-weight="600"><tspan fill="#663399">●</tspan> CSS</tspan><tspan class="detail" x="582.15" y="418.373" font-size="5.4">1.0% (17 repos)</tspan></text>
+    </g>
+    <g><rect class="cell" x="610.174" y="325.836" width="54.189" height="47.977" /><title>Typst — 0.8% — 4 repositories</title>
+    <text class="label" x="637.269" text-anchor="middle"><tspan x="637.269" y="348.704" font-size="8" font-weight="600"><tspan fill="#239dad">●</tspan> Typst</tspan><tspan class="detail" x="637.269" y="356.468" font-size="5.76">0.8% (4 repos)</tspan></text>
+    </g>
+    <g><rect class="cell" x="664.364" y="325.836" width="35.636" height="47.977" /><title>Shell — 0.6% — 8 repositories</title>
+    </g>
+    <g><rect class="cell" x="610.174" y="373.813" width="35.939" height="45.293" /><title>Makefile — 0.5% — 31 repositories</title>
+    </g>
+    <g><rect class="cell" x="610.174" y="419.106" width="35.939" height="20.894" /><title>Ruby — 0.2% — 2 repositories</title>
+    </g>
+    <g><rect class="cell" x="646.113" y="373.813" width="31.343" height="19.81" /><title>Lua — 0.2% — 1 repository</title>
+    </g>
+    <g><rect class="cell" x="677.456" y="373.813" width="22.544" height="19.81" /><title>SCSS — 0.1% — 1 repository</title>
+    </g>
+    <g><rect class="cell" x="646.113" y="393.623" width="17.978" height="24.619" /><title>Jupyter Notebook — 0.1% — 1 repository</title>
+    </g>
+    <g><rect class="cell" x="646.113" y="418.242" width="17.978" height="21.758" /><title>Others — 0.1%</title>
+    </g>
+    <g><rect class="cell" x="664.091" y="393.623" width="18.88" height="18.141" /><title>Dockerfile — 0.1% — 13 repositories</title>
+    </g>
+    <g><rect class="cell" x="682.971" y="393.623" width="17.029" height="18.141" /><title>C++ — 0.1% — 1 repository</title>
+    </g>
+    <g><rect class="cell" x="664.091" y="411.764" width="18.271" height="16.099" /><title>TeX — &lt;0.1% — 3 repositories</title>
+    </g>
+    <g><rect class="cell" x="664.091" y="427.863" width="18.271" height="12.137" /><title>D2 — &lt;0.1% — 1 repository</title>
+    </g>
+    <g><rect class="cell" x="682.362" y="411.764" width="17.638" height="10.774" /><title>Java — &lt;0.1% — 3 repositories</title>
+    </g>
+    <g><rect class="cell" x="682.362" y="422.538" width="9.419" height="17.462" /><title>PowerShell — &lt;0.1% — 1 repository</title>
+    </g>
+    <g><rect class="cell" x="691.781" y="422.538" width="8.219" height="17.462" /><title>Haskell — &lt;0.1% — 2 repositories</title>
+    </g>
+  <rect class="frame" x="0.5" y="0.5" width="699" height="439" />
 </svg>
