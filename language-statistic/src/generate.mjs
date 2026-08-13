@@ -4,6 +4,7 @@ import {
   fetchRepositories,
   fetchRepositoryLanguageData,
 } from "./github.mjs";
+import { renderLanguageScatterSvg } from "./render-scatter-svg.mjs";
 import { renderLanguageStatisticSvg } from "./render-svg.mjs";
 
 /** GitHub APIから集計データとREADME用SVGを再生成する */
@@ -22,9 +23,15 @@ if (statistics.length === 0) {
   throw new Error("No language data was returned");
 }
 
-await writeFile(
-  new URL("../dist/language.svg", import.meta.url),
-  renderLanguageStatisticSvg(statistics),
-);
+await Promise.all([
+  writeFile(
+    new URL("../dist/language.svg", import.meta.url),
+    renderLanguageStatisticSvg(statistics),
+  ),
+  writeFile(
+    new URL("../dist/scatter.svg", import.meta.url),
+    renderLanguageScatterSvg(statistics),
+  ),
+]);
 
 console.log(`Generated language data from ${repositories.length} repositories`);
