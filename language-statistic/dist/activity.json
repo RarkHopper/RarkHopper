@@ -1,0 +1,467 @@
+{
+  "schemaVersion": 3,
+  "sourceBlob": "7a7481c05e3057b6052897afad7a1bb79f331e21",
+  "timeZone": "Asia/Tokyo",
+  "repositoryCount": 75,
+  "months": [
+    {
+      "month": "2021-02",
+      "languages": {
+        "PHP": 1
+      }
+    },
+    {
+      "month": "2021-04",
+      "languages": {
+        "PHP": 1
+      }
+    },
+    {
+      "month": "2021-09",
+      "languages": {
+        "PHP": 5
+      }
+    },
+    {
+      "month": "2021-11",
+      "languages": {
+        "PHP": 2
+      }
+    },
+    {
+      "month": "2021-12",
+      "languages": {
+        "PHP": 9
+      }
+    },
+    {
+      "month": "2022-01",
+      "languages": {
+        "PHP": 1
+      }
+    },
+    {
+      "month": "2022-02",
+      "languages": {
+        "PHP": 1
+      }
+    },
+    {
+      "month": "2022-03",
+      "languages": {
+        "PHP": 1
+      }
+    },
+    {
+      "month": "2022-05",
+      "languages": {
+        "CSS": 1,
+        "PHP": 2,
+        "SCSS": 1
+      }
+    },
+    {
+      "month": "2022-06",
+      "languages": {
+        "CSS": 1,
+        "JavaScript": 1,
+        "PHP": 1,
+        "SCSS": 1
+      }
+    },
+    {
+      "month": "2022-07",
+      "languages": {
+        "PHP": 4
+      }
+    },
+    {
+      "month": "2022-11",
+      "languages": {
+        "CSS": 4,
+        "Go": 5,
+        "HTML": 2,
+        "JavaScript": 3,
+        "NSIS": 1,
+        "PHP": 5,
+        "TypeScript": 5
+      }
+    },
+    {
+      "month": "2022-12",
+      "languages": {
+        "CSS": 2,
+        "Go": 3,
+        "JavaScript": 1,
+        "PHP": 10,
+        "TypeScript": 3
+      }
+    },
+    {
+      "month": "2023-01",
+      "languages": {
+        "PHP": 4
+      }
+    },
+    {
+      "month": "2023-02",
+      "languages": {
+        "PHP": 16
+      }
+    },
+    {
+      "month": "2023-03",
+      "languages": {
+        "PHP": 1
+      }
+    },
+    {
+      "month": "2024-02",
+      "languages": {
+        "CSS": 2,
+        "Dockerfile": 1,
+        "JavaScript": 2,
+        "Python": 3,
+        "TypeScript": 3
+      }
+    },
+    {
+      "month": "2024-03",
+      "languages": {
+        "CSS": 1,
+        "JavaScript": 2,
+        "Python": 5,
+        "TypeScript": 8
+      }
+    },
+    {
+      "month": "2024-04",
+      "languages": {
+        "Batchfile": 1,
+        "CSS": 1,
+        "HTML": 1,
+        "Java": 1,
+        "JavaScript": 1,
+        "Shell": 1,
+        "TypeScript": 1
+      }
+    },
+    {
+      "month": "2024-10",
+      "languages": {
+        "Batchfile": 1,
+        "CSS": 1,
+        "Dockerfile": 1,
+        "HTML": 1,
+        "Java": 1,
+        "Makefile": 1,
+        "Shell": 1,
+        "TypeScript": 1
+      }
+    },
+    {
+      "month": "2025-02",
+      "languages": {
+        "Dockerfile": 2,
+        "Python": 1
+      }
+    },
+    {
+      "month": "2025-03",
+      "languages": {
+        "Dockerfile": 4,
+        "Makefile": 4,
+        "PHP": 1,
+        "Python": 4,
+        "Shell": 2
+      }
+    },
+    {
+      "month": "2025-04",
+      "languages": {
+        "CSS": 1,
+        "Dockerfile": 2,
+        "HTML": 1,
+        "Makefile": 2,
+        "PHP": 2,
+        "Python": 2,
+        "Shell": 2
+      }
+    },
+    {
+      "month": "2025-05",
+      "languages": {
+        "Dockerfile": 3,
+        "Makefile": 2,
+        "PHP": 1,
+        "Python": 3,
+        "Shell": 3
+      }
+    },
+    {
+      "month": "2025-06",
+      "languages": {
+        "CSS": 1,
+        "Dockerfile": 15,
+        "HTML": 3,
+        "JavaScript": 1,
+        "Jupyter Notebook": 1,
+        "Makefile": 19,
+        "Mako": 1,
+        "Python": 24,
+        "Shell": 8
+      }
+    },
+    {
+      "month": "2025-07",
+      "languages": {
+        "CSS": 3,
+        "Dockerfile": 10,
+        "HTML": 4,
+        "JavaScript": 2,
+        "Makefile": 12,
+        "Python": 17,
+        "Shell": 6,
+        "TypeScript": 5
+      }
+    },
+    {
+      "month": "2025-08",
+      "languages": {
+        "Astro": 3,
+        "CSS": 2,
+        "Dockerfile": 5,
+        "HTML": 2,
+        "JavaScript": 1,
+        "Makefile": 11,
+        "PLpgSQL": 2,
+        "Python": 19,
+        "Shell": 9
+      }
+    },
+    {
+      "month": "2025-09",
+      "languages": {
+        "CSS": 3,
+        "Cypher": 1,
+        "Dockerfile": 1,
+        "HTML": 10,
+        "JavaScript": 3,
+        "Makefile": 7,
+        "Python": 16,
+        "Shell": 1,
+        "TypeScript": 8
+      }
+    },
+    {
+      "month": "2025-10",
+      "languages": {
+        "Dockerfile": 3,
+        "HTML": 7,
+        "Makefile": 1,
+        "Python": 11,
+        "Shell": 2,
+        "TypeScript": 5
+      }
+    },
+    {
+      "month": "2025-11",
+      "languages": {
+        "CSS": 3,
+        "Dockerfile": 4,
+        "HTML": 9,
+        "JavaScript": 15,
+        "Jinja": 16,
+        "Makefile": 7,
+        "PLpgSQL": 2,
+        "Python": 22,
+        "Shell": 3,
+        "TypeScript": 19
+      }
+    },
+    {
+      "month": "2025-12",
+      "languages": {
+        "CSS": 1,
+        "Dockerfile": 2,
+        "HTML": 2,
+        "JavaScript": 7,
+        "Jinja": 13,
+        "Makefile": 5,
+        "PLpgSQL": 6,
+        "Python": 17,
+        "Shell": 4,
+        "TypeScript": 12
+      }
+    },
+    {
+      "month": "2026-01",
+      "languages": {
+        "CSS": 5,
+        "Dockerfile": 1,
+        "Go": 3,
+        "HTML": 6,
+        "JavaScript": 5,
+        "Jinja": 12,
+        "Makefile": 6,
+        "PLpgSQL": 9,
+        "Python": 17,
+        "Shell": 2,
+        "TeX": 2,
+        "TypeScript": 15,
+        "Typst": 2,
+        "Vue": 2
+      }
+    },
+    {
+      "month": "2026-02",
+      "languages": {
+        "CSS": 4,
+        "Dockerfile": 3,
+        "HTML": 4,
+        "JavaScript": 6,
+        "Jinja": 12,
+        "Makefile": 5,
+        "PLpgSQL": 10,
+        "Python": 17,
+        "Shell": 1,
+        "TeX": 4,
+        "TypeScript": 10,
+        "Typst": 6
+      }
+    },
+    {
+      "month": "2026-03",
+      "languages": {
+        "CSS": 3,
+        "D2": 3,
+        "Go": 4,
+        "HTML": 2,
+        "JavaScript": 6,
+        "Jinja": 4,
+        "Makefile": 8,
+        "PLpgSQL": 1,
+        "Python": 3,
+        "Rust": 1,
+        "TeX": 4,
+        "TypeScript": 7,
+        "Typst": 6
+      }
+    },
+    {
+      "month": "2026-04",
+      "languages": {
+        "C": 1,
+        "C++": 2,
+        "CSS": 5,
+        "Dockerfile": 3,
+        "Go": 7,
+        "Go Template": 1,
+        "HTML": 7,
+        "JavaScript": 9,
+        "M4": 2,
+        "Makefile": 13,
+        "Mustache": 1,
+        "PHP": 2,
+        "Python": 4,
+        "Roff": 1,
+        "Shell": 3,
+        "TeX": 3,
+        "TypeScript": 9,
+        "Typst": 3,
+        "Vue": 6
+      }
+    },
+    {
+      "month": "2026-05",
+      "languages": {
+        "CSS": 4,
+        "Dockerfile": 2,
+        "Go": 6,
+        "Haskell": 2,
+        "HTML": 2,
+        "JavaScript": 3,
+        "Jupyter Notebook": 2,
+        "Lua": 1,
+        "Makefile": 11,
+        "Mermaid": 3,
+        "Python": 4,
+        "Ruby": 3,
+        "Shell": 6,
+        "TeX": 4,
+        "TypeScript": 3,
+        "Typst": 8,
+        "Vim Script": 1,
+        "Vue": 5
+      }
+    },
+    {
+      "month": "2026-06",
+      "languages": {
+        "CSS": 7,
+        "Dockerfile": 1,
+        "Haskell": 1,
+        "HTML": 4,
+        "JavaScript": 1,
+        "Jinja": 1,
+        "Lua": 4,
+        "Makefile": 7,
+        "Python": 10,
+        "Ruby": 1,
+        "Shell": 3,
+        "TypeScript": 7,
+        "Vue": 5
+      }
+    },
+    {
+      "month": "2026-07",
+      "languages": {
+        "HTML": 1,
+        "Java": 1,
+        "Jupyter Notebook": 12,
+        "Lua": 4,
+        "Makefile": 14,
+        "PowerShell": 1,
+        "Python": 22,
+        "Ruby": 3,
+        "Rust": 4,
+        "Shell": 5,
+        "Tree-sitter Query": 1,
+        "Typst": 2
+      }
+    },
+    {
+      "month": "2026-08",
+      "languages": {
+        "CSS": 3,
+        "HTML": 1,
+        "JavaScript": 1,
+        "Lua": 1,
+        "Makefile": 6,
+        "Python": 17,
+        "Ruby": 1,
+        "Rust": 11,
+        "Shell": 2,
+        "TypeScript": 3,
+        "Typst": 3
+      }
+    },
+    {
+      "month": "2026-09",
+      "languages": {
+        "Batchfile": 2,
+        "Dockerfile": 4,
+        "HCL": 8,
+        "Java": 7,
+        "Jinja": 1,
+        "Lua": 6,
+        "Makefile": 10,
+        "Python": 14,
+        "Ruby": 3,
+        "Rust": 3,
+        "Scala": 16,
+        "Shell": 9
+      }
+    }
+  ]
+}

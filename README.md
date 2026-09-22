@@ -1,6 +1,9 @@
 PHPerです（願望）
 
 <p align="center">
+  <img src="./language-statistic/dist/activity.svg" alt="Languages used over time by active days" width="846">
+</p>
+<p align="center">
   <img src="./language-statistic/dist/scatter.svg" alt="Languages by repository count and byte percentage" width="846">
 </p>
 <p align="center">
