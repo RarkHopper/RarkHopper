@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "sourceBlob": "7a7481c05e3057b6052897afad7a1bb79f331e21",
   "timeZone": "Asia/Tokyo",
-  "repositoryCount": 75,
+  "repositoryCount": 81,
   "months": [
     {
       "month": "2021-02",
@@ -409,7 +409,7 @@
         "Python": 10,
         "Ruby": 1,
         "Shell": 3,
-        "TypeScript": 7,
+        "TypeScript": 5,
         "Vue": 5
       }
     },
@@ -433,16 +433,17 @@
     {
       "month": "2026-08",
       "languages": {
-        "CSS": 3,
+        "CSS": 4,
         "HTML": 1,
         "JavaScript": 1,
         "Lua": 1,
-        "Makefile": 6,
-        "Python": 17,
+        "Makefile": 8,
+        "Python": 18,
         "Ruby": 1,
         "Rust": 11,
         "Shell": 2,
-        "TypeScript": 3,
+        "Swift": 3,
+        "TypeScript": 2,
         "Typst": 3
       }
     },
@@ -450,17 +451,53 @@
       "month": "2026-09",
       "languages": {
         "Batchfile": 2,
-        "Dockerfile": 4,
+        "Dockerfile": 6,
         "HCL": 8,
-        "Java": 7,
+        "HTML": 1,
+        "Java": 9,
+        "JavaScript": 3,
         "Jinja": 1,
-        "Lua": 6,
-        "Makefile": 10,
-        "Python": 14,
-        "Ruby": 3,
+        "Lua": 7,
+        "Makefile": 13,
+        "Python": 11,
+        "Ruby": 18,
+        "Rust": 9,
+        "Scala": 22,
+        "Shell": 12
+      }
+    },
+    {
+      "month": "2026-10",
+      "languages": {
+        "BibTeX Style": 1,
+        "Dockerfile": 6,
+        "HCL": 2,
+        "HTML": 2,
+        "Java": 11,
+        "JavaScript": 2,
+        "Jinja": 1,
+        "Lua": 1,
+        "Makefile": 14,
+        "Perl": 1,
+        "Python": 15,
+        "Ruby": 25,
+        "Rust": 15,
+        "Scala": 24,
+        "Shell": 10,
+        "TeX": 3,
+        "TypeScript": 1
+      }
+    },
+    {
+      "month": "2026-11",
+      "languages": {
+        "Java": 1,
+        "Makefile": 3,
+        "Python": 4,
+        "Ruby": 2,
         "Rust": 3,
-        "Scala": 16,
-        "Shell": 9
+        "Scala": 2,
+        "Swift": 1
       }
     }
   ]
