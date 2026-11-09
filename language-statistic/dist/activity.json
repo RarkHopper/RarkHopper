@@ -491,6 +491,7 @@
     {
       "month": "2026-11",
       "languages": {
+        "HCL": 1,
         "Java": 1,
         "Makefile": 3,
         "Python": 4,

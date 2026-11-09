@@ -61,7 +61,7 @@
     <circle cx="618.2" cy="171.393" r="4" fill="#427819"><title>Makefile — 0.4% — 36 repositories</title></circle>
     <circle cx="92.9" cy="181.437" r="4" fill="#000080"><title>Lua — 0.3% — 2 repositories</title></circle>
     <circle cx="123.8" cy="185.557" r="4" fill="#3D6117"><title>TeX — 0.2% — 4 repositories</title></circle>
-    <circle cx="77.45" cy="203.453" r="4" fill="#844FBA"><title>HCL — 0.1% — 1 repository</title></circle>
+    <circle cx="77.45" cy="203.477" r="4" fill="#844FBA"><title>HCL — 0.1% — 1 repository</title></circle>
     <circle cx="77.45" cy="204.742" r="4" fill="#8b949e"><title>BibTeX Style — 0.1% — 1 repository</title></circle>
     <circle cx="77.45" cy="209.912" r="4" fill="#c6538c"><title>SCSS — 0.090% — 1 repository</title></circle>
     <circle cx="77.45" cy="210.124" r="4" fill="#DA5B0B"><title>Jupyter Notebook — 0.089% — 1 repository</title></circle>
@@ -98,7 +98,7 @@
     <text class="label" x="626.2" y="174.893" text-anchor="start">Makefile</text>
     <text class="label" x="100.9" y="184.937" text-anchor="start">Lua</text>
     <text class="label" x="131.8" y="189.057" text-anchor="start">TeX</text>
-    <text class="label" x="85.45" y="206.953" text-anchor="start">HCL</text>
+    <text class="label" x="85.45" y="206.977" text-anchor="start">HCL</text>
     <line class="leader" x1="77.45" y1="204.742" x2="85.45" y2="229.242" />
     <text class="label" x="85.45" y="232.242" text-anchor="start">BibTeX Style</text>
     <line class="leader" x1="77.45" y1="209.912" x2="85.45" y2="246.412" />

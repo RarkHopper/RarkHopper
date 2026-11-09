@@ -10,76 +10,76 @@
     .detail { font-weight: 400; }
     @media (prefers-color-scheme: dark) { text { fill: #f0f6fc; } }
   </style>
-    <g><rect class="cell" x="0" y="0" width="252.097" height="440" /><title>Python — 36.0% — 19 repositories</title>
+    <g><rect class="cell" x="0" y="0" width="252.098" height="440" /><title>Python — 36.0% — 19 repositories</title>
     <text class="label" x="126.049" text-anchor="middle"><tspan x="126.049" y="218.46" font-size="11" font-weight="600"><tspan fill="#3572A5">●</tspan> Python</tspan><tspan class="detail" x="126.049" y="229.134" font-size="7.92">36.0% (19 repos)</tspan></text>
     </g>
-    <g><rect class="cell" x="252.097" y="0" width="268.925" height="275.217" /><title>TypeScript — 24.0% — 18 repositories</title>
+    <g><rect class="cell" x="252.098" y="0" width="268.926" height="275.217" /><title>TypeScript — 24.0% — 18 repositories</title>
     <text class="label" x="386.56" text-anchor="middle"><tspan x="386.56" y="136.068" font-size="11" font-weight="600"><tspan fill="#3178c6">●</tspan> TypeScript</tspan><tspan class="detail" x="386.56" y="146.743" font-size="7.92">24.0% (18 repos)</tspan></text>
     </g>
-    <g><rect class="cell" x="252.097" y="275.217" width="268.925" height="164.783" /><title>Scala — 14.4% — 1 repository</title>
+    <g><rect class="cell" x="252.098" y="275.217" width="268.926" height="164.783" /><title>Scala — 14.4% — 1 repository</title>
     <text class="label" x="386.56" text-anchor="middle"><tspan x="386.56" y="356.068" font-size="11" font-weight="600"><tspan fill="#c22d40">●</tspan> Scala</tspan><tspan class="detail" x="386.56" y="366.743" font-size="7.92">14.4% (1 repo)</tspan></text>
     </g>
-    <g><rect class="cell" x="521.023" y="0" width="114.804" height="125.981" /><title>Rust — 4.7% — 8 repositories</title>
-    <text class="label" x="578.424" text-anchor="middle"><tspan x="578.424" y="61.451" font-size="11" font-weight="600"><tspan fill="#dea584">●</tspan> Rust</tspan><tspan class="detail" x="578.424" y="72.125" font-size="7.92">4.7% (8 repos)</tspan></text>
+    <g><rect class="cell" x="521.023" y="0" width="114.803" height="125.982" /><title>Rust — 4.7% — 8 repositories</title>
+    <text class="label" x="578.425" text-anchor="middle"><tspan x="578.425" y="61.451" font-size="11" font-weight="600"><tspan fill="#dea584">●</tspan> Rust</tspan><tspan class="detail" x="578.425" y="72.125" font-size="7.92">4.7% (8 repos)</tspan></text>
     </g>
-    <g><rect class="cell" x="635.826" y="0" width="64.174" height="125.981" /><title>Jinja — 2.6% — 5 repositories</title>
-    <text class="label" x="667.913" text-anchor="middle"><tspan x="667.913" y="61.661" font-size="9.5" font-weight="600"><tspan fill="#a52a22">●</tspan> Jinja</tspan><tspan class="detail" x="667.913" y="70.879" font-size="6.84">2.6% (5 repos)</tspan></text>
+    <g><rect class="cell" x="635.826" y="0" width="64.174" height="125.982" /><title>Jinja — 2.6% — 5 repositories</title>
+    <text class="label" x="667.913" text-anchor="middle"><tspan x="667.913" y="61.661" font-size="9.5" font-weight="600"><tspan fill="#a52a22">●</tspan> Jinja</tspan><tspan class="detail" x="667.913" y="70.88" font-size="6.84">2.6% (5 repos)</tspan></text>
     </g>
-    <g><rect class="cell" x="521.023" y="125.981" width="90.608" height="88.343" /><title>Go — 2.6% — 9 repositories</title>
-    <text class="label" x="566.327" text-anchor="middle"><tspan x="566.327" y="168.613" font-size="11" font-weight="600"><tspan fill="#00ADD8">●</tspan> Go</tspan><tspan class="detail" x="566.327" y="179.287" font-size="7.92">2.6% (9 repos)</tspan></text>
+    <g><rect class="cell" x="521.023" y="125.982" width="90.608" height="88.344" /><title>Go — 2.6% — 9 repositories</title>
+    <text class="label" x="566.327" text-anchor="middle"><tspan x="566.327" y="168.613" font-size="11" font-weight="600"><tspan fill="#00ADD8">●</tspan> Go</tspan><tspan class="detail" x="566.327" y="179.288" font-size="7.92">2.6% (9 repos)</tspan></text>
     </g>
-    <g><rect class="cell" x="611.63" y="125.981" width="88.37" height="88.343" /><title>Swift — 2.5% — 1 repository</title>
-    <text class="label" x="655.815" text-anchor="middle"><tspan x="655.815" y="168.613" font-size="11" font-weight="600"><tspan fill="#F05138">●</tspan> Swift</tspan><tspan class="detail" x="655.815" y="179.287" font-size="7.92">2.5% (1 repo)</tspan></text>
+    <g><rect class="cell" x="611.631" y="125.982" width="88.369" height="88.344" /><title>Swift — 2.5% — 1 repository</title>
+    <text class="label" x="655.815" text-anchor="middle"><tspan x="655.815" y="168.613" font-size="11" font-weight="600"><tspan fill="#F05138">●</tspan> Swift</tspan><tspan class="detail" x="655.815" y="179.288" font-size="7.92">2.5% (1 repo)</tspan></text>
     </g>
     <g><rect class="cell" x="521.023" y="214.325" width="92.192" height="75.246" /><title>JavaScript — 2.3% — 22 repositories</title>
-    <text class="label" x="567.119" text-anchor="middle"><tspan x="567.119" y="250.407" font-size="11" font-weight="600"><tspan fill="#f1e05a">●</tspan> JavaScript</tspan><tspan class="detail" x="567.119" y="261.082" font-size="7.92">2.3% (22 repos)</tspan></text>
+    <text class="label" x="567.119" text-anchor="middle"><tspan x="567.119" y="250.408" font-size="11" font-weight="600"><tspan fill="#f1e05a">●</tspan> JavaScript</tspan><tspan class="detail" x="567.119" y="261.083" font-size="7.92">2.3% (22 repos)</tspan></text>
     </g>
     <g><rect class="cell" x="613.215" y="214.325" width="86.785" height="75.246" /><title>PHP — 2.1% — 17 repositories</title>
-    <text class="label" x="656.607" text-anchor="middle"><tspan x="656.607" y="250.407" font-size="11" font-weight="600"><tspan fill="#4F5D95">●</tspan> PHP</tspan><tspan class="detail" x="656.607" y="261.082" font-size="7.92">2.1% (17 repos)</tspan></text>
+    <text class="label" x="656.608" text-anchor="middle"><tspan x="656.608" y="250.408" font-size="11" font-weight="600"><tspan fill="#4F5D95">●</tspan> PHP</tspan><tspan class="detail" x="656.608" y="261.083" font-size="7.92">2.1% (17 repos)</tspan></text>
     </g>
-    <g><rect class="cell" x="521.023" y="289.57" width="73.918" height="85.761" /><title>HTML — 2.1% — 20 repositories</title>
-    <text class="label" x="557.981" text-anchor="middle"><tspan x="557.981" y="330.981" font-size="10.5" font-weight="600"><tspan fill="#e34c26">●</tspan> HTML</tspan><tspan class="detail" x="557.981" y="341.17" font-size="7.56">2.1% (20 repos)</tspan></text>
+    <g><rect class="cell" x="521.023" y="289.571" width="73.918" height="85.76" /><title>HTML — 2.1% — 20 repositories</title>
+    <text class="label" x="557.982" text-anchor="middle"><tspan x="557.982" y="330.982" font-size="10.5" font-weight="600"><tspan fill="#e34c26">●</tspan> HTML</tspan><tspan class="detail" x="557.982" y="341.171" font-size="7.56">2.1% (20 repos)</tspan></text>
     </g>
-    <g><rect class="cell" x="521.023" y="375.331" width="73.918" height="64.669" /><title>Vue — 1.6% — 7 repositories</title>
-    <text class="label" x="557.981" text-anchor="middle"><tspan x="557.981" y="406.126" font-size="11" font-weight="600"><tspan fill="#41b883">●</tspan> Vue</tspan><tspan class="detail" x="557.981" y="416.8" font-size="7.92">1.6% (7 repos)</tspan></text>
+    <g><rect class="cell" x="521.023" y="375.332" width="73.918" height="64.668" /><title>Vue — 1.6% — 7 repositories</title>
+    <text class="label" x="557.982" text-anchor="middle"><tspan x="557.982" y="406.126" font-size="11" font-weight="600"><tspan fill="#41b883">●</tspan> Vue</tspan><tspan class="detail" x="557.982" y="416.8" font-size="7.92">1.6% (7 repos)</tspan></text>
     </g>
-    <g><rect class="cell" x="594.94" y="289.57" width="65.69" height="55.397" /><title>Ruby — 1.2% — 5 repositories</title>
-    <text class="label" x="627.785" text-anchor="middle"><tspan x="627.785" y="315.869" font-size="10" font-weight="600"><tspan fill="#701516">●</tspan> Ruby</tspan><tspan class="detail" x="627.785" y="325.573" font-size="7.2">1.2% (5 repos)</tspan></text>
+    <g><rect class="cell" x="594.941" y="289.571" width="65.689" height="55.397" /><title>Ruby — 1.2% — 5 repositories</title>
+    <text class="label" x="627.786" text-anchor="middle"><tspan x="627.786" y="315.87" font-size="10" font-weight="600"><tspan fill="#701516">●</tspan> Ruby</tspan><tspan class="detail" x="627.786" y="325.574" font-size="7.2">1.2% (5 repos)</tspan></text>
     </g>
-    <g><rect class="cell" x="660.63" y="289.57" width="39.37" height="55.397" /><title>Java — 0.7% — 4 repositories</title>
-    <text class="label" x="680.315" text-anchor="middle"><tspan x="680.315" y="316.499" font-size="5.5" font-weight="600"><tspan fill="#b07219">●</tspan> Java</tspan><tspan class="detail" x="680.315" y="321.836" font-size="3.96">0.7% (4 repos)</tspan></text>
+    <g><rect class="cell" x="660.631" y="289.571" width="39.369" height="55.397" /><title>Java — 0.7% — 4 repositories</title>
+    <text class="label" x="680.315" text-anchor="middle"><tspan x="680.315" y="316.5" font-size="5.5" font-weight="600"><tspan fill="#b07219">●</tspan> Java</tspan><tspan class="detail" x="680.315" y="321.837" font-size="3.96">0.7% (4 repos)</tspan></text>
     </g>
-    <g><rect class="cell" x="594.94" y="344.967" width="36.61" height="49.813" /><title>CSS — 0.6% — 16 repositories</title>
+    <g><rect class="cell" x="594.941" y="344.969" width="36.611" height="49.812" /><title>CSS — 0.6% — 16 repositories</title>
     </g>
-    <g><rect class="cell" x="594.94" y="394.78" width="36.61" height="45.22" /><title>Shell — 0.5% — 9 repositories</title>
-    <text class="label" x="613.245" text-anchor="middle"><tspan x="613.245" y="416.69" font-size="5" font-weight="600"><tspan fill="#89e051">●</tspan> Shell</tspan><tspan class="detail" x="613.245" y="421.542" font-size="3.6">0.5% (9 repos)</tspan></text>
+    <g><rect class="cell" x="594.941" y="394.781" width="36.611" height="45.219" /><title>Shell — 0.5% — 9 repositories</title>
+    <text class="label" x="613.247" text-anchor="middle"><tspan x="613.247" y="416.691" font-size="5" font-weight="600"><tspan fill="#89e051">●</tspan> Shell</tspan><tspan class="detail" x="613.247" y="421.543" font-size="3.6">0.5% (9 repos)</tspan></text>
     </g>
-    <g><rect class="cell" x="631.55" y="344.967" width="39.975" height="40.303" /><title>Typst — 0.5% — 4 repositories</title>
-    <text class="label" x="651.538" text-anchor="middle"><tspan x="651.538" y="364.349" font-size="5.5" font-weight="600"><tspan fill="#239dad">●</tspan> Typst</tspan><tspan class="detail" x="651.538" y="369.686" font-size="3.96">0.5% (4 repos)</tspan></text>
+    <g><rect class="cell" x="631.552" y="344.969" width="39.974" height="40.305" /><title>Typst — 0.5% — 4 repositories</title>
+    <text class="label" x="651.539" text-anchor="middle"><tspan x="651.539" y="364.351" font-size="5.5" font-weight="600"><tspan fill="#239dad">●</tspan> Typst</tspan><tspan class="detail" x="651.539" y="369.688" font-size="3.96">0.5% (4 repos)</tspan></text>
     </g>
-    <g><rect class="cell" x="671.526" y="344.967" width="28.474" height="40.303" /><title>Makefile — 0.4% — 36 repositories</title>
+    <g><rect class="cell" x="671.527" y="344.969" width="28.473" height="40.305" /><title>Makefile — 0.4% — 36 repositories</title>
     </g>
-    <g><rect class="cell" x="631.55" y="385.271" width="26.895" height="29.443" /><title>Lua — 0.3% — 2 repositories</title>
+    <g><rect class="cell" x="631.552" y="385.274" width="26.896" height="29.442" /><title>Lua — 0.3% — 2 repositories</title>
     </g>
-    <g><rect class="cell" x="631.55" y="414.714" width="26.895" height="25.286" /><title>TeX — 0.2% — 4 repositories</title>
+    <g><rect class="cell" x="631.552" y="414.715" width="26.896" height="25.285" /><title>TeX — 0.2% — 4 repositories</title>
     </g>
-    <g><rect class="cell" x="658.445" y="385.271" width="26.535" height="23.377" /><title>Others — 0.2%</title>
+    <g><rect class="cell" x="658.449" y="385.274" width="26.541" height="23.372" /><title>Others — 0.2%</title>
     </g>
-    <g><rect class="cell" x="684.98" y="385.271" width="15.02" height="23.377" /><title>HCL — 0.1% — 1 repository</title>
+    <g><rect class="cell" x="684.99" y="385.274" width="15.01" height="23.372" /><title>HCL — 0.1% — 1 repository</title>
     </g>
-    <g><rect class="cell" x="658.445" y="408.648" width="17.575" height="15.737" /><title>SCSS — &lt;0.1% — 1 repository</title>
+    <g><rect class="cell" x="658.449" y="408.645" width="17.573" height="15.739" /><title>SCSS — &lt;0.1% — 1 repository</title>
     </g>
-    <g><rect class="cell" x="658.445" y="424.385" width="17.575" height="15.615" /><title>Jupyter Notebook — &lt;0.1% — 1 repository</title>
+    <g><rect class="cell" x="658.449" y="424.384" width="17.573" height="15.616" /><title>Jupyter Notebook — &lt;0.1% — 1 repository</title>
     </g>
-    <g><rect class="cell" x="676.02" y="408.648" width="13.132" height="17.661" /><title>Dockerfile — &lt;0.1% — 14 repositories</title>
+    <g><rect class="cell" x="676.022" y="408.645" width="13.131" height="17.662" /><title>Dockerfile — &lt;0.1% — 14 repositories</title>
     </g>
-    <g><rect class="cell" x="689.152" y="408.648" width="10.848" height="17.661" /><title>C++ — &lt;0.1% — 1 repository</title>
+    <g><rect class="cell" x="689.153" y="408.645" width="10.847" height="17.662" /><title>C++ — &lt;0.1% — 1 repository</title>
     </g>
-    <g><rect class="cell" x="676.02" y="426.308" width="10.033" height="13.692" /><title>D2 — &lt;0.1% — 1 repository</title>
+    <g><rect class="cell" x="676.022" y="426.307" width="10.032" height="13.693" /><title>D2 — &lt;0.1% — 1 repository</title>
     </g>
-    <g><rect class="cell" x="686.053" y="426.308" width="7.446" height="13.692" /><title>PowerShell — &lt;0.1% — 1 repository</title>
+    <g><rect class="cell" x="686.054" y="426.307" width="7.445" height="13.693" /><title>PowerShell — &lt;0.1% — 1 repository</title>
     </g>
-    <g><rect class="cell" x="693.499" y="426.308" width="6.501" height="13.692" /><title>Haskell — &lt;0.1% — 2 repositories</title>
+    <g><rect class="cell" x="693.499" y="426.307" width="6.501" height="13.693" /><title>Haskell — &lt;0.1% — 2 repositories</title>
     </g>
   <rect class="frame" x="0.5" y="0.5" width="699" height="439" />
 </svg>
