@@ -459,8 +459,8 @@
         "Jinja": 1,
         "Lua": 7,
         "Makefile": 13,
-        "Python": 11,
-        "Ruby": 18,
+        "Python": 21,
+        "Ruby": 3,
         "Rust": 9,
         "Scala": 22,
         "Shell": 12
@@ -479,8 +479,8 @@
         "Lua": 1,
         "Makefile": 14,
         "Perl": 1,
-        "Python": 15,
-        "Ruby": 25,
+        "Python": 25,
+        "Ruby": 2,
         "Rust": 15,
         "Scala": 24,
         "Shell": 10,
@@ -491,13 +491,17 @@
     {
       "month": "2026-11",
       "languages": {
-        "HCL": 1,
-        "Java": 1,
-        "Makefile": 3,
-        "Python": 4,
-        "Ruby": 2,
-        "Rust": 3,
-        "Scala": 2,
+        "CSS": 1,
+        "Dockerfile": 4,
+        "HCL": 2,
+        "HTML": 2,
+        "Java": 7,
+        "JavaScript": 2,
+        "Makefile": 6,
+        "Python": 10,
+        "Rust": 6,
+        "Scala": 9,
+        "Shell": 3,
         "Swift": 1
       }
     }

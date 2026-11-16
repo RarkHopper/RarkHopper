@@ -60,6 +60,7 @@
     <rect x="760.1" y="67.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.55"><title>2026-05 — CSS — 4 active days</title></rect>
     <rect x="770.157" y="67.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.647"><title>2026-06 — CSS — 7 active days</title></rect>
     <rect x="790.271" y="67.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.55"><title>2026-08 — CSS — 4 active days</title></rect>
+    <rect x="820.443" y="67.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.4"><title>2026-11 — CSS — 1 active day</title></rect>
     <rect x="126" y="82" width="704" height="16" fill="#8b949e" fill-opacity="0.07" />
     <text class="language" x="118" y="93.52" text-anchor="end">SCSS</text>
     <rect x="277.357" y="83.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.4"><title>2022-05 — SCSS — 1 active day</title></rect>
@@ -86,6 +87,7 @@
     <rect x="790.271" y="99.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.4"><title>2026-08 — JavaScript — 1 active day</title></rect>
     <rect x="800.329" y="99.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.51"><title>2026-09 — JavaScript — 3 active days</title></rect>
     <rect x="810.386" y="99.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.462"><title>2026-10 — JavaScript — 2 active days</title></rect>
+    <rect x="820.443" y="99.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.462"><title>2026-11 — JavaScript — 2 active days</title></rect>
     <rect x="126" y="114" width="704" height="16" fill="#8b949e" fill-opacity="0.07" />
     <text class="language" x="118" y="125.52" text-anchor="end">TypeScript</text>
     <rect x="337.7" y="115.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.585"><title>2022-11 — TypeScript — 5 active days</title></rect>
@@ -129,6 +131,7 @@
     <rect x="790.271" y="131.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.4"><title>2026-08 — HTML — 1 active day</title></rect>
     <rect x="800.329" y="131.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.4"><title>2026-09 — HTML — 1 active day</title></rect>
     <rect x="810.386" y="131.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.462"><title>2026-10 — HTML — 2 active days</title></rect>
+    <rect x="820.443" y="131.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.462"><title>2026-11 — HTML — 2 active days</title></rect>
     <rect x="126" y="146" width="704" height="16" fill="#8b949e" fill-opacity="0.07" />
     <text class="language" x="118" y="157.52" text-anchor="end">Go</text>
     <rect x="337.7" y="147.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.585"><title>2022-11 — Go — 5 active days</title></rect>
@@ -162,9 +165,9 @@
     <rect x="770.157" y="179.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.724"><title>2026-06 — Python — 10 active days</title></rect>
     <rect x="780.214" y="179.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.954"><title>2026-07 — Python — 22 active days</title></rect>
     <rect x="790.271" y="179.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.886"><title>2026-08 — Python — 18 active days</title></rect>
-    <rect x="800.329" y="179.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.747"><title>2026-09 — Python — 11 active days</title></rect>
-    <rect x="810.386" y="179.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.831"><title>2026-10 — Python — 15 active days</title></rect>
-    <rect x="820.443" y="179.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.55"><title>2026-11 — Python — 4 active days</title></rect>
+    <rect x="800.329" y="179.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.937"><title>2026-09 — Python — 21 active days</title></rect>
+    <rect x="810.386" y="179.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="1"><title>2026-10 — Python — 25 active days</title></rect>
+    <rect x="820.443" y="179.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.724"><title>2026-11 — Python — 10 active days</title></rect>
     <text class="language" x="118" y="205.52" text-anchor="end">Dockerfile</text>
     <rect x="488.557" y="195.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.4"><title>2024-02 — Dockerfile — 1 active day</title></rect>
     <rect x="569.014" y="195.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.4"><title>2024-10 — Dockerfile — 1 active day</title></rect>
@@ -186,6 +189,7 @@
     <rect x="770.157" y="195.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.4"><title>2026-06 — Dockerfile — 1 active day</title></rect>
     <rect x="800.329" y="195.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.617"><title>2026-09 — Dockerfile — 6 active days</title></rect>
     <rect x="810.386" y="195.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.617"><title>2026-10 — Dockerfile — 6 active days</title></rect>
+    <rect x="820.443" y="195.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.55"><title>2026-11 — Dockerfile — 4 active days</title></rect>
     <rect x="126" y="210" width="704" height="16" fill="#8b949e" fill-opacity="0.07" />
     <text class="language" x="118" y="221.52" text-anchor="end">Shell</text>
     <rect x="508.671" y="211.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.4"><title>2024-04 — Shell — 1 active day</title></rect>
@@ -209,13 +213,14 @@
     <rect x="790.271" y="211.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.462"><title>2026-08 — Shell — 2 active days</title></rect>
     <rect x="800.329" y="211.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.77"><title>2026-09 — Shell — 12 active days</title></rect>
     <rect x="810.386" y="211.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.724"><title>2026-10 — Shell — 10 active days</title></rect>
+    <rect x="820.443" y="211.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.51"><title>2026-11 — Shell — 3 active days</title></rect>
     <text class="language" x="118" y="237.52" text-anchor="end">Java</text>
     <rect x="508.671" y="227.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.4"><title>2024-04 — Java — 1 active day</title></rect>
     <rect x="569.014" y="227.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.4"><title>2024-10 — Java — 1 active day</title></rect>
     <rect x="780.214" y="227.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.4"><title>2026-07 — Java — 1 active day</title></rect>
     <rect x="800.329" y="227.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.7"><title>2026-09 — Java — 9 active days</title></rect>
     <rect x="810.386" y="227.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.747"><title>2026-10 — Java — 11 active days</title></rect>
-    <rect x="820.443" y="227.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.4"><title>2026-11 — Java — 1 active day</title></rect>
+    <rect x="820.443" y="227.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.647"><title>2026-11 — Java — 7 active days</title></rect>
     <rect x="126" y="242" width="704" height="16" fill="#8b949e" fill-opacity="0.07" />
     <text class="language" x="118" y="253.52" text-anchor="end">Batchfile</text>
     <rect x="508.671" y="243.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.4"><title>2024-04 — Batchfile — 1 active day</title></rect>
@@ -243,7 +248,7 @@
     <rect x="790.271" y="259.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.674"><title>2026-08 — Makefile — 8 active days</title></rect>
     <rect x="800.329" y="259.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.791"><title>2026-09 — Makefile — 13 active days</title></rect>
     <rect x="810.386" y="259.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.811"><title>2026-10 — Makefile — 14 active days</title></rect>
-    <rect x="820.443" y="259.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.51"><title>2026-11 — Makefile — 3 active days</title></rect>
+    <rect x="820.443" y="259.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.617"><title>2026-11 — Makefile — 6 active days</title></rect>
     <rect x="126" y="274" width="704" height="16" fill="#8b949e" fill-opacity="0.07" />
     <text class="language" x="118" y="285.52" text-anchor="end">Jupyter Notebook</text>
     <rect x="649.471" y="275.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.4"><title>2025-06 — Jupyter Notebook — 1 active day</title></rect>
@@ -301,7 +306,7 @@
     <rect x="790.271" y="419.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.747"><title>2026-08 — Rust — 11 active days</title></rect>
     <rect x="800.329" y="419.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.7"><title>2026-09 — Rust — 9 active days</title></rect>
     <rect x="810.386" y="419.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.831"><title>2026-10 — Rust — 15 active days</title></rect>
-    <rect x="820.443" y="419.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.51"><title>2026-11 — Rust — 3 active days</title></rect>
+    <rect x="820.443" y="419.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.617"><title>2026-11 — Rust — 6 active days</title></rect>
     <rect x="126" y="434" width="704" height="16" fill="#8b949e" fill-opacity="0.07" />
     <text class="language" x="118" y="445.52" text-anchor="end">D2</text>
     <rect x="739.986" y="435.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.51"><title>2026-03 — D2 — 3 active days</title></rect>
@@ -320,22 +325,21 @@
     <rect x="126" y="530" width="704" height="16" fill="#8b949e" fill-opacity="0.07" />
     <text class="language" x="118" y="541.52" text-anchor="end">Roff</text>
     <rect x="750.043" y="531.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.4"><title>2026-04 — Roff — 1 active day</title></rect>
-    <text class="language" x="118" y="557.52" text-anchor="end">Ruby</text>
-    <rect x="760.1" y="547.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.51"><title>2026-05 — Ruby — 3 active days</title></rect>
-    <rect x="770.157" y="547.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.4"><title>2026-06 — Ruby — 1 active day</title></rect>
-    <rect x="780.214" y="547.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.51"><title>2026-07 — Ruby — 3 active days</title></rect>
-    <rect x="790.271" y="547.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.4"><title>2026-08 — Ruby — 1 active day</title></rect>
-    <rect x="800.329" y="547.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.886"><title>2026-09 — Ruby — 18 active days</title></rect>
-    <rect x="810.386" y="547.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="1"><title>2026-10 — Ruby — 25 active days</title></rect>
-    <rect x="820.443" y="547.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.462"><title>2026-11 — Ruby — 2 active days</title></rect>
+    <text class="language" x="118" y="557.52" text-anchor="end">Lua</text>
+    <rect x="760.1" y="547.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.4"><title>2026-05 — Lua — 1 active day</title></rect>
+    <rect x="770.157" y="547.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.55"><title>2026-06 — Lua — 4 active days</title></rect>
+    <rect x="780.214" y="547.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.55"><title>2026-07 — Lua — 4 active days</title></rect>
+    <rect x="790.271" y="547.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.4"><title>2026-08 — Lua — 1 active day</title></rect>
+    <rect x="800.329" y="547.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.647"><title>2026-09 — Lua — 7 active days</title></rect>
+    <rect x="810.386" y="547.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.4"><title>2026-10 — Lua — 1 active day</title></rect>
     <rect x="126" y="562" width="704" height="16" fill="#8b949e" fill-opacity="0.07" />
-    <text class="language" x="118" y="573.52" text-anchor="end">Lua</text>
-    <rect x="760.1" y="563.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.4"><title>2026-05 — Lua — 1 active day</title></rect>
-    <rect x="770.157" y="563.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.55"><title>2026-06 — Lua — 4 active days</title></rect>
-    <rect x="780.214" y="563.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.55"><title>2026-07 — Lua — 4 active days</title></rect>
-    <rect x="790.271" y="563.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.4"><title>2026-08 — Lua — 1 active day</title></rect>
-    <rect x="800.329" y="563.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.647"><title>2026-09 — Lua — 7 active days</title></rect>
-    <rect x="810.386" y="563.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.4"><title>2026-10 — Lua — 1 active day</title></rect>
+    <text class="language" x="118" y="573.52" text-anchor="end">Ruby</text>
+    <rect x="760.1" y="563.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.51"><title>2026-05 — Ruby — 3 active days</title></rect>
+    <rect x="770.157" y="563.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.4"><title>2026-06 — Ruby — 1 active day</title></rect>
+    <rect x="780.214" y="563.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.51"><title>2026-07 — Ruby — 3 active days</title></rect>
+    <rect x="790.271" y="563.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.4"><title>2026-08 — Ruby — 1 active day</title></rect>
+    <rect x="800.329" y="563.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.51"><title>2026-09 — Ruby — 3 active days</title></rect>
+    <rect x="810.386" y="563.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.462"><title>2026-10 — Ruby — 2 active days</title></rect>
     <text class="language" x="118" y="589.52" text-anchor="end">Haskell</text>
     <rect x="760.1" y="579.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.462"><title>2026-05 — Haskell — 2 active days</title></rect>
     <rect x="770.157" y="579.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.4"><title>2026-06 — Haskell — 1 active day</title></rect>
@@ -356,12 +360,12 @@
     <text class="language" x="118" y="685.52" text-anchor="end">Scala</text>
     <rect x="800.329" y="675.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.954"><title>2026-09 — Scala — 22 active days</title></rect>
     <rect x="810.386" y="675.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.985"><title>2026-10 — Scala — 24 active days</title></rect>
-    <rect x="820.443" y="675.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.462"><title>2026-11 — Scala — 2 active days</title></rect>
+    <rect x="820.443" y="675.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.7"><title>2026-11 — Scala — 9 active days</title></rect>
     <rect x="126" y="690" width="704" height="16" fill="#8b949e" fill-opacity="0.07" />
     <text class="language" x="118" y="701.52" text-anchor="end">HCL</text>
     <rect x="800.329" y="691.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.674"><title>2026-09 — HCL — 8 active days</title></rect>
     <rect x="810.386" y="691.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.462"><title>2026-10 — HCL — 2 active days</title></rect>
-    <rect x="820.443" y="691.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.4"><title>2026-11 — HCL — 1 active day</title></rect>
+    <rect x="820.443" y="691.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.462"><title>2026-11 — HCL — 2 active days</title></rect>
     <text class="language" x="118" y="717.52" text-anchor="end">BibTeX Style</text>
     <rect x="810.386" y="707.5" width="9.057" height="13" rx="1" fill="#4979f5" fill-opacity="0.4"><title>2026-10 — BibTeX Style — 1 active day</title></rect>
     <rect x="126" y="722" width="704" height="16" fill="#8b949e" fill-opacity="0.07" />

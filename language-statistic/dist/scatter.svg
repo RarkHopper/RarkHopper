@@ -42,77 +42,82 @@
     <text class="tick" x="680" y="412" text-anchor="middle">40</text>
     <text class="axis-label" x="371" y="432" text-anchor="middle">repositories</text>
     <text class="axis-label" x="15" y="207" text-anchor="middle" transform="rotate(-90 15 207)">bytes % (log scale)</text>
-    <circle cx="355.55" cy="47.647" r="4" fill="#3572A5"><title>Python — 36.0% — 19 repositories</title></circle>
-    <circle cx="340.1" cy="58.6" r="4" fill="#3178c6"><title>TypeScript — 24.0% — 18 repositories</title></circle>
-    <circle cx="77.45" cy="72.485" r="4" fill="#c22d40"><title>Scala — 14.4% — 1 repository</title></circle>
-    <circle cx="185.6" cy="102.797" r="4" fill="#dea584"><title>Rust — 4.7% — 8 repositories</title></circle>
-    <circle cx="139.25" cy="118.542" r="4" fill="#a52a22"><title>Jinja — 2.6% — 5 repositories</title></circle>
-    <circle cx="201.05" cy="118.811" r="4" fill="#00ADD8"><title>Go — 2.6% — 9 repositories</title></circle>
-    <circle cx="77.45" cy="119.489" r="4" fill="#F05138"><title>Swift — 2.5% — 1 repository</title></circle>
-    <circle cx="401.9" cy="122.686" r="4" fill="#f1e05a"><title>JavaScript — 2.3% — 22 repositories</title></circle>
-    <circle cx="324.65" cy="124.323" r="4" fill="#4F5D95"><title>PHP — 2.1% — 17 repositories</title></circle>
-    <circle cx="371" cy="125.126" r="4" fill="#e34c26"><title>HTML — 2.1% — 20 repositories</title></circle>
-    <circle cx="170.15" cy="132.768" r="4" fill="#41b883"><title>Vue — 1.6% — 7 repositories</title></circle>
-    <circle cx="139.25" cy="140.152" r="4" fill="#701516"><title>Ruby — 1.2% — 5 repositories</title></circle>
-    <circle cx="123.8" cy="154.011" r="4" fill="#b07219"><title>Java — 0.7% — 4 repositories</title></circle>
-    <circle cx="309.2" cy="158.854" r="4" fill="#663399"><title>CSS — 0.6% — 16 repositories</title></circle>
-    <circle cx="201.05" cy="161.473" r="4" fill="#89e051"><title>Shell — 0.5% — 9 repositories</title></circle>
-    <circle cx="123.8" cy="162.208" r="4" fill="#239dad"><title>Typst — 0.5% — 4 repositories</title></circle>
-    <circle cx="618.2" cy="171.393" r="4" fill="#427819"><title>Makefile — 0.4% — 36 repositories</title></circle>
-    <circle cx="92.9" cy="181.437" r="4" fill="#000080"><title>Lua — 0.3% — 2 repositories</title></circle>
-    <circle cx="123.8" cy="185.557" r="4" fill="#3D6117"><title>TeX — 0.2% — 4 repositories</title></circle>
-    <circle cx="77.45" cy="203.477" r="4" fill="#844FBA"><title>HCL — 0.1% — 1 repository</title></circle>
-    <circle cx="77.45" cy="204.742" r="4" fill="#8b949e"><title>BibTeX Style — 0.1% — 1 repository</title></circle>
-    <circle cx="77.45" cy="209.912" r="4" fill="#c6538c"><title>SCSS — 0.090% — 1 repository</title></circle>
-    <circle cx="77.45" cy="210.124" r="4" fill="#DA5B0B"><title>Jupyter Notebook — 0.089% — 1 repository</title></circle>
-    <circle cx="278.3" cy="214.68" r="4" fill="#384d54"><title>Dockerfile — 0.075% — 14 repositories</title></circle>
-    <circle cx="77.45" cy="219.854" r="4" fill="#f34b7d"><title>C++ — 0.062% — 1 repository</title></circle>
-    <circle cx="77.45" cy="228.797" r="4" fill="#8b949e"><title>NSIS — 0.045% — 1 repository</title></circle>
-    <circle cx="77.45" cy="228.858" r="4" fill="#526ee8"><title>D2 — 0.045% — 1 repository</title></circle>
-    <circle cx="77.45" cy="236.931" r="4" fill="#012456"><title>PowerShell — 0.033% — 1 repository</title></circle>
-    <circle cx="92.9" cy="240.604" r="4" fill="#5e5086"><title>Haskell — 0.029% — 2 repositories</title></circle>
-    <circle cx="77.45" cy="254.03" r="4" fill="#336790"><title>PLpgSQL — 0.018% — 1 repository</title></circle>
-    <circle cx="77.45" cy="265.786" r="4" fill="#ff3670"><title>Mermaid — 0.011% — 1 repository</title></circle>
-    <circle cx="77.45" cy="276.059" r="4" fill="#878787"><title>Hack — 0.008% — 1 repository</title></circle>
-    <circle cx="77.45" cy="285.03" r="4" fill="#8b949e"><title>M4 — 0.006% — 1 repository</title></circle>
-    <circle cx="77.45" cy="302.844" r="4" fill="#199f4b"><title>Vim Script — 0.003% — 1 repository</title></circle>
-    <circle cx="77.45" cy="326.731" r="4" fill="#00ADD8"><title>Go Template — 0.001% — 1 repository</title></circle>
-    <circle cx="77.45" cy="334.519" r="4" fill="#8ea64c"><title>Tree-sitter Query — 0.001% — 1 repository</title></circle>
-    <circle cx="77.45" cy="345.495" r="4" fill="#0298c3"><title>Perl — 0.001% — 1 repository</title></circle>
-    <text class="label" x="363.55" y="51.147" text-anchor="start">Python</text>
-    <text class="label" x="332.1" y="62.1" text-anchor="end">TypeScript</text>
-    <text class="label" x="85.45" y="75.985" text-anchor="start">Scala</text>
-    <text class="label" x="193.6" y="106.297" text-anchor="start">Rust</text>
-    <text class="label" x="147.25" y="122.042" text-anchor="start">Jinja</text>
-    <text class="label" x="209.05" y="122.311" text-anchor="start">Go</text>
-    <text class="label" x="85.45" y="122.989" text-anchor="start">Swift</text>
-    <text class="label" x="409.9" y="126.186" text-anchor="start">JavaScript</text>
-    <text class="label" x="332.65" y="127.823" text-anchor="start">PHP</text>
-    <text class="label" x="379" y="128.626" text-anchor="start">HTML</text>
-    <text class="label" x="178.15" y="136.268" text-anchor="start">Vue</text>
-    <text class="label" x="147.25" y="143.652" text-anchor="start">Ruby</text>
-    <text class="label" x="115.8" y="157.511" text-anchor="end">Java</text>
-    <text class="label" x="317.2" y="162.354" text-anchor="start">CSS</text>
-    <text class="label" x="209.05" y="164.973" text-anchor="start">Shell</text>
-    <text class="label" x="131.8" y="165.708" text-anchor="start">Typst</text>
-    <text class="label" x="626.2" y="174.893" text-anchor="start">Makefile</text>
-    <text class="label" x="100.9" y="184.937" text-anchor="start">Lua</text>
-    <text class="label" x="131.8" y="189.057" text-anchor="start">TeX</text>
-    <text class="label" x="85.45" y="206.977" text-anchor="start">HCL</text>
-    <line class="leader" x1="77.45" y1="204.742" x2="85.45" y2="229.242" />
-    <text class="label" x="85.45" y="232.242" text-anchor="start">BibTeX Style</text>
-    <line class="leader" x1="77.45" y1="209.912" x2="85.45" y2="246.412" />
-    <text class="label" x="85.45" y="249.412" text-anchor="start">SCSS</text>
-    <line class="leader" x1="77.45" y1="210.124" x2="85.45" y2="270.624" />
-    <text class="label" x="85.45" y="273.624" text-anchor="start">Jupyter Notebook</text>
-    <text class="label" x="286.3" y="218.18" text-anchor="start">Dockerfile</text>
-    <line class="leader" x1="77.45" y1="219.854" x2="85.45" y2="292.354" />
-    <text class="label" x="85.45" y="295.354" text-anchor="start">C++</text>
-    <line class="leader" x1="77.45" y1="228.797" x2="85.45" y2="313.297" />
-    <text class="label" x="85.45" y="316.297" text-anchor="start">NSIS</text>
-    <line class="leader" x1="77.45" y1="236.931" x2="85.45" y2="333.431" />
-    <text class="label" x="85.45" y="336.431" text-anchor="start">PowerShell</text>
-    <line class="leader" x1="77.45" y1="254.03" x2="85.45" y2="350.53" />
-    <text class="label" x="85.45" y="353.53" text-anchor="start">PLpgSQL</text>
+    <circle cx="355.55" cy="49.401" r="4" fill="#3572A5"><title>Python — 33.8% — 19 repositories</title></circle>
+    <circle cx="340.1" cy="60.878" r="4" fill="#3178c6"><title>TypeScript — 22.1% — 18 repositories</title></circle>
+    <circle cx="77.45" cy="73.532" r="4" fill="#c22d40"><title>Scala — 13.8% — 1 repository</title></circle>
+    <circle cx="201.05" cy="85.131" r="4" fill="#dea584"><title>Rust — 9.0% — 9 repositories</title></circle>
+    <circle cx="123.8" cy="120.293" r="4" fill="#b07219"><title>Java — 2.5% — 4 repositories</title></circle>
+    <circle cx="139.25" cy="120.821" r="4" fill="#a52a22"><title>Jinja — 2.4% — 5 repositories</title></circle>
+    <circle cx="201.05" cy="121.09" r="4" fill="#00ADD8"><title>Go — 2.4% — 9 repositories</title></circle>
+    <circle cx="77.45" cy="121.767" r="4" fill="#F05138"><title>Swift — 2.3% — 1 repository</title></circle>
+    <circle cx="401.9" cy="122.946" r="4" fill="#f1e05a"><title>JavaScript — 2.2% — 22 repositories</title></circle>
+    <circle cx="324.65" cy="126.602" r="4" fill="#4F5D95"><title>PHP — 1.9% — 17 repositories</title></circle>
+    <circle cx="371" cy="127.917" r="4" fill="#e34c26"><title>HTML — 1.9% — 20 repositories</title></circle>
+    <circle cx="170.15" cy="135.047" r="4" fill="#41b883"><title>Vue — 1.4% — 7 repositories</title></circle>
+    <circle cx="139.25" cy="139.758" r="4" fill="#701516"><title>Ruby — 1.2% — 5 repositories</title></circle>
+    <circle cx="309.2" cy="161.133" r="4" fill="#663399"><title>CSS — 0.5% — 16 repositories</title></circle>
+    <circle cx="201.05" cy="162.157" r="4" fill="#89e051"><title>Shell — 0.5% — 9 repositories</title></circle>
+    <circle cx="123.8" cy="164.485" r="4" fill="#239dad"><title>Typst — 0.5% — 4 repositories</title></circle>
+    <circle cx="618.2" cy="173.234" r="4" fill="#427819"><title>Makefile — 0.3% — 36 repositories</title></circle>
+    <circle cx="92.9" cy="183.721" r="4" fill="#000080"><title>Lua — 0.2% — 2 repositories</title></circle>
+    <circle cx="123.8" cy="187.833" r="4" fill="#3D6117"><title>TeX — 0.2% — 4 repositories</title></circle>
+    <circle cx="77.45" cy="200.894" r="4" fill="#844FBA"><title>HCL — 0.1% — 1 repository</title></circle>
+    <circle cx="77.45" cy="207.027" r="4" fill="#8b949e"><title>BibTeX Style — 0.100% — 1 repository</title></circle>
+    <circle cx="77.45" cy="212.175" r="4" fill="#c6538c"><title>SCSS — 0.083% — 1 repository</title></circle>
+    <circle cx="77.45" cy="212.405" r="4" fill="#DA5B0B"><title>Jupyter Notebook — 0.082% — 1 repository</title></circle>
+    <circle cx="278.3" cy="215.042" r="4" fill="#384d54"><title>Dockerfile — 0.074% — 14 repositories</title></circle>
+    <circle cx="77.45" cy="222.17" r="4" fill="#f34b7d"><title>C++ — 0.057% — 1 repository</title></circle>
+    <circle cx="77.45" cy="231.071" r="4" fill="#8b949e"><title>NSIS — 0.041% — 1 repository</title></circle>
+    <circle cx="77.45" cy="231.136" r="4" fill="#526ee8"><title>D2 — 0.041% — 1 repository</title></circle>
+    <circle cx="77.45" cy="239.234" r="4" fill="#012456"><title>PowerShell — 0.030% — 1 repository</title></circle>
+    <circle cx="92.9" cy="242.849" r="4" fill="#5e5086"><title>Haskell — 0.027% — 2 repositories</title></circle>
+    <circle cx="77.45" cy="256.274" r="4" fill="#336790"><title>PLpgSQL — 0.016% — 1 repository</title></circle>
+    <circle cx="77.45" cy="268.013" r="4" fill="#ff3670"><title>Mermaid — 0.011% — 1 repository</title></circle>
+    <circle cx="77.45" cy="278.226" r="4" fill="#878787"><title>Hack — 0.007% — 1 repository</title></circle>
+    <circle cx="77.45" cy="287.036" r="4" fill="#8b949e"><title>M4 — 0.005% — 1 repository</title></circle>
+    <circle cx="77.45" cy="304.778" r="4" fill="#199f4b"><title>Vim Script — 0.003% — 1 repository</title></circle>
+    <circle cx="77.45" cy="329.087" r="4" fill="#00ADD8"><title>Go Template — 0.001% — 1 repository</title></circle>
+    <circle cx="77.45" cy="337.707" r="4" fill="#8ea64c"><title>Tree-sitter Query — 0.001% — 1 repository</title></circle>
+    <circle cx="77.45" cy="350.431" r="4" fill="#0298c3"><title>Perl — 0.001% — 1 repository</title></circle>
+    <text class="label" x="363.55" y="52.901" text-anchor="start">Python</text>
+    <text class="label" x="332.1" y="64.378" text-anchor="end">TypeScript</text>
+    <text class="label" x="85.45" y="77.032" text-anchor="start">Scala</text>
+    <text class="label" x="209.05" y="88.631" text-anchor="start">Rust</text>
+    <text class="label" x="131.8" y="123.793" text-anchor="start">Java</text>
+    <line class="leader" x1="139.25" y1="120.821" x2="147.25" y2="97.321" />
+    <text class="label" x="147.25" y="100.321" text-anchor="start">Jinja</text>
+    <text class="label" x="209.05" y="124.59" text-anchor="start">Go</text>
+    <text class="label" x="85.45" y="125.267" text-anchor="start">Swift</text>
+    <text class="label" x="409.9" y="126.446" text-anchor="start">JavaScript</text>
+    <text class="label" x="332.65" y="130.102" text-anchor="start">PHP</text>
+    <text class="label" x="379" y="131.417" text-anchor="start">HTML</text>
+    <text class="label" x="178.15" y="138.547" text-anchor="start">Vue</text>
+    <text class="label" x="147.25" y="143.258" text-anchor="start">Ruby</text>
+    <text class="label" x="317.2" y="164.633" text-anchor="start">CSS</text>
+    <text class="label" x="209.05" y="165.657" text-anchor="start">Shell</text>
+    <text class="label" x="131.8" y="167.985" text-anchor="start">Typst</text>
+    <text class="label" x="626.2" y="176.734" text-anchor="start">Makefile</text>
+    <text class="label" x="100.9" y="187.221" text-anchor="start">Lua</text>
+    <text class="label" x="131.8" y="191.333" text-anchor="start">TeX</text>
+    <text class="label" x="85.45" y="204.394" text-anchor="start">HCL</text>
+    <line class="leader" x1="77.45" y1="207.027" x2="85.45" y2="219.527" />
+    <text class="label" x="85.45" y="222.527" text-anchor="start">BibTeX Style</text>
+    <line class="leader" x1="77.45" y1="212.175" x2="85.45" y2="236.675" />
+    <text class="label" x="85.45" y="239.675" text-anchor="start">SCSS</text>
+    <line class="leader" x1="77.45" y1="212.405" x2="85.45" y2="260.905" />
+    <text class="label" x="85.45" y="263.905" text-anchor="start">Jupyter Notebook</text>
+    <text class="label" x="286.3" y="218.542" text-anchor="start">Dockerfile</text>
+    <line class="leader" x1="77.45" y1="222.17" x2="85.45" y2="162.67" />
+    <text class="label" x="85.45" y="165.67" text-anchor="start">C++</text>
+    <line class="leader" x1="77.45" y1="231.071" x2="85.45" y2="279.571" />
+    <text class="label" x="85.45" y="282.571" text-anchor="start">NSIS</text>
+    <line class="leader" x1="77.45" y1="231.136" x2="85.45" y2="303.636" />
+    <text class="label" x="85.45" y="306.636" text-anchor="start">D2</text>
+    <line class="leader" x1="77.45" y1="239.234" x2="85.45" y2="323.734" />
+    <text class="label" x="85.45" y="326.734" text-anchor="start">PowerShell</text>
+    <line class="leader" x1="92.9" y1="242.849" x2="100.9" y2="147.349" />
+    <text class="label" x="100.9" y="150.349" text-anchor="start">Haskell</text>
+    <line class="leader" x1="77.45" y1="256.274" x2="85.45" y2="340.774" />
+    <text class="label" x="85.45" y="343.774" text-anchor="start">PLpgSQL</text>
   </g>
 </svg>
